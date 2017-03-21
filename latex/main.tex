@@ -1,0 +1,40 @@
+\documentclass{article}
+
+\title{MetaL --- A Library for Formalised Metatheory in Agda}
+\author{Robin Adams}
+
+\usepackage{amsmath}
+\usepackage{agda}
+\usepackage{todo}
+
+\begin{document}
+
+\maketitle
+
+\section{Design Criteria}
+
+This library was produced with the following design goals.
+
+\begin{itemize}
+\item
+The library should be \emph{modular}.  There should be a type \AgdaDatatype{Grammar}, and results such as the Substitution Lemma \todo{Cross-ref} should be
+provable 'once and for all' for all grammars.\footnote{For future versions of the library, we wish to have a type of reduction rules over a grammar, and a type of theories (sets of rules of deduction) over a grammar.}
+\item
+It should be possible for the user to define their own operations, such as path substitution \todo{Cross-ref}
+\item
+Operations which are defined by induction on expressions should be definable by induction in Agda.  Results which are proved by induction on expressions should be proved by induction in Agda.
+\end{itemize}
+
+\section{Grammar}
+
+For a running example, we will construct the grammar of the simply-typed lambda-calculus, with Church-typing and one constant ground type $\bot$.  On paper, in BNF-style, we write the grammar as follows:
+\[ \begin{array}{lrcl}
+\text{Type} & A & ::= & \bot \mid A \rightarrow A \\
+\text{Term} & M & ::= & x \mid MM \mid \lambda x : A . M
+\end{array} \]
+
+\subsection{Taxonomy}
+
+A \emph{taxonomy} is a set of \emph{expression kinds}, divided into \emph{variable kinds} and \emph{non-variable kinds}.
+
+\end{document}
