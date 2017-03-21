@@ -5,7 +5,7 @@
 
 \usepackage{amsmath}
 \usepackage{agda}
-\usepackage{todo}
+\usepackage{catchfilebetweentags}
 
 \begin{document}
 
@@ -17,10 +17,12 @@ This library was produced with the following design goals.
 
 \begin{itemize}
 \item
-The library should be \emph{modular}.  There should be a type \AgdaDatatype{Grammar}, and results such as the Substitution Lemma \todo{Cross-ref} should be
+The library should be \emph{modular}.  There should be a type \AgdaDatatype{Grammar}, and results such as the Substitution Lemma 
+%TODO Cross-ref
+should be
 provable 'once and for all' for all grammars.\footnote{For future versions of the library, we wish to have a type of reduction rules over a grammar, and a type of theories (sets of rules of deduction) over a grammar.}
 \item
-It should be possible for the user to define their own operations, such as path substitution \todo{Cross-ref}
+It should be possible for the user to define their own operations, such as path substitution %TODO Cross-ref
 \item
 Operations which are defined by induction on expressions should be definable by induction in Agda.  Results which are proved by induction on expressions should be proved by induction in Agda.
 \end{itemize}
@@ -36,5 +38,7 @@ For a running example, we will construct the grammar of the simply-typed lambda-
 \subsection{Taxonomy}
 
 A \emph{taxonomy} is a set of \emph{expression kinds}, divided into \emph{variable kinds} and \emph{non-variable kinds}.
+
+\ExecuteMetaData[Grammar/Taxonomy.tex]{Taxonomy}
 
 \end{document}

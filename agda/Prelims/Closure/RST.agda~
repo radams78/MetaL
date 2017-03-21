@@ -1,0 +1,36 @@
+modules Prelims.Closure.RST where
+
+data RSTClose {i} {A : Set} (R : Rel A i) : Rel A i where
+  inc : ∀ {x y} → R x y → RSTClose R x y
+  ref : ∀ {x} → RSTClose R x x
+  sym : ∀ {x y} → RSTClose R x y → RSTClose R y x
+  trans : ∀ {x y z} → RSTClose R x y → RSTClose R y z → RSTClose R x z
+
+RSTCLOSE : ∀ {i A} → Rel A i → Setoid _ _
+RSTCLOSE {i} {A} R = record { 
+  Carrier = A ; 
+  _≈_ = RSTClose R ; 
+  isEquivalence = record { 
+    refl = ref ; 
+    sym = sym ; 
+    trans = trans } }
+
+sub-RT-RST : ∀ {i A} {R : Rel A i} {x y} → RTClose {A = A} R x y → RSTClose R x y
+sub-RT-RST (inc xRy) = inc xRy
+sub-RT-RST ref = ref
+sub-RT-RST (trans xRTy yRTz) = trans (sub-RT-RST xRTy) (sub-RT-RST yRTz)
+
+respects-RST : ∀ {i} {A : Set} {B : A → Set} (R : ∀ a → Rel (B a) i) {a b : A}
+  (f : B a → B b) → Respects-dep R f → Respects-dep (λ a → RSTClose (R a)) f
+respects-RST R f R-respects-f x y (inc xRy) = inc (R-respects-f x y xRy)
+respects-RST R f R-respects-f y .y ref = ref
+respects-RST R f R-respects-f x x₁ (sym xRSTy) = sym (respects-RST R f R-respects-f _ _ xRSTy)
+respects-RST R f R-respects-f x y (trans xRSTy yRSTz) = trans (respects-RST R f R-respects-f _ _ xRSTy) (respects-RST R f R-respects-f _ _ yRSTz)
+--TODO Common pattern with other respects lemmas
+
+respects-RST' : ∀ {i A} {f : A → A} {R : Rel A i} → Respects f R → Respects f (RSTClose R)
+respects-RST' hyp x y (inc x⇒y) = inc (hyp x y x⇒y)
+respects-RST' _ _ _ ref = ref
+respects-RST' hyp x y (sym y≃x) = sym (respects-RST' hyp y x y≃x)
+respects-RST' hyp x z (trans x≃y y≃z) = trans (respects-RST' hyp x _ x≃y) (respects-RST' hyp _ z y≃z)
+
