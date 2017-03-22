@@ -1,0 +1,51 @@
+\begin{code}%
+\>\AgdaKeyword{module} \AgdaModule{STLC.Grammar} \AgdaKeyword{where}\<%
+\\
+%
+\\
+\>\AgdaKeyword{open} \AgdaKeyword{import} \AgdaModule{Grammar.Taxonomy}\<%
+\end{code}
+
+%<*Taxonomy>
+\begin{code}%
+\>\AgdaKeyword{data} \AgdaDatatype{stlcVarKind} \AgdaSymbol{:} \AgdaPrimitiveType{Set} \AgdaKeyword{where}\<%
+\\
+\>[0]\AgdaIndent{2}{}\<[2]%
+\>[2]\AgdaInductiveConstructor{-term} \AgdaSymbol{:} \AgdaDatatype{stlcVarKind}\<%
+\\
+%
+\\
+\>\AgdaKeyword{data} \AgdaDatatype{stlcNonVarKind} \AgdaSymbol{:} \AgdaPrimitiveType{Set} \AgdaKeyword{where}\<%
+\\
+\>[0]\AgdaIndent{2}{}\<[2]%
+\>[2]\AgdaInductiveConstructor{-type} \AgdaSymbol{:} \AgdaDatatype{stlcNonVarKind}\<%
+\\
+%
+\\
+\>\AgdaFunction{stlcTaxonomy} \AgdaSymbol{:} \AgdaRecord{Taxonomy}\<%
+\\
+\>\AgdaFunction{stlcTaxonomy} \AgdaSymbol{=} \AgdaKeyword{record} \AgdaSymbol{\{} \<[24]%
+\>[24]\<%
+\\
+\>[0]\AgdaIndent{2}{}\<[2]%
+\>[2]\AgdaField{VarKind} \AgdaSymbol{=} \AgdaDatatype{stlcVarKind} \AgdaSymbol{;} \<[26]%
+\>[26]\<%
+\\
+\>[0]\AgdaIndent{2}{}\<[2]%
+\>[2]\AgdaField{NonVarKind} \AgdaSymbol{=} \AgdaDatatype{stlcNonVarKind} \AgdaSymbol{\}}\<%
+\\
+\>\AgdaKeyword{open} \AgdaModule{Taxonomy} \AgdaFunction{stlcTaxonomy}\<%
+\\
+%
+\\
+\>\AgdaFunction{type} \AgdaSymbol{:} \AgdaDatatype{ExpKind}\<%
+\\
+\>\AgdaFunction{type} \AgdaSymbol{=} \AgdaInductiveConstructor{nonVarKind} \AgdaInductiveConstructor{-type}\<%
+\\
+%
+\\
+\>\AgdaFunction{term} \AgdaSymbol{:} \AgdaDatatype{ExpKind}\<%
+\\
+\>\AgdaFunction{term} \AgdaSymbol{=} \AgdaInductiveConstructor{varKind} \AgdaInductiveConstructor{-term}\<%
+\end{code}
+%</Taxonomy>

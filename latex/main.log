@@ -1,4 +1,4 @@
-This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2017.1.31)  21 MAR 2017 12:22
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2017.1.31)  22 MAR 2017 11:48
 entering extended mode
  %&-line parsing enabled.
 **main.tex
@@ -216,6 +216,12 @@ Package: inputenc 2006/05/05 v1.1b Input encoding file
 File: utf8x.def 2004/10/17 UCS: Input encoding UTF-8
 ))
 \mathindent=\dimen117
+\c@Agda@SpaceAroundCode=\count108
+\c@Agda@Align=\count109
+\c@Agda@AlignCurrent=\count110
+\c@Agda@Suppress=\count111
+\c@Agda@SuppressCurrent=\count112
+\c@Agda@SuppressLast=\count113
 )
 (/usr/share/texmf/tex/latex/catchfilebetweentags/catchfilebetweentags.sty
 Package: catchfilebetweentags 2011/02/19 v1.1 - Catch file between tags (FC)
@@ -262,14 +268,14 @@ LaTeX Font Info:    ... okay on input line 10.
 
 (/usr/share/texmf/tex/context/base/supp-pdf.tex
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count108
+\scratchcounter=\count114
 \scratchdimen=\dimen118
 \scratchbox=\box28
-\nofMPsegments=\count109
-\nofMParguments=\count110
-\MPscratchCnt=\count111
+\nofMPsegments=\count115
+\nofMParguments=\count116
+\MPscratchCnt=\count117
 \MPscratchDim=\dimen119
-\MPnumerator=\count112
+\MPnumerator=\count118
 \everyMPtoPDFconversion=\toks26
 ) (/usr/share/texmf/tex/latex/ucs/ucsencs.def
 File: ucsencs.def 2003/11/29 Fixes to fontencodings LGR, T3
@@ -286,14 +292,14 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 12.
 (/usr/share/texmf/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2002/01/19 v2.2g AMS font definitions
 )
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 20.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 24.
 
 (/usr/share/texmf/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 20.
-LaTeX Font Info:    Try loading font information for T1+cmss on input line 20.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 24.
+LaTeX Font Info:    Try loading font information for T1+cmss on input line 24.
 
 (/usr/share/texmf/tex/latex/base/t1cmss.fd
 File: t1cmss.fd 1999/05/25 v2.5h Standard LaTeX font definitions
@@ -308,33 +314,188 @@ File: uni-32.def 2004/10/17 UCS: Unicode data U+2000..U+20FF
 File: uni-33.def 2004/10/17 UCS: Unicode data U+2100..U+21FF
 ) [1
 
-{/usr/share/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] (./main.aux) ) 
+{/usr/share/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./Grammar/Taxonomy.tex)
+\openout3 = `main.ptb'.
+
+
+(/usr/share/texmf/tex/latex/ucs/data/uni-34.def
+File: uni-34.def 2004/10/17 UCS: Unicode data U+2200..U+22FF
+) (./Grammar/Taxonomy.tex)
+\openout3 = `main.ptb'.
+
+
+
+! Package catchfile Error: File `STLC/Grammar.tex' not found.
+
+See the catchfile package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.59 \ExecuteMetaData[STLC/Grammar.tex]{Taxonomy}
+                                                 
+? 
+! Emergency stop.
+ ...                                              
+                                                  
+l.59 \ExecuteMetaData[STLC/Grammar.tex]{Taxonomy}
+                                                 
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+ 
 Here is how much of TeX's memory you used:
- 4901 strings out of 256214
- 60627 string characters out of 1917000
- 120375 words of memory out of 1500000
- 8074 multiletter control sequences out of 10000+200000
+ 5504 strings out of 256214
+ 67773 string characters out of 1917000
+ 122854 words of memory out of 1500000
+ 8669 multiletter control sequences out of 10000+200000
  20430 words of font info for 56 fonts, out of 1200000 for 2000
  645 hyphenation exceptions out of 8191
- 41i,8n,39p,799b,393s stack positions out of 5000i,500n,6000p,200000b,15000s
- </Hom
-e/ii/robina/.texlive2007/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0800.600pk> 
-</Home/ii/robina/.texlive2007/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0600.60
-0pk> </Home/ii/robina/.texlive2007/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx12
-00.600pk> </Home/ii/robina/.texlive2007/texmf-var/fonts/pk/ljfour/jknappen/ec/e
-crm0700.600pk> </Home/ii/robina/.texlive2007/texmf-var/fonts/pk/ljfour/jknappen
-/ec/ecss1000.600pk> </Home/ii/robina/.texlive2007/texmf-var/fonts/pk/ljfour/jkn
-appen/ec/ecti1000.600pk> </Home/ii/robina/.texlive2007/texmf-var/fonts/pk/ljfou
-r/jknappen/ec/ecrm1000.600pk> </Home/ii/robina/.texlive2007/texmf-var/fonts/pk/
-ljfour/jknappen/ec/ecbx1440.600pk> </Home/ii/robina/.texlive2007/texmf-var/font
-s/pk/ljfour/jknappen/ec/ecrm1200.600pk> </Home/ii/robina/.texlive2007/texmf-var
-/fonts/pk/ljfour/jknappen/ec/ecrm1728.600pk></usr/share/texmf/fonts/type1/blues
-ky/cm/cmmi10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmr10.pfb></usr/share
-/texmf/fonts/type1/bluesky/cm/cmr7.pfb></usr/share/texmf/fonts/type1/bluesky/cm
-/cmsy10.pfb>
-Output written on main.pdf (2 pages, 76605 bytes).
+ 41i,8n,39p,799b,643s stack positions out of 5000i,500n,6000p,200000b,15000s
+!  ==> Fatal error occurred, no output PDF file produced!
+cter 10023 = 0x2727 appeared again. on input 
+line 75.
+
+
+Package ucs Warning: Unknown character 10023 = 0x2727 appeared again. on input 
+line 75.
+
+(/usr/share/texmf/tex/latex/ucs/data/uninames.dat
+File: uninames.dat 2004/10/17 UCS: Unicode character names, compressed
+)
+(/usr/share/texmf/tex/latex/ucs/data/uni-39.def
+File: uni-39.def 2004/10/17 UCS: Unicode data U+2700..U+27FF
+)
+
+! Package ucs Error: Unknown Unicode character 10230 = U+27F6,
+(ucs)                possibly declared in uni-39.def.
+(ucs)                Type H to see if it is available with options.
+
+See the ucs package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.75 ...MetaData[Grammar/Taxonomy.tex]{SimpleKind}
+                                                  
+Unicode character 10230 = U+27F6:
+LONG RIGHTWARDS ARROW
+Character is not defined in uni-*.def files.
+Enter I!<RET> to define the glyph.
+
+
+Package ucs Warning: Unknown character 10230 = 0x27F6 appeared again. on input 
+line 75.
+
+
+Package ucs Warning: Unknown character 10230 = 0x27F6 appeared again. on input 
+line 75.
+
+(/usr/share/texmf/tex/latex/ucs/data/uninames.dat
+File: uninames.dat 2004/10/17 UCS: Unicode character names, compressed
+)
+(/usr/share/texmf/tex/latex/ucs/data/uni-34.def
+File: uni-34.def 2004/10/17 UCS: Unicode data U+2200..U+22FF
+)
+
+! Package ucs Error: Unknown Unicode character 8759 = U+2237,
+(ucs)                possibly declared in uni-34.def.
+(ucs)                Type H to see if it is available with options.
+
+See the ucs package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.75 ...MetaData[Grammar/Taxonomy.tex]{SimpleKind}
+                                                  
+Unicode character 8759 = U+2237:
+PROPORTION
+Character is not defined in uni-*.def files.
+Enter I!<RET> to define the glyph.
+
+
+Package ucs Warning: Unknown character 10023 = 0x2727 appeared again. on input 
+line 75.
+
+
+Package ucs Warning: Unknown character 10023 = 0x2727 appeared again. on input 
+line 75.
+
+
+Package ucs Warning: Unknown character 10023 = 0x2727 appeared again. on input 
+line 75.
+
+
+Package ucs Warning: Unknown character 10230 = 0x27F6 appeared again. on input 
+line 75.
+
+
+Package ucs Warning: Unknown character 10230 = 0x27F6 appeared again. on input 
+line 75.
+
+
+Package ucs Warning: Unknown character 10230 = 0x27F6 appeared again. on input 
+line 75.
+
+
+Package ucs Warning: Unknown character 8759 = 0x2237 appeared again. on input l
+ine 75.
+
+
+Package ucs Warning: Unknown character 10023 = 0x2727 appeared again. on input 
+line 75.
+
+
+Package ucs Warning: Unknown character 10023 = 0x2727 appeared again. on input 
+line 75.
+
+
+Package ucs Warning: Unknown character 10023 = 0x2727 appeared again. on input 
+line 75.
+
+
+Package ucs Warning: Unknown character 10230 = 0x27F6 appeared again. on input 
+line 75.
+
+
+Package ucs Warning: Unknown character 10230 = 0x27F6 appeared again. on input 
+line 75.
+
+
+Package ucs Warning: Unknown character 10230 = 0x27F6 appeared again. on input 
+line 75.
+
+
+Package ucs Warning: Unknown character 8759 = 0x2237 appeared again. on input l
+ine 75.
+
+\openout3 = `main.ptb'.
+
+[3] (./main.aux) ) 
+Here is how much of TeX's memory you used:
+ 5686 strings out of 256214
+ 70318 string characters out of 1917000
+ 125721 words of memory out of 1500000
+ 8828 multiletter control sequences out of 10000+200000
+ 20934 words of font info for 59 fonts, out of 1200000 for 2000
+ 645 hyphenation exceptions out of 8191
+ 41i,8n,47p,799b,699s stack positions out of 5000i,500n,6000p,200000b,15000s
+ </Home/ii/robina/.texlive2007/texmf-var/fonts/pk/ljfour/jkna
+ppen/ec/ecrm0800.600pk> </Home/ii/robina/.texlive2007/texmf-var/fonts/pk/ljfour
+/jknappen/ec/ecrm0600.600pk> </Home/ii/robina/.texlive2007/texmf-var/fonts/pk/l
+jfour/jknappen/ec/ecbx1200.600pk> </Home/ii/robina/.texlive2007/texmf-var/fonts
+/pk/ljfour/jknappen/ec/ecrm0700.600pk> </Home/ii/robina/.texlive2007/texmf-var/
+fonts/pk/ljfour/jknappen/ec/ecss1000.600pk> </Home/ii/robina/.texlive2007/texmf
+-var/fonts/pk/ljfour/jknappen/ec/ecti1000.600pk> </Home/ii/robina/.texlive2007/
+texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1000.600pk> </Home/ii/robina/.texlive
+2007/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk> </Home/ii/robina/.te
+xlive2007/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.600pk> </Home/ii/robin
+a/.texlive2007/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1728.600pk></usr/share
+/texmf/fonts/type1/bluesky/cm/cmmi10.pfb></usr/share/texmf/fonts/type1/bluesky/
+cm/cmmi7.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmr10.pfb></usr/share/tex
+mf/fonts/type1/bluesky/cm/cmr7.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cms
+y10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmtt10.pfb>
+Output written on main.pdf (3 pages, 102857 bytes).
 PDF statistics:
- 243 PDF objects out of 1000 (max. 8388607)
+ 299 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 131072)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

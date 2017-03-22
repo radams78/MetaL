@@ -1,0 +1,4 @@
+main.pdf: main.tex Grammar/Taxonomy.tex
+	latexmk -g -pdf main
+Grammar/Taxonomy.tex: ../agda/Grammar/Taxonomy.lagda
+	cd ..; cd agda; agda -i ${AGDA_LIBDIR} -i . --latex Grammar/Taxonomy.lagda --latex-dir=../latex

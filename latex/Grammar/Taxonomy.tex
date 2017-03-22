@@ -40,7 +40,10 @@
 
 \begin{code}%
 \>\AgdaComment{-- An alphabet is a finite set of variables, each with an associated variable kind}\<%
-\\
+\end{code}
+
+%<*Alphabet>
+\begin{code}%
 \>[0]\AgdaIndent{2}{}\<[2]%
 \>[2]\AgdaKeyword{infixl} \AgdaNumber{55} \AgdaFixityOp{\_,\_}\<%
 \\
@@ -52,12 +55,15 @@
 \\
 \>[2]\AgdaIndent{4}{}\<[4]%
 \>[4]\AgdaInductiveConstructor{\_,\_} \AgdaSymbol{:} \AgdaDatatype{Alphabet} \AgdaSymbol{→} \AgdaField{VarKind} \AgdaSymbol{→} \AgdaDatatype{Alphabet}\<%
-\\
-%
-\\
+\end{code}
+%</Alphabet>
+
+\begin{code}%
 \>\AgdaComment{-- Define concatenation of alphabets}\<%
 \\
 \>\AgdaComment{-- TODO Extend alphabet with F VarKind for suitable functors F}\<%
+\\
+%
 \\
 \>[0]\AgdaIndent{2}{}\<[2]%
 \>[2]\AgdaFunction{extend} \AgdaSymbol{:} \AgdaDatatype{Alphabet} \AgdaSymbol{→} \AgdaDatatype{List} \AgdaField{VarKind} \AgdaSymbol{→} \AgdaDatatype{Alphabet}\<%
@@ -82,7 +88,10 @@
 %
 \\
 \>\AgdaComment{-- Define the set of variables of kind K in alphabet V}\<%
-\\
+\end{code}
+
+%<*Var>
+\begin{code}%
 \>[0]\AgdaIndent{2}{}\<[2]%
 \>[2]\AgdaKeyword{data} \AgdaDatatype{Var} \AgdaSymbol{:} \AgdaDatatype{Alphabet} \AgdaSymbol{→} \AgdaField{VarKind} \AgdaSymbol{→} \AgdaPrimitiveType{Set} \AgdaKeyword{where}\<%
 \\
@@ -91,9 +100,10 @@
 \\
 \>[2]\AgdaIndent{4}{}\<[4]%
 \>[4]\AgdaInductiveConstructor{↑} \AgdaSymbol{:} \AgdaSymbol{∀} \AgdaSymbol{\{}\AgdaBound{V}\AgdaSymbol{\}} \AgdaSymbol{\{}\AgdaBound{K}\AgdaSymbol{\}} \AgdaSymbol{\{}\AgdaBound{L}\AgdaSymbol{\}} \AgdaSymbol{→} \AgdaDatatype{Var} \AgdaBound{V} \AgdaBound{L} \AgdaSymbol{→} \AgdaDatatype{Var} \AgdaSymbol{(}\AgdaBound{V} \AgdaInductiveConstructor{,} \AgdaBound{K}\AgdaSymbol{)} \AgdaBound{L}\<%
-\\
-%
-\\
+\end{code}
+%</Var>
+
+\begin{code}%
 \>[0]\AgdaIndent{2}{}\<[2]%
 \>[2]\AgdaFunction{x₁} \AgdaSymbol{:} \AgdaSymbol{∀} \AgdaSymbol{\{}\AgdaBound{V}\AgdaSymbol{\}} \AgdaSymbol{\{}\AgdaBound{K}\AgdaSymbol{\}} \AgdaSymbol{\{}\AgdaBound{L}\AgdaSymbol{\}} \AgdaSymbol{→} \AgdaDatatype{Var} \AgdaSymbol{(}\AgdaBound{V} \AgdaInductiveConstructor{,} \AgdaBound{K} \AgdaInductiveConstructor{,} \AgdaBound{L}\AgdaSymbol{)} \AgdaBound{K}\<%
 \\
@@ -115,7 +125,10 @@
 \>\AgdaComment{-- a1 ⟶ a2 ⟶ ... ⟶ an ⟶ b ✧}\<%
 \\
 \>\AgdaComment{-- where each ai is in A and b is in B}\<%
-\\
+\end{code}
+
+%<*SimpleKind>
+\begin{code}%
 \>[0]\AgdaIndent{2}{}\<[2]%
 \>[2]\AgdaKeyword{record} \AgdaRecord{SimpleKind} \AgdaSymbol{(}\AgdaBound{A} \AgdaBound{B} \AgdaSymbol{:} \AgdaPrimitiveType{Set}\AgdaSymbol{)} \AgdaSymbol{:} \AgdaPrimitiveType{Set} \AgdaKeyword{where}\<%
 \\
@@ -152,9 +165,10 @@
 \\
 \>[0]\AgdaIndent{2}{}\<[2]%
 \>[2]\AgdaBound{a} \AgdaFunction{⟶} \AgdaInductiveConstructor{SK} \AgdaBound{dom} \AgdaBound{cod} \AgdaSymbol{=} \AgdaInductiveConstructor{SK} \AgdaSymbol{(}\AgdaBound{a} \AgdaInductiveConstructor{∷} \AgdaBound{dom}\AgdaSymbol{)} \AgdaBound{cod}\<%
-\\
-%
-\\
+\end{code}
+
+\AgdaHide{
+\begin{code}%
 \>\AgdaComment{-- An abstraction kind is a kind of the form}\<%
 \\
 \>\AgdaComment{-- K1 ⟶ ... ⟶ Kn ⟶ L}\<%
@@ -168,34 +182,24 @@
 \>\AgdaComment{-- A1 ⟶ ... ⟶ An ⟶ K}\<%
 \\
 \>\AgdaComment{-- Ai an abstraction kind, K an expression kind}\<%
-\\
+\end{code}
+}
+
+\begin{code}%
 \>[0]\AgdaIndent{2}{}\<[2]%
 \>[2]\AgdaFunction{AbsKind} \AgdaSymbol{=} \AgdaRecord{SimpleKind} \AgdaField{VarKind} \AgdaDatatype{ExpKind}\<%
 \\
 \>[0]\AgdaIndent{2}{}\<[2]%
 \>[2]\AgdaFunction{ConKind} \AgdaSymbol{=} \AgdaRecord{SimpleKind} \AgdaFunction{AbsKind} \AgdaDatatype{ExpKind}\<%
-\\
-%
-\\
-\>\AgdaComment{-- A kind is either an expression kind or a list of abstraction kinds}\<%
-\\
-\>[0]\AgdaIndent{2}{}\<[2]%
-\>[2]\AgdaKeyword{data} \AgdaDatatype{KindClass} \AgdaSymbol{:} \AgdaPrimitiveType{Set} \AgdaKeyword{where}\<%
-\\
-\>[2]\AgdaIndent{4}{}\<[4]%
-\>[4]\AgdaInductiveConstructor{-Expression} \AgdaSymbol{:} \AgdaDatatype{KindClass}\<%
-\\
-\>[2]\AgdaIndent{4}{}\<[4]%
-\>[4]\AgdaInductiveConstructor{-ListAbs} \AgdaSymbol{:} \AgdaDatatype{KindClass}\<%
-\\
-%
-\\
-\>[0]\AgdaIndent{2}{}\<[2]%
-\>[2]\AgdaFunction{Kind} \AgdaSymbol{:} \AgdaDatatype{KindClass} \AgdaSymbol{→} \AgdaPrimitiveType{Set}\<%
-\\
-\>[0]\AgdaIndent{2}{}\<[2]%
-\>[2]\AgdaFunction{Kind} \AgdaInductiveConstructor{-Expression} \AgdaSymbol{=} \AgdaDatatype{ExpKind}\<%
-\\
-\>[0]\AgdaIndent{2}{}\<[2]%
-\>[2]\AgdaFunction{Kind} \AgdaInductiveConstructor{-ListAbs} \AgdaSymbol{=} \AgdaDatatype{List} \AgdaFunction{AbsKind}\<%
+\end{code}
+%</SimpleKind>
+
+-- A kind is either an expression kind or a list of abstraction kinds
+  data KindClass : Set where
+    -Expression : KindClass
+    -ListAbs : KindClass
+
+  Kind : KindClass → Set
+  Kind -Expression = ExpKind
+  Kind -ListAbs = List AbsKind
 \end{code}

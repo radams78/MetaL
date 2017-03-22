@@ -7,9 +7,15 @@
 \usepackage{agda}
 \usepackage{catchfilebetweentags}
 
+\DeclareUnicodeCharacter{2727}{\ensuremath{\longrightarrow}}
+
 \begin{document}
 
 \maketitle
+
+\section{Introduction}
+
+%TODO Cite PHOML paper
 
 \section{Design Criteria}
 
@@ -38,7 +44,34 @@ For a running example, we will construct the grammar of the simply-typed lambda-
 \subsection{Taxonomy}
 
 A \emph{taxonomy} is a set of \emph{expression kinds}, divided into \emph{variable kinds} and \emph{non-variable kinds}.
+The intention is that the expressions of the grammar are divided into expression kinds.  Every
+variable ranges over the expressions of one (and only one) variable kind.
 
 \ExecuteMetaData[Grammar/Taxonomy.tex]{Taxonomy}
+
+An \emph{alphabet} is a finite set of \emph{variables}, to each of which is associated a variable kind.  We write \AgdaDatatype{Var} \AgdaSymbol{V} \AgdaSymbol{K}
+for the set of all variables in the alphabet \AgdaSymbol{V} of kind \AgdaSymbol{K}.
+
+\ExecuteMetaData[Grammar/Taxonomy.tex]{Alphabet}
+\ExecuteMetaData[Grammar/Taxonomy.tex]{Var}
+
+For the simply-typed lambda-calculus, there are two expression kinds: \AgdaFunction{type},
+which is a non-variable kind, and \AgdaFunction{term}, which is a variable kind:
+
+\ExecuteMetaData[STLC/Grammar.tex]{Taxonomy}
+
+\subsection{Grammar}
+
+An \emph{abstraction kind} has the form $K_1 \rightarrow \cdots \rightarrow K_n \rightarrow L$,
+where each $K_i$ is an abstraction kind, and $L$ is an expression kind.
+
+A \emph{constructor kind} has the form $A_1 \rightarrow \cdots \rightarrow A_n \rightarrow K$,
+where each $A_i$ is an abstraction kind, and $K$ is an expression kind.
+
+To define these, we introduce the notion of a \emph{simple kind}:
+a simple kind over sets $S$ and $T$ is an object of the form $s_1 \rightarrow \cdots \rightarrow s_n \rightarrow t$,
+where each $s_i \in S$ and $t \in T$.
+
+\ExecuteMetaData[Grammar/Taxonomy.tex]{SimpleKind}
 
 \end{document}
