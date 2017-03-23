@@ -194,12 +194,26 @@
 \end{code}
 %</SimpleKind>
 
--- A kind is either an expression kind or a list of abstraction kinds
-  data KindClass : Set where
-    -Expression : KindClass
-    -ListAbs : KindClass
-
-  Kind : KindClass → Set
-  Kind -Expression = ExpKind
-  Kind -ListAbs = List AbsKind
+\begin{code}%
+\>\AgdaComment{-- A kind is either an expression kind or a list of abstraction kinds}\<%
+\\
+\>[0]\AgdaIndent{2}{}\<[2]%
+\>[2]\AgdaKeyword{data} \AgdaDatatype{KindClass} \AgdaSymbol{:} \AgdaPrimitiveType{Set} \AgdaKeyword{where}\<%
+\\
+\>[2]\AgdaIndent{4}{}\<[4]%
+\>[4]\AgdaInductiveConstructor{-Expression} \AgdaSymbol{:} \AgdaDatatype{KindClass}\<%
+\\
+\>[2]\AgdaIndent{4}{}\<[4]%
+\>[4]\AgdaInductiveConstructor{-ListAbs} \AgdaSymbol{:} \AgdaDatatype{KindClass}\<%
+\\
+%
+\\
+\>[0]\AgdaIndent{2}{}\<[2]%
+\>[2]\AgdaFunction{Kind} \AgdaSymbol{:} \AgdaDatatype{KindClass} \AgdaSymbol{→} \AgdaPrimitiveType{Set}\<%
+\\
+\>[0]\AgdaIndent{2}{}\<[2]%
+\>[2]\AgdaFunction{Kind} \AgdaInductiveConstructor{-Expression} \AgdaSymbol{=} \AgdaDatatype{ExpKind}\<%
+\\
+\>[0]\AgdaIndent{2}{}\<[2]%
+\>[2]\AgdaFunction{Kind} \AgdaInductiveConstructor{-ListAbs} \AgdaSymbol{=} \AgdaDatatype{List} \AgdaFunction{AbsKind}\<%
 \end{code}

@@ -7,7 +7,9 @@
 \usepackage{agda}
 \usepackage{catchfilebetweentags}
 
-\DeclareUnicodeCharacter{2727}{\ensuremath{\longrightarrow}}
+\DeclareUnicodeCharacter{8759}{\ensuremath{::}}
+\DeclareUnicodeCharacter{10023}{\ensuremath{\lozenge}}
+\DeclareUnicodeCharacter{10230}{\ensuremath{\longrightarrow}}
 
 \begin{document}
 
@@ -55,6 +57,8 @@ for the set of all variables in the alphabet \AgdaSymbol{V} of kind \AgdaSymbol{
 \ExecuteMetaData[Grammar/Taxonomy.tex]{Alphabet}
 \ExecuteMetaData[Grammar/Taxonomy.tex]{Var}
 
+\paragraph{Example}
+
 For the simply-typed lambda-calculus, there are two expression kinds: \AgdaFunction{type},
 which is a non-variable kind, and \AgdaFunction{term}, which is a variable kind:
 
@@ -73,5 +77,15 @@ a simple kind over sets $S$ and $T$ is an object of the form $s_1 \rightarrow \c
 where each $s_i \in S$ and $t \in T$.
 
 \ExecuteMetaData[Grammar/Taxonomy.tex]{SimpleKind}
+
+A \emph{grammar} over a taxonomy consists of:
+\begin{itemize}
+\item
+a set of \emph{constructors}, each with an associated constructor kind;
+\item
+a function assigning, to each variable kind, an expression kind, called its \emph{parent}.  (The intention is that, when a declaration $x : A$ occurs in a context, if $x$ has kind $K$, then the kind of $A$ is the parent of $K$.)
+\end{itemize}
+
+\ExecuteMetaData[Grammar/Base.tex]{Grammar}
 
 \end{document}

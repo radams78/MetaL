@@ -1,0 +1,137 @@
+cd agda; agda -i ~/share/agda-stdlib-0.12/src -i . --latex Grammar/Taxonomy.lagda --latex-dir=../latex
+   Skipping Level (/Home/ii/robina/share/agda-stdlib-0.12/src/Level.agdai).
+  Skipping Function (/Home/ii/robina/share/agda-stdlib-0.12/src/Function.agdai).
+        Skipping Data.Empty (/Home/ii/robina/share/agda-stdlib-0.12/src/Data/Empty.agdai).
+       Skipping Relation.Nullary (/Home/ii/robina/share/agda-stdlib-0.12/src/Relation/Nullary.agdai).
+       Skipping Agda.Builtin.Equality (/Home/ii/robina/.cabal/share/x86_64-linux-ghc-7.10.3/Agda-2.5.1/lib/prim/Agda/Builtin/Equality.agdai).
+       Skipping Data.Product (/Home/ii/robina/share/agda-stdlib-0.12/src/Data/Product.agdai).
+      Skipping Relation.Binary.Core (/Home/ii/robina/share/agda-stdlib-0.12/src/Relation/Binary/Core.agdai).
+     Skipping Relation.Binary.Consequences.Core (/Home/ii/robina/share/agda-stdlib-0.12/src/Relation/Binary/Consequences/Core.agdai).
+    Skipping Relation.Binary.PropositionalEquality.Core (/Home/ii/robina/share/agda-stdlib-0.12/src/Relation/Binary/PropositionalEquality/Core.agdai).
+       Skipping Agda.Builtin.Bool (/Home/ii/robina/.cabal/share/x86_64-linux-ghc-7.10.3/Agda-2.5.1/lib/prim/Agda/Builtin/Bool.agdai).
+        Skipping Agda.Builtin.Unit (/Home/ii/robina/.cabal/share/x86_64-linux-ghc-7.10.3/Agda-2.5.1/lib/prim/Agda/Builtin/Unit.agdai).
+       Skipping Data.Unit.Base (/Home/ii/robina/share/agda-stdlib-0.12/src/Data/Unit/Base.agdai).
+      Skipping Data.Bool.Base (/Home/ii/robina/share/agda-stdlib-0.12/src/Data/Bool/Base.agdai).
+     Skipping Data.Maybe.Base (/Home/ii/robina/share/agda-stdlib-0.12/src/Data/Maybe/Base.agdai).
+    Skipping Data.Sum (/Home/ii/robina/share/agda-stdlib-0.12/src/Data/Sum.agdai).
+    Skipping Relation.Binary.Consequences (/Home/ii/robina/share/agda-stdlib-0.12/src/Relation/Binary/Consequences.agdai).
+    Skipping Relation.Binary.Indexed.Core (/Home/ii/robina/share/agda-stdlib-0.12/src/Relation/Binary/Indexed/Core.agdai).
+   Skipping Relation.Binary (/Home/ii/robina/share/agda-stdlib-0.12/src/Relation/Binary.agdai).
+   Skipping Algebra.FunctionProperties.Core (/Home/ii/robina/share/agda-stdlib-0.12/src/Algebra/FunctionProperties/Core.agdai).
+  Skipping Algebra.FunctionProperties (/Home/ii/robina/share/agda-stdlib-0.12/src/Algebra/FunctionProperties.agdai).
+     Skipping Relation.Binary.PreorderReasoning (/Home/ii/robina/share/agda-stdlib-0.12/src/Relation/Binary/PreorderReasoning.agdai).
+    Skipping Relation.Binary.EqReasoning (/Home/ii/robina/share/agda-stdlib-0.12/src/Relation/Binary/EqReasoning.agdai).
+   Skipping Algebra.Structures (/Home/ii/robina/share/agda-stdlib-0.12/src/Algebra/Structures.agdai).
+  Skipping Algebra (/Home/ii/robina/share/agda-stdlib-0.12/src/Algebra.agdai).
+    Skipping Agda.Builtin.Nat (/Home/ii/robina/.cabal/share/x86_64-linux-ghc-7.10.3/Agda-2.5.1/lib/prim/Agda/Builtin/Nat.agdai).
+     Skipping Agda.Builtin.TrustMe (/Home/ii/robina/.cabal/share/x86_64-linux-ghc-7.10.3/Agda-2.5.1/lib/prim/Agda/Builtin/TrustMe.agdai).
+    Skipping Relation.Binary.PropositionalEquality.TrustMe (/Home/ii/robina/share/agda-stdlib-0.12/src/Relation/Binary/PropositionalEquality/TrustMe.agdai).
+   Skipping Data.Nat.Base (/Home/ii/robina/share/agda-stdlib-0.12/src/Data/Nat/Base.agdai).
+   Skipping Agda.Builtin.List (/Home/ii/robina/.cabal/share/x86_64-linux-ghc-7.10.3/Agda-2.5.1/lib/prim/Agda/Builtin/List.agdai).
+  Skipping Data.List.Base (/Home/ii/robina/share/agda-stdlib-0.12/src/Data/List/Base.agdai).
+   Skipping Relation.Binary.Indexed (/Home/ii/robina/share/agda-stdlib-0.12/src/Relation/Binary/Indexed.agdai).
+   Skipping Relation.Binary.HeterogeneousEquality.Core (/Home/ii/robina/share/agda-stdlib-0.12/src/Relation/Binary/HeterogeneousEquality/Core.agdai).
+   Skipping Data.Unit.NonEta (/Home/ii/robina/share/agda-stdlib-0.12/src/Data/Unit/NonEta.agdai).
+   Skipping Function.Equality (/Home/ii/robina/share/agda-stdlib-0.12/src/Function/Equality.agdai).
+  Skipping Relation.Binary.PropositionalEquality (/Home/ii/robina/share/agda-stdlib-0.12/src/Relation/Binary/PropositionalEquality.agdai).
+   Skipping Function.Injection (/Home/ii/robina/share/agda-stdlib-0.12/src/Function/Injection.agdai).
+    Skipping Data.Unit (/Home/ii/robina/share/agda-stdlib-0.12/src/Data/Unit.agdai).
+    Skipping Function.Equivalence (/Home/ii/robina/share/agda-stdlib-0.12/src/Function/Equivalence.agdai).
+   Skipping Relation.Nullary.Decidable (/Home/ii/robina/share/agda-stdlib-0.12/src/Relation/Nullary/Decidable.agdai).
+   Skipping Relation.Binary.PartialOrderReasoning (/Home/ii/robina/share/agda-stdlib-0.12/src/Relation/Binary/PartialOrderReasoning.agdai).
+  Skipping Data.Nat (/Home/ii/robina/share/agda-stdlib-0.12/src/Data/Nat.agdai).
+     Skipping Category.Functor (/Home/ii/robina/share/agda-stdlib-0.12/src/Category/Functor.agdai).
+    Skipping Category.Applicative.Indexed (/Home/ii/robina/share/agda-stdlib-0.12/src/Category/Applicative/Indexed.agdai).
+   Skipping Category.Monad.Indexed (/Home/ii/robina/share/agda-stdlib-0.12/src/Category/Monad/Indexed.agdai).
+  Skipping Category.Monad (/Home/ii/robina/share/agda-stdlib-0.12/src/Category/Monad.agdai).
+ Skipping Data.List (/Home/ii/robina/share/agda-stdlib-0.12/src/Data/List.agdai).
+  Skipping Prelims.Bifunction (/Home/ii/robina/work/research/mypapers/2017/MetaL/agda/Prelims/Bifunction.agdai).
+  Skipping Prelims.Respect (/Home/ii/robina/work/research/mypapers/2017/MetaL/agda/Prelims/Respect.agdai).
+   Skipping Prelims.Closure.Refl (/Home/ii/robina/work/research/mypapers/2017/MetaL/agda/Prelims/Closure/Refl.agdai).
+    Skipping Prelims.Closure.RT (/Home/ii/robina/work/research/mypapers/2017/MetaL/agda/Prelims/Closure/RT.agdai).
+   Skipping Prelims.Closure.RST (/Home/ii/robina/work/research/mypapers/2017/MetaL/agda/Prelims/Closure/RST.agdai).
+  Skipping Prelims.Closure (/Home/ii/robina/work/research/mypapers/2017/MetaL/agda/Prelims/Closure.agdai).
+  Skipping Prelims.EqReasoning (/Home/ii/robina/work/research/mypapers/2017/MetaL/agda/Prelims/EqReasoning.agdai).
+  Skipping Prelims.Snoclist (/Home/ii/robina/work/research/mypapers/2017/MetaL/agda/Prelims/Snoclist.agdai).
+  Skipping Prelims.Red (/Home/ii/robina/work/research/mypapers/2017/MetaL/agda/Prelims/Red.agdai).
+ Skipping Prelims (/Home/ii/robina/work/research/mypapers/2017/MetaL/agda/Prelims.agdai).
+Skipping Grammar.Taxonomy (/Home/ii/robina/work/research/mypapers/2017/MetaL/agda/Grammar/Taxonomy.agdai).
+
+Checking if agda.sty is found by the LaTeX environment.
+
+Calling: kpsewhich --path=../latex agda.sty
+
+agda.sty was not found. Copying a default version of agda.sty
+into the directory ../latex.
+
+cd latex; latexmk -g -pdf main
+Latexmk: applying rule 'pdflatex'...
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6)
+ %&-line parsing enabled.
+entering extended mode
+(./main.tex
+LaTeX2e <2005/12/01>
+Babel <v3.8h> and hyphenation patterns for english, usenglishmax, dumylang, noh
+yphenation, arabic, basque, bulgarian, coptic, welsh, czech, slovak, german, ng
+erman, danish, esperanto, spanish, catalan, galician, estonian, farsi, finnish,
+ french, greek, monogreek, ancientgreek, croatian, hungarian, interlingua, ibyc
+us, indonesian, icelandic, italian, latin, mongolian, dutch, norsk, polish, por
+tuguese, pinyin, romanian, russian, slovenian, uppersorbian, serbian, swedish, 
+turkish, ukenglish, ukrainian, loaded.
+(/usr/share/texmf/tex/latex/base/article.cls
+Document Class: article 2005/09/16 v1.4f Standard LaTeX document class
+(/usr/share/texmf/tex/latex/base/size10.clo))
+(/usr/share/texmf/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/usr/share/texmf/tex/latex/amsmath/amstext.sty
+(/usr/share/texmf/tex/latex/amsmath/amsgen.sty))
+(/usr/share/texmf/tex/latex/amsmath/amsbsy.sty)
+(/usr/share/texmf/tex/latex/amsmath/amsopn.sty)) (./agda.sty
+(/usr/share/texmf/tex/latex/ifxetex/ifxetex.sty)
+(/usr/share/texmf/tex/latex/ifluatex/ifluatex.sty)
+(/usr/share/texmf/tex/latex/xifthen/xifthen.sty
+(/usr/share/texmf/tex/latex/etex/etex.sty)
+(/usr/share/texmf/tex/latex/tools/calc.sty)
+(/usr/share/texmf/tex/latex/base/ifthen.sty)
+(/usr/share/texmf/tex/latex/ltxmisc/ifmtarg.sty))
+(/usr/share/texmf/tex/latex/xcolor/xcolor.sty
+(/usr/share/texmf/tex/latex/config/color.cfg)
+(/usr/share/texmf/tex/latex/pdftex-def/pdftex.def))
+(/usr/share/texmf/tex/latex/polytable/polytable.sty
+(/usr/share/texmf/tex/latex/lazylist/lazylist.sty)
+(/usr/share/texmf/tex/latex/tools/array.sty))
+(/usr/share/texmf/tex/latex/etoolbox/etoolbox.sty)
+(/usr/share/texmf/tex/latex/ucs/ucs.sty
+(/usr/share/texmf/tex/latex/ucs/data/uni-global.def))
+(/usr/share/texmf/tex/latex/amsfonts/amsfonts.sty)
+(/usr/share/texmf/tex/latex/amsfonts/amssymb.sty)
+(/usr/share/texmf/tex/latex/tipa/tipa.sty
+(/usr/share/texmf/tex/latex/base/fontenc.sty
+(/usr/share/texmf/tex/latex/tipa/t3enc.def)
+(/usr/share/texmf/tex/latex/base/ot1enc.def)))
+(/usr/share/texmf/tex/latex/base/fontenc.sty
+(/usr/share/texmf/tex/latex/base/t1enc.def))
+(/usr/share/texmf/tex/latex/base/inputenc.sty
+(/usr/share/texmf/tex/latex/ucs/utf8x.def)))
+(/usr/share/texmf/tex/latex/catchfilebetweentags/catchfilebetweentags.sty
+(/usr/share/texmf/tex/latex/ltxcmds/ltxcmds.sty)
+(/usr/share/texmf/tex/latex/catchfile/catchfile.sty
+(/usr/share/texmf/tex/latex/tex/generic/oberdiek/infwarerr.sty)
+(/usr/share/texmf/tex/latex/tex/generic/oberdiek/etexcmds.sty))) (./main.aux)
+(/usr/share/texmf/tex/latex/tipa/t3cmr.fd)
+(/usr/share/texmf/tex/context/base/supp-pdf.tex
+[Loading MPS to PDF converter (version 2006.09.02).]
+) (/usr/share/texmf/tex/latex/ucs/ucsencs.def
+fontencoding T3 patched
+)
+! Undefined control sequence.
+l.12 \AgdaNoSpaceAroundCode
+                           {}
+? ! Interruption.
+<to be read again> 
+                   {
+l.12 \AgdaNoSpaceAroundCode{
+                            }
+? No pages of output.
+Transcript written on main.log.
+Latexmk: Errors, so I did not complete making targets

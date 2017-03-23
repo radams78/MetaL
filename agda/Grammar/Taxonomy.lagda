@@ -22,13 +22,21 @@ record Taxonomy : Set₁ where
 
 \begin{code}
 -- An alphabet is a finite set of variables, each with an associated variable kind
+\end{code}
+
+%<*Alphabet>
+\begin{code}
   infixl 55 _,_
   data Alphabet : Set where
     ∅ : Alphabet
     _,_ : Alphabet → VarKind → Alphabet
+\end{code}
+%</Alphabet>
 
+\begin{code}
 -- Define concatenation of alphabets
 -- TODO Extend alphabet with F VarKind for suitable functors F
+
   extend : Alphabet → List VarKind → Alphabet
   extend V [] = V
   extend V (K ∷ KK) = extend (V , K) KK
@@ -38,10 +46,17 @@ record Taxonomy : Set₁ where
   snoc-extend V (KK snoc K) = snoc-extend V KK , K
 
 -- Define the set of variables of kind K in alphabet V
+\end{code}
+
+%<*Var>
+\begin{code}
   data Var : Alphabet → VarKind → Set where
     x₀ : ∀ {V} {K} → Var (V , K) K
     ↑ : ∀ {V} {K} {L} → Var V L → Var (V , K) L
+\end{code}
+%</Var>
 
+\begin{code}
   x₁ : ∀ {V} {K} {L} → Var (V , K , L) K
   x₁ = ↑ x₀
 
@@ -51,6 +66,10 @@ record Taxonomy : Set₁ where
 -- A simple kind over sets A and B is an expression of the form
 -- a1 ⟶ a2 ⟶ ... ⟶ an ⟶ b ✧
 -- where each ai is in A and b is in B
+\end{code}
+
+%<*SimpleKind>
+\begin{code}
   record SimpleKind (A B : Set) : Set where
     constructor SK
     field
@@ -64,7 +83,10 @@ record Taxonomy : Set₁ where
   infixr 70 _⟶_
   _⟶_ : ∀ {A} {B} → A → SimpleKind A B → SimpleKind A B
   a ⟶ SK dom cod = SK (a ∷ dom) cod
+\end{code}
 
+\AgdaHide{
+\begin{code}
 -- An abstraction kind is a kind of the form
 -- K1 ⟶ ... ⟶ Kn ⟶ L
 -- Ki a variable kind, L an expression kind
@@ -72,9 +94,16 @@ record Taxonomy : Set₁ where
 -- A constructor kind is a kind of the form
 -- A1 ⟶ ... ⟶ An ⟶ K
 -- Ai an abstraction kind, K an expression kind
+\end{code}
+}
+
+\begin{code}
   AbsKind = SimpleKind VarKind ExpKind
   ConKind = SimpleKind AbsKind ExpKind
+\end{code}
+%</SimpleKind>
 
+\begin{code}
 -- A kind is either an expression kind or a list of abstraction kinds
   data KindClass : Set where
     -Expression : KindClass

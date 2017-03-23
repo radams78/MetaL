@@ -1,9 +1,4 @@
--- Project: Canonicity of PHOML
--- Author:  Robin Adams
--- Module:  Grammar
---------------------------------------------------------------
--- A grammar or syntax with binding
---------------------------------------------------------------
+\begin{code}
 {- Metavariable conventions:
   A, B    range over abstraction kinds
   C       range over kind classes
@@ -22,6 +17,10 @@ module Grammar.Base where
 --and a function assigning a parent to each variable kind
 --Intention: for each declaration x : A, x is of some variable kind V,
 --and the kind of A is the parent of V
+\end{code}
+
+%<*Grammar>
+\begin{code}
 record IsGrammar (T : Taxonomy) : Set₁ where
   open Taxonomy T
   field
@@ -34,7 +33,10 @@ record Grammar : Set₁ where
     isGrammar : IsGrammar taxonomy
   open Taxonomy taxonomy public
   open IsGrammar isGrammar public
+\end{code}
+%</Grammar>
 
+\begin{code}
 --Define simultaneously:
 --An expression of kind K is either a variable of kind K,
 --or a constructor of kind AA → K applied to a list of abstractions of kinds given by AA
@@ -74,3 +76,4 @@ record Grammar : Set₁ where
   data snocTypes : Alphabet → snocList VarKind → Set where
     [] : ∀ {V} → snocTypes V []
     _snoc_ : ∀ {V AA K} → snocTypes V AA → Expression (snoc-extend V AA) (parent K) → snocTypes V (AA snoc K)
+\end{code}

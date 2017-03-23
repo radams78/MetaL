@@ -1,4 +1,7 @@
-latex/main.pdf: latex/main.tex latex/Grammar/Taxonomy.tex
+LAGDAFILES = $(shell find agda -name *.lagda)
+TEXFILES = $(LAGDAFILES:agda/%.lagda=latex/%.tex)
+
+latex/main.pdf: latex/main.tex $(TEXFILES)
 	cd latex; latexmk -g -pdf main
-latex/Grammar/Taxonomy.tex: agda/Grammar/Taxonomy.lagda
-	cd agda; agda -i ${AGDA_LIBDIR} -i . --latex Grammar/Taxonomy.lagda --latex-dir=../latex
+latex/%.tex: agda/%.lagda
+	cd agda; agda -i ${AGDA_LIBDIR} -i . --latex $*.lagda --latex-dir=../latex

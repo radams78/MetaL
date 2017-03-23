@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1490180340 "main.tex" "main.pdf" "main" 1490180340
+["pdflatex"] 1490262977 "main.tex" "main.pdf" "main" 1490262978
   "/usr/share/texmf/tex/context/base/supp-pdf.tex" 1163813872 75993 121f890a0f3bd94be4aac619bd0814ff ""
   "/usr/share/texmf/tex/latex/amsfonts/amsfonts.sty" 1137109881 7992 7a12630bc841f1c895895a7b9763b259 ""
   "/usr/share/texmf/tex/latex/amsfonts/amssymb.sty" 1137109881 15232 61d310e2ae0d1f986ef8fd404165882d ""
@@ -41,19 +41,18 @@
   "/usr/share/texmf/tex/latex/ucs/data/uni-32.def" 1137111012 7221 c98c4aff0608617bcaeee51f2bb9363e ""
   "/usr/share/texmf/tex/latex/ucs/data/uni-33.def" 1137111012 7143 4552088d5cf80df33ff32bca6ce61baa ""
   "/usr/share/texmf/tex/latex/ucs/data/uni-34.def" 1137111012 10889 c72976649b376e927b2457f7f79cfbea ""
-  "/usr/share/texmf/tex/latex/ucs/data/uni-39.def" 1137111012 6911 2838587b838425b6d3eeee6f72fecdae ""
   "/usr/share/texmf/tex/latex/ucs/data/uni-global.def" 1137111012 1375 2ac1681e5ee8ca380eb0093557cc3c6b ""
-  "/usr/share/texmf/tex/latex/ucs/data/uninames.dat" 1137111012 347207 a63d9f41ee97ab6f604d2e3c48ba45cb ""
   "/usr/share/texmf/tex/latex/ucs/ucs.sty" 1137111012 27968 5e8fc919b9923f61a3141cff009f81f4 ""
   "/usr/share/texmf/tex/latex/ucs/ucsencs.def" 1137111012 22431 0ad1c3cefc1f93af409a7ceca0d8d3e1 ""
   "/usr/share/texmf/tex/latex/ucs/utf8x.def" 1137111012 8049 2bb302a046ab244c85dc4d176aff8531 ""
   "/usr/share/texmf/tex/latex/xcolor/xcolor.sty" 1169481954 55224 a43bab84e0ac5e6efcaf9a98bde73a94 ""
   "/usr/share/texmf/tex/latex/xifthen/xifthen.sty" 1152916864 2683 8b7c7407be5475822c6aa263c1564e31 ""
-  "Grammar/Taxonomy.tex" 1490176183 8790 b5396e24a743f28bbf38efc522e1546b ""
-  "STLC/Grammar.tex" 1490176186 1572 9c42ba652d4d299997d2a94406d7c587 ""
+  "Grammar/Base.tex" 1490258824 9514 c89dc742a31e0e93c326fb9049e0403a ""
+  "Grammar/Taxonomy.tex" 1490258821 9462 6321857997d06babb7c5fb7b8e9fe74e ""
+  "STLC/Grammar.tex" 1490258819 1572 9c42ba652d4d299997d2a94406d7c587 ""
   "agda.sty" 1490174930 20067 d8c5049af83c6eb39f7f6848b15b4e92 ""
-  "main.aux" 1490176174 377 1d4f82cca1f822029135349965995cbc ""
-  "main.tex" 1490176171 3078 e35ab18c85f9d9c130f65e462b566cfb ""
+  "main.aux" 1490258824 433 4ceeaaf4a69592988fd0c47e9a592921 ""
+  "main.tex" 1490257938 3638 3cbd96393237dbcb7ec6f668f67ffa47 ""
   (generated)
   "main.log"
   "main.pdf"
