@@ -49,10 +49,16 @@ module STLCGrammar where
     isGrammar = record { 
       Con = stlcCon ; 
       parent = stlcParent } }
+\end{code}
 
+\AgdaHide{
+\begin{code}
 open STLCGrammar
 open Grammar STLCGrammar.stlc
+\end{code}
+}
 
+\begin{code}
 Type : Alphabet → Set
 Type V = Expression V type
 

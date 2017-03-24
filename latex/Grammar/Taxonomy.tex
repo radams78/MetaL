@@ -127,7 +127,7 @@
 \>\AgdaComment{-- where each ai is in A and b is in B}\<%
 \end{code}
 
-%<*SimpleKind>
+%<*SimpleKindA>
 \begin{code}%
 \>[0]\AgdaIndent{2}{}\<[2]%
 \>[2]\AgdaKeyword{record} \AgdaRecord{SimpleKind} \AgdaSymbol{(}\AgdaBound{A} \AgdaBound{B} \AgdaSymbol{:} \AgdaPrimitiveType{Set}\AgdaSymbol{)} \AgdaSymbol{:} \AgdaPrimitiveType{Set} \AgdaKeyword{where}\<%
@@ -166,6 +166,7 @@
 \>[0]\AgdaIndent{2}{}\<[2]%
 \>[2]\AgdaBound{a} \AgdaFunction{⟶} \AgdaInductiveConstructor{SK} \AgdaBound{dom} \AgdaBound{cod} \AgdaSymbol{=} \AgdaInductiveConstructor{SK} \AgdaSymbol{(}\AgdaBound{a} \AgdaInductiveConstructor{∷} \AgdaBound{dom}\AgdaSymbol{)} \AgdaBound{cod}\<%
 \end{code}
+%</SimpleKindA>
 
 \AgdaHide{
 \begin{code}%
@@ -185,6 +186,7 @@
 \end{code}
 }
 
+%<*SimpleKindB>
 \begin{code}%
 \>[0]\AgdaIndent{2}{}\<[2]%
 \>[2]\AgdaFunction{AbsKind} \AgdaSymbol{=} \AgdaRecord{SimpleKind} \AgdaField{VarKind} \AgdaDatatype{ExpKind}\<%
@@ -192,7 +194,7 @@
 \>[0]\AgdaIndent{2}{}\<[2]%
 \>[2]\AgdaFunction{ConKind} \AgdaSymbol{=} \AgdaRecord{SimpleKind} \AgdaFunction{AbsKind} \AgdaDatatype{ExpKind}\<%
 \end{code}
-%</SimpleKind>
+%</SimpleKindB>
 
 \begin{code}%
 \>\AgdaComment{-- A kind is either an expression kind or a list of abstraction kinds}\<%

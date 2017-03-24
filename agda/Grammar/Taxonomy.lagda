@@ -68,7 +68,7 @@ record Taxonomy : Set₁ where
 -- where each ai is in A and b is in B
 \end{code}
 
-%<*SimpleKind>
+%<*SimpleKindA>
 \begin{code}
   record SimpleKind (A B : Set) : Set where
     constructor SK
@@ -84,6 +84,7 @@ record Taxonomy : Set₁ where
   _⟶_ : ∀ {A} {B} → A → SimpleKind A B → SimpleKind A B
   a ⟶ SK dom cod = SK (a ∷ dom) cod
 \end{code}
+%</SimpleKindA>
 
 \AgdaHide{
 \begin{code}
@@ -97,11 +98,12 @@ record Taxonomy : Set₁ where
 \end{code}
 }
 
+%<*SimpleKindB>
 \begin{code}
   AbsKind = SimpleKind VarKind ExpKind
   ConKind = SimpleKind AbsKind ExpKind
 \end{code}
-%</SimpleKind>
+%</SimpleKindB>
 
 \begin{code}
 -- A kind is either an expression kind or a list of abstraction kinds

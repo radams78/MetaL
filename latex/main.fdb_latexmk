@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1490350645 "main.tex" "main.pdf" "main" 1490350645
+["pdflatex"] 1490351900 "main.tex" "main.pdf" "main" 1490351901
   "/Home/ii/robina/texmf/tex/latex/greek-fontenc/greek-fontenc.def" 1441356734 17606 2c9e881ec389ea7ece780755d29aa6bb ""
   "/Home/ii/robina/texmf/tex/latex/greek-fontenc/lgrenc.def" 1454708514 39948 146f19f82b62c4fbacd851f213d16f29 ""
   "/usr/share/texmf/tex/context/base/supp-pdf.tex" 1163813872 75993 121f890a0f3bd94be4aac619bd0814ff ""
@@ -43,6 +43,7 @@
   "/usr/share/texmf/tex/latex/tipa/tipa.sty" 1465570760 21394 82fa9965637ca62399434739ae5998f6 ""
   "/usr/share/texmf/tex/latex/tools/array.sty" 1156702393 13133 eba1744bc34115a702deb3d40425d79f ""
   "/usr/share/texmf/tex/latex/tools/calc.sty" 1156702393 9965 c62601cdcf5235653f33f146be81b7a1 ""
+  "/usr/share/texmf/tex/latex/ucs/data/uni-0.def" 1137111012 7784 4bb615894316e398d3c800bca8096003 ""
   "/usr/share/texmf/tex/latex/ucs/data/uni-3.def" 1137111012 11897 feddeafb67853703306a5b49020a5627 ""
   "/usr/share/texmf/tex/latex/ucs/data/uni-32.def" 1137111012 7221 c98c4aff0608617bcaeee51f2bb9363e ""
   "/usr/share/texmf/tex/latex/ucs/data/uni-33.def" 1137111012 7143 4552088d5cf80df33ff32bca6ce61baa ""
@@ -54,11 +55,11 @@
   "/usr/share/texmf/tex/latex/xcolor/xcolor.sty" 1169481954 55224 a43bab84e0ac5e6efcaf9a98bde73a94 ""
   "/usr/share/texmf/tex/latex/xifthen/xifthen.sty" 1152916864 2683 8b7c7407be5475822c6aa263c1564e31 ""
   "Grammar/Base.tex" 1490346353 9514 c89dc742a31e0e93c326fb9049e0403a ""
-  "Grammar/Taxonomy.tex" 1490258821 9462 6321857997d06babb7c5fb7b8e9fe74e ""
-  "STLC/Grammar.tex" 1490346491 6949 fe60968b2e9373dc8f94ee14de24453a ""
+  "Grammar/Taxonomy.tex" 1490347569 9496 13aa4a57deecdb79a024965c1a83e647 ""
+  "STLC/Grammar.tex" 1490347747 6998 db367069f35e90fdc6af360ba3c56bd4 ""
   "agda.sty" 1490345098 20067 d8c5049af83c6eb39f7f6848b15b4e92 ""
-  "main.aux" 1490346492 513 85412dd308f4512b35f117d070361fe6 ""
-  "main.tex" 1490346479 5571 f4eee2c3ae611f908b96aacdc248e91f ""
+  "main.aux" 1490347747 548 4b05bff57a631da2c98ccd3c5aa15ead ""
+  "main.tex" 1490347669 6267 3f314fe7202e770c0ab50eb1f3abdf9b ""
   "textgreek.sty" 1490346249 9154 20a7d54c92af9048a10a3af6a0be8d23 ""
   (generated)
   "main.log"
