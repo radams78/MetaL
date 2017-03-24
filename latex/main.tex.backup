@@ -7,6 +7,7 @@
 \usepackage{amsthm}
 \usepackage{agda}
 \usepackage{catchfilebetweentags}
+\usepackage{textgreek}
 
 \DeclareUnicodeCharacter{8759}{\ensuremath{::}}
 \DeclareUnicodeCharacter{10023}{\ensuremath{\lozenge}}
@@ -14,6 +15,7 @@
 
 \theoremstyle{definition}
 \newtheorem{example}{Example}[section]
+\newtheorem{df}[example]{Definition}
 
 \begin{document}
 
@@ -23,7 +25,7 @@
 
 %TODO Cite PHOML paper
 
-\section{Design Criteria}
+\subsection{Design Criteria}
 
 This library was produced with the following design goals.
 
@@ -73,17 +75,31 @@ which is a non-variable kind, and \AgdaFunction{term}, which is a variable kind:
 
 \subsection{Grammar}
 
+\begin{df}
+\label{df:kinds}
 An \emph{abstraction kind} has the form $K_1 \rightarrow \cdots \rightarrow K_n \rightarrow L$,
 where each $K_i$ is an abstraction kind, and $L$ is an expression kind.
 
 A \emph{constructor kind} has the form $A_1 \rightarrow \cdots \rightarrow A_n \rightarrow K$,
 where each $A_i$ is an abstraction kind, and $K$ is an expression kind.
+\end{df}
 
 To define these, we introduce the notion of a \emph{simple kind}:
 a simple kind over sets $S$ and $T$ is an object of the form $s_1 \rightarrow \cdots \rightarrow s_n \rightarrow t$,
 where each $s_i \in S$ and $t \in T$.
 
-\ExecuteMetaData[Grammar/Taxonomy.tex]{SimpleKind}
+We implement this by saying a simple kind over $S$ and $T$ consists of a list of objects of $S$, and one object of $T$:
+
+\ExecuteMetaData[Grammar/Taxonomy.tex]{SimpleKindA}
+
+We can construct an object of type $\AgdaDatatype{SK} \, \AgdaBound{S} \, \AgdaBound{T}$ by writing 
+$$ s_1 \longrightarrow \cdots \longrightarrow s_n \longrightarrow t \lozenge \enspace . $$
+(The `$\lozenge$' symbol marks
+the end of the simple kind.  It is needed to help Agda disambiguate the syntax.)
+
+We are now able to write Definition \ref{df:kinds} like this:
+
+\ExecuteMetaData[Grammar/Taxonomy.tex]{SimpleKindB}
 
 A \emph{grammar} over a taxonomy consists of:
 \begin{itemize}
@@ -95,6 +111,28 @@ a function assigning, to each variable kind, an expression kind, called its \emp
 
 \ExecuteMetaData[Grammar/Base.tex]{Grammar}
 
+\begin{df}
+ We define simultaneously the set of \emph{expressions} of kind $K$ over $V$for every expression kind $K$ and
+alphabet $V$;
+and the set of \emph{abstractions} of kind $A$ over $V$ for every abstraction kind $A$ and alphabet
+$V$.
+\begin{itemize}
+\item Every variable of kind $K$ in $V$ is an expression of kind $K$ over $V$.
+\item If $c$ is a constructor of kind $A_1 \rightarrow \cdots \rightarrow A_n \rightarrow K$,
+and $M_1$ is an abstraction of kind $A_1$, \ldots, $M_n$ is an abstraction of kind $A_n$ (all over $V$), then
+$$ c M_1 \cdots M_n $$
+is an expression of kind $K$ over $V$.
+\item
+An abstraction of kind $K_1 \rightarrow \cdots \rightarrow K_n \rightarrow L$ over $V$ is
+an expression of the form
+\[ [x_1, \ldots, x_n] M \]
+where each $x_i$ is a variable of kind $K_i$, and $M$ is an expression of kind $L$ over
+$V \cup \{ x_1, \ldots, x_n \}$.
+\end{itemize}
+
+\end{df}
+
+
 \begin{example}
 The grammar given in Example \ref{ex:stlc} has four constructors:
 \begin{itemize}
@@ -103,7 +141,7 @@ $\bot$, of kind \AgdaFunction{type};
 \item
 $\rightarrow$, of kind $\AgdaFunction{type} \longrightarrow \AgdaFunction{type} \longrightarrow \AgdaFunction{type}$
 \item
-\AgdaInductiveConstructor{app}, of kind $\AgdaFunction{term} \longrightarrow \AgdaFunction{term} \longrightarrow \AgdaFunction{term}$
+\AgdaFunction{appl}, of kind $\AgdaFunction{term} \longrightarrow \AgdaFunction{term} \longrightarrow \AgdaFunction{term}$
 \item
 $\lambda$, of kind $\AgdaFunction{type} \longrightarrow (\AgdaFunction{term} \longrightarrow \AgdaFunction{term}) \longrightarrow \AgdaFunction{term}$
 \end{itemize}
@@ -112,5 +150,26 @@ and a term $M$, binds a term variable $x$ within $M$, and returns a term $\lambd
 
 \ExecuteMetaData[STLC/Grammar.tex]{Grammar}
 \end{example}
+
+\section{Limitations}
+
+\begin{itemize}
+ \item There is no way to express that an expression depends on some variable kinds but not others.  (E.g. in our simply-typed lambda calculus example:
+the types do not depend on the term variables.)  This leads to some boilerplate that is needed, proving lemmas of the form 
+
+\begin{equation}
+ \label{eq:boilerplate}
+(\bot \AgdaBound{U}) [ \AgdaBound{σ} ] \equiv \bot \, \AgdaBound{V}
+\end{equation}
+
+There is a workaround for this special case.  We can declare all the types as constants:
+%TODO Do this
+This is what we used for the project PHOML.  %TODO Make consistent with rest of paper
+
+For a general solution, we would need to parametrise alphabets by the set of variable kinds that may occur in them, and then prove results about mappings from one
+type of alphabet to another.  We could then prove once-and-for-all versions of the lemmas like (\ref{eq:boilerplate}).  It remains to be seen whether this would still
+be unwieldy in practice.
+\end{itemize}
+
 
 \end{document}

@@ -94,7 +94,7 @@ We implement this by saying a simple kind over $S$ and $T$ consists of a list of
 
 We can construct an object of type $\AgdaDatatype{SK} \, \AgdaBound{S} \, \AgdaBound{T}$ by writing 
 $$ s_1 \longrightarrow \cdots \longrightarrow s_n \longrightarrow t \lozenge \enspace . $$
-(The '$\lozenge$' symbol marks
+(The `$\lozenge$' symbol marks
 the end of the simple kind.  It is needed to help Agda disambiguate the syntax.)
 
 We are now able to write Definition \ref{df:kinds} like this:
@@ -110,6 +110,37 @@ a function assigning, to each variable kind, an expression kind, called its \emp
 \end{itemize}
 
 \ExecuteMetaData[Grammar/Base.tex]{Grammar}
+
+\begin{df}
+ We define simultaneously the set of \emph{expressions} of kind $K$ over $V$for every expression kind $K$ and
+alphabet $V$;
+and the set of \emph{abstractions} of kind $A$ over $V$ for every abstraction kind $A$ and alphabet
+$V$.
+\begin{itemize}
+\item Every variable of kind $K$ in $V$ is an expression of kind $K$ over $V$.
+\item If $c$ is a constructor of kind $A_1 \rightarrow \cdots \rightarrow A_n \rightarrow K$,
+and $M_1$ is an abstraction of kind $A_1$, \ldots, $M_n$ is an abstraction of kind $A_n$ (all over $V$), then
+$$ c M_1 \cdots M_n $$
+is an expression of kind $K$ over $V$.
+\item
+An abstraction of kind $K_1 \rightarrow \cdots \rightarrow K_n \rightarrow L$ over $V$ is
+an expression of the form
+\[ [x_1, \ldots, x_n] M \]
+where each $x_i$ is a variable of kind $K_i$, and $M$ is an expression of kind $L$ over
+$V \cup \{ x_1, \ldots, x_n \}$.
+\end{itemize}
+\end{df}
+
+In the Agda code, we define simultaneously the following four types:
+\begin{itemize}
+ \item $\AgdaFunction{Expression} \, \AgdaBound{V} \, \AgdaBound{K} = \AgdaDatatype{Subexp} \, \AgdaBound{V} \, \AgdaInductiveConstructor{-Expression} \, \AgdaBound{K}$,
+the type of expressions of kind $K$;
+\item $\AgdaFunction{VExpression} \, \AgdaBound{V} \, \AgdaBound{K} = \AgdaFunction{Expression} \,
+\AgdaBound{V} \, (\AgdaInductiveConstructor{varKind} \, \AgdaBound{K})$, a convenient
+shorthand when $K$ is a variable kind;
+\item $\AgdaFunction{Abstraction} \, \AgdaBound{V} \, \AgdaBound{A}$, the type of abstractions
+of kind $A$ over $V$
+\end{itemize}
 
 \begin{example}
 The grammar given in Example \ref{ex:stlc} has four constructors:

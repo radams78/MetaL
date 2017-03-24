@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1490351900 "main.tex" "main.pdf" "main" 1490351901
+["pdflatex"] 1490352584 "main.tex" "main.pdf" "main" 1490352584
   "/Home/ii/robina/texmf/tex/latex/greek-fontenc/greek-fontenc.def" 1441356734 17606 2c9e881ec389ea7ece780755d29aa6bb ""
   "/Home/ii/robina/texmf/tex/latex/greek-fontenc/lgrenc.def" 1454708514 39948 146f19f82b62c4fbacd851f213d16f29 ""
   "/usr/share/texmf/tex/context/base/supp-pdf.tex" 1163813872 75993 121f890a0f3bd94be4aac619bd0814ff ""
@@ -55,11 +55,11 @@
   "/usr/share/texmf/tex/latex/xcolor/xcolor.sty" 1169481954 55224 a43bab84e0ac5e6efcaf9a98bde73a94 ""
   "/usr/share/texmf/tex/latex/xifthen/xifthen.sty" 1152916864 2683 8b7c7407be5475822c6aa263c1564e31 ""
   "Grammar/Base.tex" 1490346353 9514 c89dc742a31e0e93c326fb9049e0403a ""
-  "Grammar/Taxonomy.tex" 1490347569 9496 13aa4a57deecdb79a024965c1a83e647 ""
+  "Grammar/Taxonomy.tex" 1490348430 9641 ef6c9336cce72c32b9301060ce96338b ""
   "STLC/Grammar.tex" 1490347747 6998 db367069f35e90fdc6af360ba3c56bd4 ""
   "agda.sty" 1490345098 20067 d8c5049af83c6eb39f7f6848b15b4e92 ""
-  "main.aux" 1490347747 548 4b05bff57a631da2c98ccd3c5aa15ead ""
-  "main.tex" 1490347669 6267 3f314fe7202e770c0ab50eb1f3abdf9b ""
+  "main.aux" 1490348431 548 254a022fece2d8c8c4f4fd05b44877a7 ""
+  "main.tex" 1490348424 7825 02d32b5e9c2ee9d97e0769526ecd0893 ""
   "textgreek.sty" 1490346249 9154 20a7d54c92af9048a10a3af6a0be8d23 ""
   (generated)
   "main.log"

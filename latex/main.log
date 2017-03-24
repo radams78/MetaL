@@ -1,4 +1,4 @@
-This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2017.1.31)  24 MAR 2017 11:38
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2017.1.31)  24 MAR 2017 11:49
 entering extended mode
  %&-line parsing enabled.
 **main.tex
@@ -438,6 +438,10 @@ File: uni-34.def 2004/10/17 UCS: Unicode data U+2200..U+22FF
 \openout3 = `main.ptb'.
 
 
+Overfull \hbox (0.80835pt too wide) detected at line 67
+ |  
+ []
+
 (./STLC/Grammar.tex)
 \openout3 = `main.ptb'.
 
@@ -457,23 +461,24 @@ File: uni-0.def 2004/10/17 UCS: Unicode data U+0000..U+00FF
  [3] (./STLC/Grammar.tex)
 \openout3 = `main.ptb'.
 
+ [4]
 \openout3 = `main.ptb'.
 
 
 (/usr/share/texmf/tex/latex/ucs/data/uni-3.def
 File: uni-3.def 2004/10/17 UCS: Unicode data U+0300..U+03FF
 )
-LaTeX Font Info:    Try loading font information for LGR+cmss on input line 129
+LaTeX Font Info:    Try loading font information for LGR+cmss on input line 161
 .
 
 (/usr/share/texmf/tex/generic/babel/lgrcmss.fd
 File: lgrcmss.fd 2001/01/30 v2.2e Greek Computer Modern Sans Serif
-) [4] [5] (./main.aux) ) 
+) [5] [6] (./main.aux) ) 
 Here is how much of TeX's memory you used:
- 7532 strings out of 256214
- 99209 string characters out of 1917000
- 149414 words of memory out of 1500000
- 10650 multiletter control sequences out of 10000+200000
+ 7533 strings out of 256214
+ 99224 string characters out of 1917000
+ 150563 words of memory out of 1500000
+ 10651 multiletter control sequences out of 10000+200000
  29083 words of font info for 65 fonts, out of 1200000 for 2000
  645 hyphenation exceptions out of 8191
  41i,8n,73p,799b,643s stack positions out of 5000i,500n,6000p,200000b,15000s
@@ -495,9 +500,9 @@ r/share/texmf/fonts/type1/bluesky/cm/cmr7.pfb></usr/share/texmf/fonts/type1/blu
 esky/cm/cmsy10.pfb></usr/share/texmf/fonts/type1/public/cb/grmi1000.pfb></usr/s
 hare/texmf/fonts/type1/public/cb/gsmn1000.pfb></usr/share/texmf/fonts/type1/blu
 esky/ams/msam10.pfb>
-Output written on main.pdf (5 pages, 136256 bytes).
+Output written on main.pdf (6 pages, 139895 bytes).
 PDF statistics:
- 355 PDF objects out of 1000 (max. 8388607)
+ 360 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 131072)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -24,8 +24,8 @@ module Grammar.Base where
 record IsGrammar (T : Taxonomy) : Set₁ where
   open Taxonomy T
   field
-    Con    : ConKind → Set
-    parent : VarKind → ExpKind
+    Con    : ConstructorKind → Set
+    parent : VariableKind → ExpressionKind
 
 record Grammar : Set₁ where
   field
@@ -43,22 +43,22 @@ record Grammar : Set₁ where
 --An abstraction of kind KK → L is an expression of kind L in an alphabet extended by
 --variables of kinds given by KK
   data Subexp (V : Alphabet) : ∀ C → Kind C → Set
-  Expression : Alphabet → ExpKind → Set
-  VExpression : Alphabet → VarKind → Set
-  Abs : Alphabet → AbsKind → Set
-  ListAbs : Alphabet → List AbsKind → Set
+  Expression : Alphabet → ExpressionKind → Set
+  VExpression : Alphabet → VariableKind → Set
+  Abstraction : Alphabet → AbstractionKind → Set
+  ListAbstraction : Alphabet → List AbstractionKind → Set
 
   Expression V K = Subexp V -Expression K
   VExpression V K = Expression V (varKind K)
-  Abs V (SK KK L) = Expression (extend V KK) L
-  ListAbs V AA = Subexp V -ListAbs AA
+  Abstraction V (SK KK L) = Expression (extend V KK) L
+  ListAbstraction V AA = Subexp V -ListAbstraction AA
 
   infixr 5 _∷_
   data Subexp V where
     var : ∀ {K} → Var V K → VExpression V K
-    app : ∀ {AA} {K} → Con (SK AA K) → ListAbs V AA → Expression V K
-    [] : ListAbs V []
-    _∷_ : ∀ {A} {AA} → Abs V A → ListAbs V AA → ListAbs V (A ∷ AA)
+    app : ∀ {AA} {K} → Con (SK AA K) → ListAbstraction V AA → Expression V K
+    [] : ListAbstraction V []
+    _∷_ : ∀ {A} {AA} → Abstraction V A → ListAbstraction V AA → ListAbstraction V (A ∷ AA)
 
 --The mapping from variables to expressions is injective
   var-inj : ∀ {V} {K} {x y : Var V K} → var x ≡ var y → x ≡ y
@@ -69,11 +69,11 @@ record Grammar : Set₁ where
 --such that Ai is of kind the parent of Ki
 --I.e. such that x1 : A1, ..., xn : An is a well-formed context
 --where xi has kind Ki
-  data Types : Alphabet → List VarKind → Set where
+  data Types : Alphabet → List VariableKind → Set where
     [] : ∀ {V} → Types V []
     _,_ : ∀ {V K AA} → Expression V (parent K) → Types (V , K) AA → Types V (K ∷ AA)
 
-  data snocTypes : Alphabet → snocList VarKind → Set where
+  data snocTypes : Alphabet → snocList VariableKind → Set where
     [] : ∀ {V} → snocTypes V []
     _snoc_ : ∀ {V AA K} → snocTypes V AA → Expression (snoc-extend V AA) (parent K) → snocTypes V (AA snoc K)
 \end{code}

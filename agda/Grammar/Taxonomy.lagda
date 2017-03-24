@@ -11,12 +11,12 @@ open import Prelims
 \begin{code}
 record Taxonomy : Set₁ where
   field
-    VarKind : Set
-    NonVarKind : Set
+    VariableKind : Set
+    NonVariableKind : Set
 
-  data ExpKind : Set where
-    varKind : VarKind → ExpKind
-    nonVarKind : NonVarKind → ExpKind
+  data ExpressionKind : Set where
+    varKind : VariableKind → ExpressionKind
+    nonVariableKind : NonVariableKind → ExpressionKind
 \end{code}
 %</Taxonomy>
 
@@ -29,19 +29,19 @@ record Taxonomy : Set₁ where
   infixl 55 _,_
   data Alphabet : Set where
     ∅ : Alphabet
-    _,_ : Alphabet → VarKind → Alphabet
+    _,_ : Alphabet → VariableKind → Alphabet
 \end{code}
 %</Alphabet>
 
 \begin{code}
 -- Define concatenation of alphabets
--- TODO Extend alphabet with F VarKind for suitable functors F
+-- TODO Extend alphabet with F VariableKind for suitable functors F
 
-  extend : Alphabet → List VarKind → Alphabet
+  extend : Alphabet → List VariableKind → Alphabet
   extend V [] = V
   extend V (K ∷ KK) = extend (V , K) KK
 
-  snoc-extend : Alphabet → snocList VarKind → Alphabet
+  snoc-extend : Alphabet → snocList VariableKind → Alphabet
   snoc-extend V [] = V
   snoc-extend V (KK snoc K) = snoc-extend V KK , K
 
@@ -50,7 +50,7 @@ record Taxonomy : Set₁ where
 
 %<*Var>
 \begin{code}
-  data Var : Alphabet → VarKind → Set where
+  data Var : Alphabet → VariableKind → Set where
     x₀ : ∀ {V} {K} → Var (V , K) K
     ↑ : ∀ {V} {K} {L} → Var V L → Var (V , K) L
 \end{code}
@@ -100,8 +100,8 @@ record Taxonomy : Set₁ where
 
 %<*SimpleKindB>
 \begin{code}
-  AbsKind = SimpleKind VarKind ExpKind
-  ConKind = SimpleKind AbsKind ExpKind
+  AbstractionKind = SimpleKind VariableKind ExpressionKind
+  ConstructorKind = SimpleKind AbstractionKind ExpressionKind
 \end{code}
 %</SimpleKindB>
 
@@ -109,9 +109,9 @@ record Taxonomy : Set₁ where
 -- A kind is either an expression kind or a list of abstraction kinds
   data KindClass : Set where
     -Expression : KindClass
-    -ListAbs : KindClass
+    -ListAbstraction : KindClass
 
   Kind : KindClass → Set
-  Kind -Expression = ExpKind
-  Kind -ListAbs = List AbsKind
+  Kind -Expression = ExpressionKind
+  Kind -ListAbstraction = List AbstractionKind
 \end{code}
