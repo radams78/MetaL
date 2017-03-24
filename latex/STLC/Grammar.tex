@@ -3,7 +3,11 @@
 \\
 %
 \\
+\>\AgdaKeyword{open} \AgdaKeyword{import} \AgdaModule{Data.List}\<%
+\\
 \>\AgdaKeyword{open} \AgdaKeyword{import} \AgdaModule{Grammar.Taxonomy}\<%
+\\
+\>\AgdaKeyword{open} \AgdaKeyword{import} \AgdaModule{Grammar.Base}\<%
 \end{code}
 
 %<*Taxonomy>
@@ -33,19 +37,121 @@
 \\
 \>[0]\AgdaIndent{2}{}\<[2]%
 \>[2]\AgdaField{NonVarKind} \AgdaSymbol{=} \AgdaDatatype{stlcNonVarKind} \AgdaSymbol{\}}\<%
-\\
-\>\AgdaKeyword{open} \AgdaModule{Taxonomy} \AgdaFunction{stlcTaxonomy}\<%
-\\
-%
-\\
-\>\AgdaFunction{type} \AgdaSymbol{:} \AgdaDatatype{ExpKind}\<%
-\\
-\>\AgdaFunction{type} \AgdaSymbol{=} \AgdaInductiveConstructor{nonVarKind} \AgdaInductiveConstructor{-type}\<%
-\\
-%
-\\
-\>\AgdaFunction{term} \AgdaSymbol{:} \AgdaDatatype{ExpKind}\<%
-\\
-\>\AgdaFunction{term} \AgdaSymbol{=} \AgdaInductiveConstructor{varKind} \AgdaInductiveConstructor{-term}\<%
 \end{code}
 %</Taxonomy>
+
+\begin{code}%
+\>\AgdaKeyword{module} \AgdaModule{STLCGrammar} \AgdaKeyword{where}\<%
+\\
+\>[0]\AgdaIndent{2}{}\<[2]%
+\>[2]\AgdaKeyword{open} \AgdaModule{Taxonomy} \AgdaFunction{stlcTaxonomy}\<%
+\end{code}
+
+%<*Grammar>
+\begin{code}%
+\>[0]\AgdaIndent{2}{}\<[2]%
+\>[2]\AgdaFunction{type} \AgdaSymbol{:} \AgdaDatatype{ExpKind}\<%
+\\
+\>[0]\AgdaIndent{2}{}\<[2]%
+\>[2]\AgdaFunction{type} \AgdaSymbol{=} \AgdaInductiveConstructor{nonVarKind} \AgdaInductiveConstructor{-type}\<%
+\\
+%
+\\
+\>[0]\AgdaIndent{2}{}\<[2]%
+\>[2]\AgdaFunction{term} \AgdaSymbol{:} \AgdaDatatype{ExpKind}\<%
+\\
+\>[0]\AgdaIndent{2}{}\<[2]%
+\>[2]\AgdaFunction{term} \AgdaSymbol{=} \AgdaInductiveConstructor{varKind} \AgdaInductiveConstructor{-term}\<%
+\\
+%
+\\
+\>[0]\AgdaIndent{2}{}\<[2]%
+\>[2]\AgdaKeyword{data} \AgdaDatatype{stlcCon} \AgdaSymbol{:} \AgdaFunction{ConKind} \AgdaSymbol{→} \AgdaPrimitiveType{Set} \AgdaKeyword{where}\<%
+\\
+\>[2]\AgdaIndent{4}{}\<[4]%
+\>[4]\AgdaInductiveConstructor{-bot} \AgdaSymbol{:} \AgdaDatatype{stlcCon} \AgdaSymbol{(}\AgdaFunction{type} \AgdaFunction{✧}\AgdaSymbol{)}\<%
+\\
+\>[2]\AgdaIndent{4}{}\<[4]%
+\>[4]\AgdaInductiveConstructor{-arrow} \AgdaSymbol{:} \AgdaDatatype{stlcCon} \AgdaSymbol{(}\AgdaFunction{type} \AgdaFunction{✧} \AgdaFunction{⟶} \AgdaFunction{type} \AgdaFunction{✧} \AgdaFunction{⟶} \AgdaFunction{type} \AgdaFunction{✧}\AgdaSymbol{)}\<%
+\\
+\>[2]\AgdaIndent{4}{}\<[4]%
+\>[4]\AgdaInductiveConstructor{-app} \AgdaSymbol{:} \AgdaDatatype{stlcCon} \AgdaSymbol{(}\AgdaFunction{term} \AgdaFunction{✧} \AgdaFunction{⟶} \AgdaFunction{term} \AgdaFunction{✧} \AgdaFunction{⟶} \AgdaFunction{term} \AgdaFunction{✧}\AgdaSymbol{)}\<%
+\\
+\>[2]\AgdaIndent{4}{}\<[4]%
+\>[4]\AgdaInductiveConstructor{-lam} \AgdaSymbol{:} \AgdaDatatype{stlcCon} \AgdaSymbol{(}\AgdaFunction{type} \AgdaFunction{✧} \AgdaFunction{⟶} \AgdaSymbol{(}\AgdaInductiveConstructor{-term} \AgdaFunction{⟶} \AgdaFunction{term} \AgdaFunction{✧}\AgdaSymbol{)} \AgdaFunction{⟶} \AgdaFunction{term} \AgdaFunction{✧}\AgdaSymbol{)}\<%
+\\
+%
+\\
+\>[0]\AgdaIndent{2}{}\<[2]%
+\>[2]\AgdaFunction{stlcParent} \AgdaSymbol{:} \AgdaFunction{VarKind} \AgdaSymbol{→} \AgdaDatatype{ExpKind}\<%
+\\
+\>[0]\AgdaIndent{2}{}\<[2]%
+\>[2]\AgdaFunction{stlcParent} \AgdaInductiveConstructor{-term} \AgdaSymbol{=} \AgdaFunction{type}\<%
+\\
+%
+\\
+\>[0]\AgdaIndent{2}{}\<[2]%
+\>[2]\AgdaFunction{stlc} \AgdaSymbol{:} \AgdaRecord{Grammar}\<%
+\\
+\>[0]\AgdaIndent{2}{}\<[2]%
+\>[2]\AgdaFunction{stlc} \AgdaSymbol{=} \AgdaKeyword{record} \AgdaSymbol{\{} \<[18]%
+\>[18]\<%
+\\
+\>[2]\AgdaIndent{4}{}\<[4]%
+\>[4]\AgdaField{taxonomy} \AgdaSymbol{=} \AgdaFunction{stlcTaxonomy} \AgdaSymbol{;} \<[30]%
+\>[30]\<%
+\\
+\>[2]\AgdaIndent{4}{}\<[4]%
+\>[4]\AgdaField{isGrammar} \AgdaSymbol{=} \AgdaKeyword{record} \AgdaSymbol{\{} \<[25]%
+\>[25]\<%
+\\
+\>[4]\AgdaIndent{6}{}\<[6]%
+\>[6]\AgdaField{Con} \AgdaSymbol{=} \AgdaDatatype{stlcCon} \AgdaSymbol{;} \<[22]%
+\>[22]\<%
+\\
+\>[4]\AgdaIndent{6}{}\<[6]%
+\>[6]\AgdaField{parent} \AgdaSymbol{=} \AgdaFunction{stlcParent} \AgdaSymbol{\}} \AgdaSymbol{\}}\<%
+\\
+%
+\\
+\>\AgdaKeyword{open} \AgdaModule{STLCGrammar}\<%
+\\
+\>\AgdaKeyword{open} \AgdaModule{Grammar} \AgdaFunction{STLCGrammar.stlc}\<%
+\\
+%
+\\
+\>\AgdaFunction{Type} \AgdaSymbol{:} \AgdaDatatype{Alphabet} \AgdaSymbol{→} \AgdaPrimitiveType{Set}\<%
+\\
+\>\AgdaFunction{Type} \AgdaBound{V} \AgdaSymbol{=} \AgdaFunction{Expression} \AgdaBound{V} \AgdaFunction{type}\<%
+\\
+%
+\\
+\>\AgdaFunction{Term} \AgdaSymbol{:} \AgdaDatatype{Alphabet} \AgdaSymbol{→} \AgdaPrimitiveType{Set}\<%
+\\
+\>\AgdaFunction{Term} \AgdaBound{V} \AgdaSymbol{=} \AgdaFunction{Expression} \AgdaBound{V} \AgdaFunction{term}\<%
+\\
+%
+\\
+\>\AgdaFunction{⊥} \AgdaSymbol{:} \AgdaSymbol{∀} \AgdaBound{V} \AgdaSymbol{→} \AgdaFunction{Type} \AgdaBound{V}\<%
+\\
+\>\AgdaFunction{⊥} \AgdaBound{V} \AgdaSymbol{=} \AgdaInductiveConstructor{app} \AgdaInductiveConstructor{-bot} \AgdaInductiveConstructor{[]}\<%
+\\
+%
+\\
+\>\AgdaFunction{\_⇒\_} \AgdaSymbol{:} \AgdaSymbol{∀} \AgdaSymbol{\{}\AgdaBound{V}\AgdaSymbol{\}} \AgdaSymbol{→} \AgdaFunction{Type} \AgdaBound{V} \AgdaSymbol{→} \AgdaFunction{Type} \AgdaBound{V} \AgdaSymbol{→} \AgdaFunction{Type} \AgdaBound{V}\<%
+\\
+\>\AgdaBound{A} \AgdaFunction{⇒} \AgdaBound{B} \AgdaSymbol{=} \AgdaInductiveConstructor{app} \AgdaInductiveConstructor{-arrow} \AgdaSymbol{(}\AgdaBound{A} \AgdaInductiveConstructor{∷} \AgdaBound{B} \AgdaInductiveConstructor{∷} \AgdaInductiveConstructor{[]}\AgdaSymbol{)}\<%
+\\
+%
+\\
+\>\AgdaFunction{appl} \AgdaSymbol{:} \AgdaSymbol{∀} \AgdaSymbol{\{}\AgdaBound{V}\AgdaSymbol{\}} \AgdaSymbol{→} \AgdaFunction{Term} \AgdaBound{V} \AgdaSymbol{→} \AgdaFunction{Term} \AgdaBound{V} \AgdaSymbol{→} \AgdaFunction{Term} \AgdaBound{V}\<%
+\\
+\>\AgdaFunction{appl} \AgdaBound{M} \AgdaBound{N} \AgdaSymbol{=} \AgdaInductiveConstructor{app} \AgdaInductiveConstructor{-app} \AgdaSymbol{(}\AgdaBound{M} \AgdaInductiveConstructor{∷} \AgdaBound{N} \AgdaInductiveConstructor{∷} \AgdaInductiveConstructor{[]}\AgdaSymbol{)}\<%
+\\
+%
+\\
+\>\AgdaFunction{Λ} \AgdaSymbol{:} \AgdaSymbol{∀} \AgdaSymbol{\{}\AgdaBound{V}\AgdaSymbol{\}} \AgdaSymbol{→} \AgdaFunction{Type} \AgdaBound{V} \AgdaSymbol{→} \AgdaFunction{Term} \AgdaSymbol{(}\AgdaBound{V} \AgdaInductiveConstructor{,} \AgdaInductiveConstructor{-term}\AgdaSymbol{)} \AgdaSymbol{→} \AgdaFunction{Term} \AgdaBound{V}\<%
+\\
+\>\AgdaFunction{Λ} \AgdaBound{A} \AgdaBound{M} \AgdaSymbol{=} \AgdaInductiveConstructor{app} \AgdaInductiveConstructor{-lam} \AgdaSymbol{(}\AgdaBound{A} \AgdaInductiveConstructor{∷} \AgdaBound{M} \AgdaInductiveConstructor{∷} \AgdaInductiveConstructor{[]}\AgdaSymbol{)}\<%
+\end{code}
+%</Grammar>

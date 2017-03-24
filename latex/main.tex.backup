@@ -7,7 +7,6 @@
 \usepackage{amsthm}
 \usepackage{agda}
 \usepackage{catchfilebetweentags}
-\usepackage{textgreek}
 
 \DeclareUnicodeCharacter{8759}{\ensuremath{::}}
 \DeclareUnicodeCharacter{10023}{\ensuremath{\lozenge}}
@@ -113,25 +112,5 @@ and a term $M$, binds a term variable $x$ within $M$, and returns a term $\lambd
 
 \ExecuteMetaData[STLC/Grammar.tex]{Grammar}
 \end{example}
-
-\section{Limitations}
-
-\begin{itemize}
- \item There is no way to express that an expression depends on some variable kinds but not others.  (E.g. in our simply-typed lambda calculus example:
-the types do not depend on the term variables.)  This leads to some boilerplate that is needed, proving lemmas of the form 
-
-\begin{equation}
- \label{eq:boilerplate}
-(\bot \AgdaBound{U}) [ \AgdaBound{σ} ] \equiv \bot \, \AgdaBound{V}
-\end{equation}
-
-There is a workaround for this special case.  We can declare all the types as constants:
-%TODO Do this
-
-For a general solution, we would need to parametrise alphabets by the set of variable kinds that may occur in them, and then prove results about mappings from one
-type of alphabet to another.  We could then prove once-and-for-all versions of the lemmas like (\ref{eq:boilerplate}).  It remains to be seen whether this would still
-be unwieldy in practice.
-\end{itemize}
-
 
 \end{document}
