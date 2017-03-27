@@ -8,16 +8,16 @@ open import Grammar.Base
 
 %<*Taxonomy>
 \begin{code}
-data stlcVarKind : Set where
-  -term : stlcVarKind
+data stlcVariableKind : Set where
+  -term : stlcVariableKind
 
-data stlcNonVarKind : Set where
-  -type : stlcNonVarKind
+data stlcNonVariableKind : Set where
+  -type : stlcNonVariableKind
 
 stlcTaxonomy : Taxonomy
 stlcTaxonomy = record { 
-  VarKind = stlcVarKind ; 
-  NonVarKind = stlcNonVarKind }
+  VariableKind = stlcVariableKind ; 
+  NonVariableKind = stlcNonVariableKind }
 \end{code}
 %</Taxonomy>
 
@@ -28,19 +28,19 @@ module STLCGrammar where
 
 %<*Grammar>
 \begin{code}
-  type : ExpKind
-  type = nonVarKind -type
+  type : ExpressionKind
+  type = nonVariableKind -type
 
-  term : ExpKind
+  term : ExpressionKind
   term = varKind -term
 
-  data stlcCon : ConKind → Set where
+  data stlcCon : ConstructorKind → Set where
     -bot : stlcCon (type ✧)
     -arrow : stlcCon (type ✧ ⟶ type ✧ ⟶ type ✧)
     -app : stlcCon (term ✧ ⟶ term ✧ ⟶ term ✧)
     -lam : stlcCon (type ✧ ⟶ (-term ⟶ term ✧) ⟶ term ✧)
 
-  stlcParent : VarKind → ExpKind
+  stlcParent : VariableKind → ExpressionKind
   stlcParent -term = type
 
   stlc : Grammar

@@ -12,17 +12,17 @@
 
 %<*Taxonomy>
 \begin{code}%
-\>\AgdaKeyword{data} \AgdaDatatype{stlcVarKind} \AgdaSymbol{:} \AgdaPrimitiveType{Set} \AgdaKeyword{where}\<%
+\>\AgdaKeyword{data} \AgdaDatatype{stlcVariableKind} \AgdaSymbol{:} \AgdaPrimitiveType{Set} \AgdaKeyword{where}\<%
 \\
 \>[0]\AgdaIndent{2}{}\<[2]%
-\>[2]\AgdaInductiveConstructor{-term} \AgdaSymbol{:} \AgdaDatatype{stlcVarKind}\<%
+\>[2]\AgdaInductiveConstructor{-term} \AgdaSymbol{:} \AgdaDatatype{stlcVariableKind}\<%
 \\
 %
 \\
-\>\AgdaKeyword{data} \AgdaDatatype{stlcNonVarKind} \AgdaSymbol{:} \AgdaPrimitiveType{Set} \AgdaKeyword{where}\<%
+\>\AgdaKeyword{data} \AgdaDatatype{stlcNonVariableKind} \AgdaSymbol{:} \AgdaPrimitiveType{Set} \AgdaKeyword{where}\<%
 \\
 \>[0]\AgdaIndent{2}{}\<[2]%
-\>[2]\AgdaInductiveConstructor{-type} \AgdaSymbol{:} \AgdaDatatype{stlcNonVarKind}\<%
+\>[2]\AgdaInductiveConstructor{-type} \AgdaSymbol{:} \AgdaDatatype{stlcNonVariableKind}\<%
 \\
 %
 \\
@@ -32,11 +32,11 @@
 \>[24]\<%
 \\
 \>[0]\AgdaIndent{2}{}\<[2]%
-\>[2]\AgdaField{VarKind} \AgdaSymbol{=} \AgdaDatatype{stlcVarKind} \AgdaSymbol{;} \<[26]%
-\>[26]\<%
+\>[2]\AgdaField{VariableKind} \AgdaSymbol{=} \AgdaDatatype{stlcVariableKind} \AgdaSymbol{;} \<[36]%
+\>[36]\<%
 \\
 \>[0]\AgdaIndent{2}{}\<[2]%
-\>[2]\AgdaField{NonVarKind} \AgdaSymbol{=} \AgdaDatatype{stlcNonVarKind} \AgdaSymbol{\}}\<%
+\>[2]\AgdaField{NonVariableKind} \AgdaSymbol{=} \AgdaDatatype{stlcNonVariableKind} \AgdaSymbol{\}}\<%
 \end{code}
 %</Taxonomy>
 
@@ -50,15 +50,15 @@
 %<*Grammar>
 \begin{code}%
 \>[0]\AgdaIndent{2}{}\<[2]%
-\>[2]\AgdaFunction{type} \AgdaSymbol{:} \AgdaDatatype{ExpKind}\<%
+\>[2]\AgdaFunction{type} \AgdaSymbol{:} \AgdaDatatype{ExpressionKind}\<%
 \\
 \>[0]\AgdaIndent{2}{}\<[2]%
-\>[2]\AgdaFunction{type} \AgdaSymbol{=} \AgdaInductiveConstructor{nonVarKind} \AgdaInductiveConstructor{-type}\<%
+\>[2]\AgdaFunction{type} \AgdaSymbol{=} \AgdaInductiveConstructor{nonVariableKind} \AgdaInductiveConstructor{-type}\<%
 \\
 %
 \\
 \>[0]\AgdaIndent{2}{}\<[2]%
-\>[2]\AgdaFunction{term} \AgdaSymbol{:} \AgdaDatatype{ExpKind}\<%
+\>[2]\AgdaFunction{term} \AgdaSymbol{:} \AgdaDatatype{ExpressionKind}\<%
 \\
 \>[0]\AgdaIndent{2}{}\<[2]%
 \>[2]\AgdaFunction{term} \AgdaSymbol{=} \AgdaInductiveConstructor{varKind} \AgdaInductiveConstructor{-term}\<%
@@ -66,7 +66,7 @@
 %
 \\
 \>[0]\AgdaIndent{2}{}\<[2]%
-\>[2]\AgdaKeyword{data} \AgdaDatatype{stlcCon} \AgdaSymbol{:} \AgdaFunction{ConKind} \AgdaSymbol{→} \AgdaPrimitiveType{Set} \AgdaKeyword{where}\<%
+\>[2]\AgdaKeyword{data} \AgdaDatatype{stlcCon} \AgdaSymbol{:} \AgdaFunction{ConstructorKind} \AgdaSymbol{→} \AgdaPrimitiveType{Set} \AgdaKeyword{where}\<%
 \\
 \>[2]\AgdaIndent{4}{}\<[4]%
 \>[4]\AgdaInductiveConstructor{-bot} \AgdaSymbol{:} \AgdaDatatype{stlcCon} \AgdaSymbol{(}\AgdaFunction{type} \AgdaFunction{✧}\AgdaSymbol{)}\<%
@@ -83,7 +83,7 @@
 %
 \\
 \>[0]\AgdaIndent{2}{}\<[2]%
-\>[2]\AgdaFunction{stlcParent} \AgdaSymbol{:} \AgdaFunction{VarKind} \AgdaSymbol{→} \AgdaDatatype{ExpKind}\<%
+\>[2]\AgdaFunction{stlcParent} \AgdaSymbol{:} \AgdaFunction{VariableKind} \AgdaSymbol{→} \AgdaDatatype{ExpressionKind}\<%
 \\
 \>[0]\AgdaIndent{2}{}\<[2]%
 \>[2]\AgdaFunction{stlcParent} \AgdaInductiveConstructor{-term} \AgdaSymbol{=} \AgdaFunction{type}\<%
