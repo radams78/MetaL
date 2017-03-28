@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1490620683 "main.tex" "main.pdf" "main" 1490620684
+["pdflatex"] 1490686035 "main.tex" "main.pdf" "main" 1490686036
   "/etc/texmf/web2c/texmf.cnf" 1482949960 1101 af7716885e081ab43982cab7b4672c1a ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecbx1000.tfm" 1136768653 3584 2d666ecf6d466d8b007246bc2f94d9da ""
@@ -123,15 +123,15 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1458942643 31351 b32c45dce4a01cb7b53ed90c546614ca ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1482950075 1863403 f3ff9a4253bcb5fb9a9baaf0c572cb01 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1482950224 3856136 1ee98d09b2991be950c748617ecb5f82 ""
-  "Grammar/Base.tex" 1490619588 9664 f626e974985347b2dfc615bf9922b9ed ""
-  "Grammar/Taxonomy.tex" 1490619591 9653 b21e2d5b6c74602b819907ace638017b ""
-  "STLC/Grammar.tex" 1490620682 7078 8ec6af4613d76cabe89319f979adbadc ""
+  "Grammar/Base.tex" 1490685437 8961 366e6a340833bf5fa41d332fc421309c ""
+  "Grammar/Taxonomy.tex" 1490685170 9653 b21e2d5b6c74602b819907ace638017b ""
+  "STLC/Grammar.tex" 1490685172 7078 8ec6af4613d76cabe89319f979adbadc ""
   "agda.sty" 1490618976 20067 d8c5049af83c6eb39f7f6848b15b4e92 ""
-  "main.aux" 1490620683 548 254a022fece2d8c8c4f4fd05b44877a7 ""
-  "main.tex" 1490618976 7825 02d32b5e9c2ee9d97e0769526ecd0893 ""
+  "main.aux" 1490686036 548 a1ca84b02881cf465b00a62cbaeb190d ""
+  "main.tex" 1490686031 8153 92d27c8a9b185fe575fc64d9e57fafdc ""
   "textgreek.sty" 1490618976 9154 20a7d54c92af9048a10a3af6a0be8d23 ""
   (generated)
   "main.pdf"
   "main.ptb"
-  "main.aux"
   "main.log"
+  "main.aux"

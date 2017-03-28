@@ -67,17 +67,8 @@
 \end{code}
 %</Grammar>
 
+%<*Expression>
 \begin{code}%
-\>\AgdaComment{--Define simultaneously:}\<%
-\\
-\>\AgdaComment{--An expression of kind K is either a variable of kind K,}\<%
-\\
-\>\AgdaComment{--or a constructor of kind AA → K applied to a list of abstractions of kinds given by AA}\<%
-\\
-\>\AgdaComment{--An abstraction of kind KK → L is an expression of kind L in an alphabet extended by}\<%
-\\
-\>\AgdaComment{--variables of kinds given by KK}\<%
-\\
 \>[0]\AgdaIndent{2}{}\<[2]%
 \>[2]\AgdaKeyword{data} \AgdaDatatype{Subexp} \AgdaSymbol{(}\AgdaBound{V} \AgdaSymbol{:} \AgdaDatatype{Alphabet}\AgdaSymbol{)} \AgdaSymbol{:} \AgdaSymbol{∀} \AgdaBound{C} \AgdaSymbol{→} \AgdaFunction{Kind} \AgdaBound{C} \AgdaSymbol{→} \AgdaPrimitiveType{Set}\<%
 \\
@@ -126,9 +117,10 @@
 \\
 \>[2]\AgdaIndent{4}{}\<[4]%
 \>[4]\AgdaInductiveConstructor{\_∷\_} \AgdaSymbol{:} \AgdaSymbol{∀} \AgdaSymbol{\{}\AgdaBound{A}\AgdaSymbol{\}} \AgdaSymbol{\{}\AgdaBound{AA}\AgdaSymbol{\}} \AgdaSymbol{→} \AgdaFunction{Abstraction} \AgdaBound{V} \AgdaBound{A} \AgdaSymbol{→} \AgdaFunction{ListAbstraction} \AgdaBound{V} \AgdaBound{AA} \AgdaSymbol{→} \AgdaFunction{ListAbstraction} \AgdaBound{V} \AgdaSymbol{(}\AgdaBound{A} \AgdaInductiveConstructor{∷} \AgdaBound{AA}\AgdaSymbol{)}\<%
-\\
-%
-\\
+\end{code}
+%</Expression>
+
+\begin{code}%
 \>\AgdaComment{--The mapping from variables to expressions is injective}\<%
 \\
 \>[0]\AgdaIndent{2}{}\<[2]%
@@ -138,16 +130,6 @@
 \>[2]\AgdaFunction{var-inj} \AgdaInductiveConstructor{refl} \AgdaSymbol{=} \AgdaInductiveConstructor{refl}\<%
 \\
 %
-\\
-\>\AgdaComment{--Given a list of variable kinds K1, ..., Kn, }\<%
-\\
-\>\AgdaComment{--let Types [K1 ... Kn] be the set of all lists [A1 ... An]}\<%
-\\
-\>\AgdaComment{--such that Ai is of kind the parent of Ki}\<%
-\\
-\>\AgdaComment{--I.e. such that x1 : A1, ..., xn : An is a well-formed context}\<%
-\\
-\>\AgdaComment{--where xi has kind Ki}\<%
 \\
 \>[0]\AgdaIndent{2}{}\<[2]%
 \>[2]\AgdaKeyword{data} \AgdaDatatype{Types} \AgdaSymbol{:} \AgdaDatatype{Alphabet} \AgdaSymbol{→} \AgdaDatatype{List} \AgdaFunction{VariableKind} \AgdaSymbol{→} \AgdaPrimitiveType{Set} \AgdaKeyword{where}\<%

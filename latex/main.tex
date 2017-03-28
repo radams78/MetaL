@@ -140,8 +140,12 @@ the type of expressions of kind $K$;
 shorthand when $K$ is a variable kind;
 \item $\AgdaFunction{Abstraction} \, \AgdaBound{V} \, \AgdaBound{A}$, the type of abstractions
 of kind $A$ over $V$
-%TODO ListAbs
+\item $\AgdaFunction{ListAbstraction} \, \AgdaBound{V} \, \AgdaBound{AA}$: if $\AgdaBound{AA} \equiv [ A_1, \ldots, A_n ]$,
+then $\AgdaFunction{ListAbstraction} \, \AgdaBound{V} \, \AgdaBound{AA}$ is the type of lists of abstractions $[M_1, \ldots, M_n]$
+such that each $M_i$ is of kind $A_i$.
 \end{itemize}
+
+\ExecuteMetaData[Grammar/Base.tex]{Expression}
 
 \begin{example}
 The grammar given in Example \ref{ex:stlc} has four constructors:

@@ -196,6 +196,10 @@ INPUT Grammar/Base.tex
 INPUT Grammar/Base.tex
 OUTPUT main.ptb
 INPUT main.ptb
+INPUT Grammar/Base.tex
+INPUT Grammar/Base.tex
+OUTPUT main.ptb
+INPUT main.ptb
 INPUT STLC/Grammar.tex
 INPUT STLC/Grammar.tex
 OUTPUT main.ptb
