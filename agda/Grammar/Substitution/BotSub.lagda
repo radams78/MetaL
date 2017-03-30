@@ -1,3 +1,4 @@
+\begin{code}
 open import Grammar.Base
   
 module Grammar.Substitution.BotSub (G : Grammar) where
@@ -10,29 +11,42 @@ open import Grammar.Substitution.Lifting G
 open import Grammar.Substitution.LiftFamily G
 open import Grammar.Substitution.OpFamily G
 open LiftFamily
+\end{code}
 
+%<*botSub>
+\begin{code}
 botSub : ∀ {V} {KK} → HetsnocList (VExpression V) KK → Sub (snoc-extend V KK) V
-botSub {KK = []} _ _ x = var x
-botSub {KK = _ snoc _} (_ snoc E) _ x₀ = E
-botSub {KK = _ snoc _} (EE snoc _) L (↑ x) = botSub EE L x
+botSub {KK = []} _ x = var x
+botSub {KK = _ snoc _} (_ snoc E) x₀ = E
+botSub {KK = _ snoc _} (EE snoc _) (↑ x) = botSub EE x
 
 infix 65 x₀:=_
 x₀:=_ : ∀ {V} {K} → Expression V (varKind K) → Sub (V , K) V
 x₀:= E = botSub ([] snoc E)
+\end{code}
+%</botSub>
 
+\begin{code}
 botSub-up' : ∀ {F} {V} {K} {E : Expression V (varKind K)} (comp : Composition SubLF F SubLF) →
   Composition._∘_ comp (x₀:= E) (up F) ∼ idSub V
 botSub-up' {F} {V} {K} {E} comp x = let open ≡-Reasoning in 
   begin
-    (Composition._∘_ comp (x₀:= E) (up F)) _ x
+    (Composition._∘_ comp (x₀:= E) (up F)) x
   ≡⟨ Composition.apV-comp comp ⟩
     apV F (up F) x ⟦ x₀:= E ⟧
   ≡⟨ sub-congl (apV-up F) ⟩
     var x
   ∎
+\end{code}
 
+%<*botSub-up>
+\begin{code}
 botSub-up : ∀ {F} {V} {K} {C} {L} {E : Expression V (varKind K)} (comp : Composition SubLF F SubLF) {E' : Subexp V C L} →
   ap F (up F) E' ⟦ x₀:= E ⟧ ≡ E'
+\end{code}
+%</botSub-up>
+
+\begin{code}
 botSub-up {F} {V} {K} {C} {L} {E} comp {E'} = let open ≡-Reasoning in
   begin
     ap F (up F) E' ⟦ x₀:= E ⟧
@@ -51,17 +65,17 @@ comp-botSub' : ∀ {F} {U} {V} {K} {E : Expression U (varKind K)}
   Composition._∘_ comp₁ σ (x₀:= E) ∼ Composition._∘_ comp₂ (x₀:= (ap F σ E)) (liftOp F K σ)
 comp-botSub' {F} {U} {V} {K} {E} comp₁ comp₂ {σ} x₀ = let open ≡-Reasoning in 
   begin
-    (Composition._∘_ comp₁ σ (x₀:= E)) _ x₀
+    (Composition._∘_ comp₁ σ (x₀:= E)) x₀
   ≡⟨ Composition.apV-comp comp₁ ⟩
     ap F σ E
   ≡⟨⟨ sub-congl (liftOp-x₀ F) ⟩⟩
     (apV F (liftOp F K σ) x₀) ⟦ x₀:= (ap F σ E) ⟧
   ≡⟨⟨ Composition.apV-comp comp₂ ⟩⟩
-    (Composition._∘_ comp₂ (x₀:= (ap F σ E)) (liftOp F K σ)) _ x₀
+    (Composition._∘_ comp₂ (x₀:= (ap F σ E)) (liftOp F K σ)) x₀
   ∎
 comp-botSub' {F} {U} {V} {K} {E} comp₁ comp₂ {σ} (↑ x) = let open ≡-Reasoning in 
   begin
-    (Composition._∘_ comp₁ σ (x₀:= E)) _ (↑ x)
+    (Composition._∘_ comp₁ σ (x₀:= E)) (↑ x)
   ≡⟨ Composition.apV-comp comp₁ ⟩
     apV F σ x
   ≡⟨⟨ sub-idSub ⟩⟩
@@ -73,7 +87,7 @@ comp-botSub' {F} {U} {V} {K} {E} comp₁ comp₂ {σ} (↑ x) = let open ≡-Rea
   ≡⟨⟨ sub-congl (liftOp-↑ F x) ⟩⟩
     (apV F (liftOp F K σ) (↑ x)) ⟦ x₀:= (ap F σ E) ⟧
   ≡⟨⟨ Composition.apV-comp comp₂ ⟩⟩
-    (Composition._∘_ comp₂ (x₀:= (ap F σ E)) (liftOp F K σ)) _ (↑ x)
+    (Composition._∘_ comp₂ (x₀:= (ap F σ E)) (liftOp F K σ)) (↑ x)
   ∎
 
 comp-botSub : ∀ {F} {U} {V} {K} {C} {L} 
@@ -90,11 +104,18 @@ comp-botSub {E' = E'} comp₁ comp₂ = ap-comp-sim comp₁ comp₂ (comp-botSub
 •RS-botSub : ∀ {U} {V} {C} {K} {L} (E : Subexp (U , K) C L) {F : Expression U (varKind K)} {ρ : Rep U V} →
   E ⟦ x₀:= F ⟧ 〈 ρ 〉 ≡ E 〈 liftRep K ρ 〉 ⟦ x₀:= (F 〈 ρ 〉) ⟧
 •RS-botSub E = comp-botSub {E' = E} COMPRS COMPSR
+\end{code}
 
+%<*comp-botSub>
+\begin{code}
 •-botSub'' : ∀ {U} {V} {C} {K} {L} 
   {E : Expression U (varKind K)} {σ : Sub U V} (F : Subexp (U , K) C L) →
    F ⟦ x₀:= E ⟧ ⟦ σ ⟧ ≡ F ⟦ liftSub K σ ⟧ ⟦ x₀:= (E ⟦ σ ⟧) ⟧
---TODO Better name
+\end{code}
+%</comp-botSub>
+%TODO Better name
+
+\begin{code}
 •-botSub'' F = let COMP = OpFamily.comp SUB in comp-botSub {E' = F} COMP COMP
 
 botSub-upRep' : ∀ {V K} (E : VExpression V K) → x₀:= E •SR upRep ∼ idSub V
@@ -184,4 +205,4 @@ botSub₃-upRep₂' x₀ = refl
 botSub₃-upRep₂' (↑ x₀) = refl
 botSub₃-upRep₂' (↑ (↑ x₀)) = refl
 botSub₃-upRep₂' (↑ (↑ (↑ x))) = refl
-
+\end{code}

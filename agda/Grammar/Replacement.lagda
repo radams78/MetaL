@@ -1,3 +1,4 @@
+\begin{code}
 --Variable convention: ρ ranges over replacements
 open import Grammar.Base
 
@@ -11,18 +12,18 @@ open import Grammar.OpFamily.LiftFamily G
 open import Grammar.OpFamily.OpFamily G
 
 Rep : Alphabet → Alphabet → Set
-Rep U V = ∀ K → Var U K → Var V K
+Rep U V = ∀ {K} → Var U K → Var V K
 
 upRep : ∀ {V} {K} → Rep V (V , K)
-upRep _ = ↑
+upRep = ↑
 
 idRep : ∀ V → Rep V V
-idRep _ _ x = x
+idRep _ x = x
 
 Rep∶POF : PreOpFamily
 Rep∶POF = record { 
   Op = Rep; 
-  apV = λ ρ x → var (ρ _ x); 
+  apV = λ ρ x → var (ρ x); 
   up = upRep; 
   apV-up = refl; 
   idOp = idRep; 
@@ -32,8 +33,8 @@ _∼R_ : ∀ {U} {V} → Rep U V → Rep U V → Set
 _∼R_ = PreOpFamily._∼op_ Rep∶POF
 
 liftRep : ∀ {U} {V} K → Rep U V → Rep (U , K) (V , K)
-liftRep _ _ _ x₀ = x₀
-liftRep _ ρ K (↑ x) = ↑ (ρ K x)
+liftRep _ _ x₀ = x₀
+liftRep _ ρ (↑ x) = ↑ (ρ x)
 
 liftRep-cong : ∀ {U} {V} {K} {ρ ρ' : Rep U V} → 
   ρ ∼R ρ' → liftRep K ρ ∼R liftRep K ρ'
@@ -59,14 +60,21 @@ liftsRep = LiftFamily.liftsOp Rep∶LF
 
 infixl 75 _•R_
 _•R_ : ∀ {U} {V} {W} → Rep V W → Rep U V → Rep U W
-(ρ' •R ρ) K x = ρ' K (ρ K x)
+(ρ' •R ρ) x = ρ' (ρ x)
 
 liftRep-•R : ∀ {U} {V} {W} {K} {ρ' : Rep V W} {ρ : Rep U V} → 
   liftRep K (ρ' •R ρ) ∼R liftRep K ρ' •R liftRep K ρ
 liftRep-•R x₀ = refl
 liftRep-•R (↑ _) = refl
+\end{code}
 
+%<*REP>
+\begin{code}
 REP : OpFamily
+\end{code}
+%</REP>
+
+\begin{code}
 REP = record { 
   liftFamily = Rep∶LF ; 
   comp = record { 
@@ -89,7 +97,7 @@ rep-congl = OpFamily.ap-congr REP
 rep-idRep : ∀ {V C K} {E : Subexp V C K} → E 〈 idRep V 〉 ≡ E
 rep-idRep = OpFamily.ap-idOp REP
 
-rep-•R : ∀ {U V W C K} (E : Subexp U C K) {σ : Rep V W} {ρ} → E 〈 σ •R ρ 〉 ≡ E 〈 ρ 〉 〈 σ 〉
+rep-•R : ∀ {U V W C K} (E : Subexp U C K) {σ : Rep V W} {ρ : Rep U V} → E 〈 σ •R ρ 〉 ≡ E 〈 ρ 〉 〈 σ 〉
 rep-•R = OpFamily.ap-comp REP
 
 liftRep-idRep : ∀ {V K} → liftRep K (idRep V) ∼R idRep (V , K)

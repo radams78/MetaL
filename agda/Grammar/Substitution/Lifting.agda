@@ -8,8 +8,8 @@ open import Grammar.Replacement G
 open import Grammar.Substitution.PreOpFamily G
 
 liftSub : ∀ {U} {V} K → Sub U V → Sub (U , K) (V , K)
-liftSub _ _ _ x₀ = var x₀
-liftSub _ σ K (↑ x) = (σ K x) 〈 upRep 〉
+liftSub _ _ x₀ = var x₀
+liftSub _ σ (↑ x) = (σ x) ⇑
 
 liftSub-cong : ∀ {U} {V} {K} {σ σ' : Sub U V} → 
   σ ∼ σ' → liftSub K σ ∼ liftSub K σ'

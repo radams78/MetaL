@@ -1,3 +1,4 @@
+\begin{code}
 open import Grammar.Base
 
 module Grammar.OpFamily.OpFamily (G : Grammar) where
@@ -6,17 +7,28 @@ open import Prelims
 open Grammar G
 open import Grammar.OpFamily.LiftFamily G
 open import Grammar.OpFamily.Composition G 
+\end{code}
 
+%<*OpFamily>
+\begin{code}
 record OpFamily : Set₂ where
   field
     liftFamily : LiftFamily
     comp : Composition liftFamily liftFamily liftFamily
   open LiftFamily liftFamily public
   open Composition comp public
+\end{code}
+%</OpFamily>
 
+%<*assoc>
+\begin{code}
   assoc : ∀ {U} {V} {W} {X} 
     {τ : Op W X} {σ : Op V W} {ρ : Op U V} → 
     τ ∘ (σ ∘ ρ) ∼op (τ ∘ σ) ∘ ρ
+\end{code}
+%</assoc>
+
+\begin{code}
   assoc {U} {V} {W} {X} {τ} {σ} {ρ} {K} x = let open ≡-Reasoning in 
     begin 
       apV (τ ∘ (σ ∘ ρ)) x
@@ -29,8 +41,15 @@ record OpFamily : Set₂ where
     ≡⟨⟨ apV-comp ⟩⟩
       apV ((τ ∘ σ) ∘ ρ) x
     ∎
+\end{code}
 
+%<*unitl>
+\begin{code}
   unitl : ∀ {U} {V} {σ : Op U V} → idOp V ∘ σ ∼op σ
+\end{code}
+%</unitl>
+
+\begin{code}
   unitl {U} {V} {σ} {K} x = let open ≡-Reasoning in 
     begin 
       apV (idOp V ∘ σ) x
@@ -39,8 +58,15 @@ record OpFamily : Set₂ where
     ≡⟨ ap-idOp ⟩
       apV σ x
     ∎
+\end{code}
 
+%<*unitr>
+\begin{code}
   unitr : ∀ {U} {V} {σ : Op U V} → σ ∘ idOp U ∼op σ
+\end{code}
+%</unitr>
+
+\begin{code}
   unitr {U} {V} {σ} {K} x = let open ≡-Reasoning in
     begin 
       apV (σ ∘ idOp U) x
@@ -58,4 +84,4 @@ record OpFamily : Set₂ where
     {σ : Op U V} (E : Subexp U C K) →
     ap (liftOp L σ) (ap up E) ≡ ap up (ap σ E)
   liftOp-up E = liftOp-up-mixed comp comp refl {E = E}
-
+\end{code}

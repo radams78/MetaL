@@ -1,3 +1,4 @@
+\begin{code}
 open import Grammar.Base
 
 module Grammar.OpFamily.LiftFamily (G : Grammar) where
@@ -6,7 +7,10 @@ open import Prelims
 open Grammar G
 open import Grammar.OpFamily.PreOpFamily G
 open import Grammar.OpFamily.Lifting G
+\end{code}
 
+%<*LiftFamily>
+\begin{code}
 record IsLiftFamily (F : PreOpFamily) (L : Lifting F) : Set₁ where
   open PreOpFamily F
   open Lifting L
@@ -15,8 +19,16 @@ record IsLiftFamily (F : PreOpFamily) (L : Lifting F) : Set₁ where
       apV (liftOp K σ) x₀ ≡ var x₀
     liftOp-↑ : ∀ {U} {V} {K} {L} {σ : Op U V} (x : Var U L) →
       apV (liftOp K σ) (↑ x) ≡ ap up (apV σ x)
+\end{code}
+%</LiftFamily>
 
+%<*liftOp-idOp>
+\begin{code}
   liftOp-idOp : ∀ {V} {K} → liftOp K (idOp V) ∼op idOp (V , K)
+\end{code}
+%</liftOp-idOp>
+
+\begin{code}
   liftOp-idOp {V} {K} x₀ = let open ≡-Reasoning in
     begin
       apV (liftOp K (idOp V)) x₀
@@ -49,8 +61,15 @@ record IsLiftFamily (F : PreOpFamily) (L : Lifting F) : Set₁ where
     ≈⟨ liftsOp-idOp A ⟩
       idOp (extend V (K ∷ A))
     ∎
+\end{code}
 
+%<*ap-idOp>
+\begin{code}
   ap-idOp : ∀ {V} {C} {K} {E : Subexp V C K} → ap (idOp V) E ≡ E
+\end{code}
+%</ap-idOp>
+
+\begin{code}
   ap-idOp {E = var x} = apV-idOp x
   ap-idOp {E = app c EE} = cong (app c) ap-idOp
   ap-idOp {E = []} = refl
@@ -72,3 +91,4 @@ record LiftFamily : Set₂ where
   open PreOpFamily preOpFamily public
   open Lifting lifting public
   open IsLiftFamily isLiftFamily public
+\end{code}

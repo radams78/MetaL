@@ -12,11 +12,6 @@ open import Prelims
 open import Grammar.Taxonomy
 
 module Grammar.Base where
-
---A grammar over a taxonomy consists of a set of constructors for each constructor kind,
---and a function assigning a parent to each variable kind
---Intention: for each declaration x : A, x is of some variable kind V,
---and the kind of A is the parent of V
 \end{code}
 
 %<*Grammar>

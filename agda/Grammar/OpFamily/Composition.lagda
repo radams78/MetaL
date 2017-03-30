@@ -1,3 +1,4 @@
+\begin{code}
 open import Grammar.Base
 open import Data.List
 open import Prelims
@@ -7,17 +8,23 @@ module Grammar.OpFamily.Composition (A : Grammar) where
 open Grammar A hiding (_⟶_)
 open import Grammar.OpFamily.LiftFamily A
 open LiftFamily
+\end{code}
 
+%<*Composition>
+\begin{code}
 record Composition (F G H : LiftFamily) : Set where
   infix 25 _∘_
   field
     _∘_ : ∀ {U} {V} {W} → Op F V W → Op G U V → Op H U W
     liftOp-comp' : ∀ {U V W K σ ρ} → 
       _∼op_ H (liftOp H K (_∘_ {U} {V} {W} σ ρ)) 
-        (liftOp F K σ ∘ liftOp G K ρ)
+        (liftOp F K σ ∘ liftOp G K ρ) -- TODO Prove this
     apV-comp : ∀ {U} {V} {W} {K} {σ} {ρ} {x : Var U K} → 
       apV H (_∘_ {U} {V} {W} σ ρ) x ≡ ap F σ (apV G ρ x)
+\end{code}
+%</Composition>
 
+\begin{code}
   comp-cong : ∀ {U V W} {σ σ' : Op F V W} {ρ ρ' : Op G U V} → 
     _∼op_ F σ σ' → _∼op_ G ρ ρ' → _∼op_ H (σ ∘ ρ) (σ' ∘ ρ')
   comp-cong {U} {V} {W} {σ} {σ'} {ρ} {ρ'} σ∼σ' ρ∼ρ' x = let open ≡-Reasoning in 
@@ -51,9 +58,16 @@ record Composition (F G H : LiftFamily) : Set where
     ≈⟨ liftsOp-comp A ⟩
       liftsOp F A (liftOp F K σ) ∘ liftsOp G A (liftOp G K ρ)
     ∎
+\end{code}
 
+%<*ap-comp>
+\begin{code}
   ap-comp : ∀ {U V W C K} (E : Subexp U C K) {σ ρ} → 
     ap H (_∘_ {U} {V} {W} σ ρ) E ≡ ap F σ (ap G ρ E)
+\end{code}
+%</ap-comp>
+
+\begin{code}
   ap-comp (var _) = apV-comp
   ap-comp (app c E) = cong (app c) (ap-comp E)
   ap-comp [] = refl
@@ -95,11 +109,18 @@ ap-comp-sim {F} {F'} {G} {G'} {H} comp₁ comp₂ {U} {V} {V'} {W} {σ} {ρ} {σ
   ≡⟨ Composition.ap-comp comp₂ E {σ'} {ρ'} ⟩
     ap F' σ' (ap G' ρ' E)
   ∎
+\end{code}
 
+%<*liftOp-up-mixed>
+\begin{code}
 liftOp-up-mixed : ∀ {F} {G} {H} {F'} (comp₁ : Composition F G H) (comp₂ : Composition F' F H)
   {U} {V} {C} {K} {L} {σ : Op F U V} →
   (∀ {V} {C} {K} {L} {E : Subexp V C K} → ap F (up F {V} {L}) E ≡ ap F' (up F' {V} {L}) E) →
   ∀ {E : Subexp U C K} → ap F (liftOp F L σ) (ap G (up G) E) ≡ ap F' (up F') (ap F σ E)
+\end{code}
+%</liftOp-up-mixed>
+
+\begin{code}
 liftOp-up-mixed {F} {G} {H} {F'} comp₁ comp₂ {U} {V} {C} {K} {L} {σ} hyp {E = E} = ap-comp-sim comp₁ comp₂ 
   (λ x → let open ≡-Reasoning in 
   begin
@@ -116,3 +137,4 @@ liftOp-up-mixed {F} {G} {H} {F'} comp₁ comp₂ {U} {V} {C} {K} {L} {σ} hyp {E
     apV H (Composition._∘_ comp₂ (up F') σ) x
   ∎) 
   E
+\end{code}

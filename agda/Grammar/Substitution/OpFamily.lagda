@@ -1,3 +1,4 @@
+\begin{code}
 open import Grammar.Base
 
 module Grammar.Substitution.OpFamily (G : Grammar) where
@@ -12,20 +13,20 @@ open import Grammar.Substitution.RepSub G
 
 infixl 60 _•RS_
 _•RS_ : ∀ {U} {V} {W} → Rep V W → Sub U V → Sub U W
-(ρ •RS σ) K x = (σ K x) 〈 ρ 〉
+(ρ •RS σ) x = (σ x) 〈 ρ 〉
 
 liftSub-•RS' : ∀ {U} {V} {W} {K} {ρ : Rep V W} {σ : Sub U V} → 
   liftSub K (ρ •RS σ) ∼ liftRep K ρ •RS liftSub K σ
 liftSub-•RS' {K = K} x₀ = refl
 liftSub-•RS' {U} {V} {W} {K} {ρ} {σ} {L} (↑ x) = let open ≡-Reasoning in 
   begin 
-    (σ L x) 〈 ρ 〉 〈 upRep 〉
-  ≡⟨⟨ rep-•R (σ L x) ⟩⟩
-    (σ L x) 〈 upRep •R ρ 〉
+    (σ x) 〈 ρ 〉 〈 upRep 〉
+  ≡⟨⟨ rep-•R (σ x) ⟩⟩
+    (σ x) 〈 upRep •R ρ 〉
   ≡⟨⟩
-    (σ L x) 〈 liftRep K ρ •R upRep 〉
-  ≡⟨ rep-•R (σ L x) ⟩
-    (σ L x) 〈 upRep 〉 〈 liftRep K ρ 〉
+    (σ x) 〈 liftRep K ρ •R upRep 〉
+  ≡⟨ rep-•R (σ x) ⟩
+    (σ x) 〈 upRep 〉 〈 liftRep K ρ 〉
   ∎
 
 COMPRS : Composition Rep∶LF SubLF SubLF
@@ -41,7 +42,7 @@ sub-•RS E = Composition.ap-comp COMPRS E
 
 infixl 60 _•SR_
 _•SR_ : ∀ {U} {V} {W} → Sub V W → Rep U V → Sub U W
-(σ •SR ρ) K x = σ K (ρ K x)
+(σ •SR ρ) x = σ (ρ x)
 
 liftSub-•SR : ∀ {U} {V} {W} {K} {σ : Sub V W} {ρ : Rep U V} → 
   liftSub K (σ •SR ρ) ∼ liftSub K σ •SR liftRep K ρ
@@ -65,14 +66,21 @@ liftSub-upRep E = liftOp-up-mixed COMPSR COMPRS (λ {_} {_} {_} {_} {E} → ≡-
 
 infixl 60 _•_
 _•_ : ∀ {U} {V} {W} → Sub V W → Sub U V → Sub U W
-(σ • ρ) K x = ρ K x ⟦ σ ⟧
+(σ • ρ) x = ρ x ⟦ σ ⟧
 
 liftSub-• : ∀ {U} {V} {W} {ρ : Sub U V} {σ : Sub V W} {K} → 
   liftSub K (σ • ρ) ∼ liftSub K σ • liftSub K ρ
 liftSub-• x₀ = refl
-liftSub-• {W = W} {ρ = ρ} {σ = σ} {K = K} {L} (↑ x) = ≡-sym (liftSub-upRep (ρ L x))
+liftSub-• {W = W} {ρ = ρ} {σ = σ} {K = K} {L} (↑ x) = ≡-sym (liftSub-upRep (ρ x))
+\end{code}
 
+%<*SUB>
+\begin{code}
 SUB : OpFamily
+\end{code}
+%</SUB>
+
+\begin{code}
 SUB = record { 
   liftFamily = SubLF;
   comp = record { 
@@ -128,3 +136,4 @@ liftSub-upRep₃ {U} {V} {C} {K} {L} {M} {N} E {σ} = let open ≡-Reasoning in
     E ⟦ σ ⟧ ⇑ ⇑ ⇑
   ∎
 
+\end{code}

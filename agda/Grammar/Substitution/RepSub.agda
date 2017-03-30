@@ -14,7 +14,7 @@ open PreOpFamily pre-substitution
 open Lifting LIFTSUB
 
 rep2sub : ∀ {U} {V} → Rep U V → Sub U V
-rep2sub ρ K x = var (ρ K x)
+rep2sub ρ x = var (ρ x)
 
 liftRep-is-liftSub : ∀ {U} {V} {ρ : Rep U V} {K} → 
   rep2sub (liftRep K ρ) ∼ liftSub K (rep2sub ρ)
@@ -46,9 +46,9 @@ rep-is-sub {U} {V} (_∷_ {A = SK AA _} E F) {ρ} = cong₂ _∷_
   begin 
     E 〈 liftsOpR AA ρ 〉
   ≡⟨ rep-is-sub E ⟩
-    E ⟦ (λ K x → var (liftsOpR AA ρ K x)) ⟧ 
+    E ⟦ (λ x → var (liftsOpR AA ρ x)) ⟧ 
   ≡⟨ ap-congl (liftsOp-is-liftsOp {A = AA}) E ⟩
-    E ⟦ liftsOp AA (λ K x → var (ρ K x)) ⟧
+    E ⟦ liftsOp AA (λ x → var (ρ x)) ⟧
   ∎)
   (rep-is-sub F)
 

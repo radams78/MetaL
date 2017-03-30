@@ -14,4 +14,4 @@ SubLF = record {
   lifting = LIFTSUB ; 
   isLiftFamily = record { 
     liftOp-x₀ = refl ; 
-    liftOp-↑ = λ {_} {_} {_} {_} {σ} x → rep-is-sub (σ _ x) }}
+    liftOp-↑ = λ {_} {_} {_} {_} {σ} x → rep-is-sub (σ x) }}
