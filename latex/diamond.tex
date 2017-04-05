@@ -1,5 +1,5 @@
 \documentclass[envcountsame]{llncs}
-\bibliographystyle{splncs}
+\bibliographystyle{splncs03}
 
 \title{MetaL --- A Library for Formalised Metatheory in Agda}
 \author{Robin Adams\inst{1}}
@@ -92,13 +92,6 @@ for the set of all variables in the alphabet \AgdaSymbol{V} of kind \AgdaSymbol{
 \ExecuteMetaData[Grammar/Taxonomy.tex]{Alphabet}
 \ExecuteMetaData[Grammar/Taxonomy.tex]{Var}
 
-\begin{example}
-For the simply-typed lambda-calculus, there are two expression kinds: \AgdaFunction{type},
-which is a non-variable kind, and \AgdaFunction{term}, which is a variable kind:
-
-\ExecuteMetaData[STLC/Grammar.tex]{Taxonomy}
-\end{example}
-
 \subsection{Grammar}
 
 \begin{definition}
@@ -109,23 +102,6 @@ where each $K_i$ is an abstraction kind, and $L$ is an expression kind.
 A \emph{constructor kind} has the form $A_1 \rightarrow \cdots \rightarrow A_n \rightarrow K$,
 where each $A_i$ is an abstraction kind, and $K$ is an expression kind.
 \end{definition}
-
-To define these, we introduce the notion of a \emph{simple kind}:
-a simple kind over sets $S$ and $T$ is an object of the form $s_1 \rightarrow \cdots \rightarrow s_n \rightarrow t$,
-where each $s_i \in S$ and $t \in T$.
-
-We implement this by saying a simple kind over $S$ and $T$ consists of a list of objects of $S$, and one object of $T$:
-
-\ExecuteMetaData[Grammar/Taxonomy.tex]{SimpleKindA}
-
-We can construct an object of type $\AgdaDatatype{SK} \, \AgdaBound{S} \, \AgdaBound{T}$ by writing 
-$$ s_1 \longrightarrow \cdots \longrightarrow s_n \longrightarrow t \lozenge \enspace . $$
-(The `$\lozenge$' symbol marks
-the end of the simple kind.  It is needed to help Agda disambiguate the syntax.)
-
-We are now able to write Definition \ref{df:kinds} like this:
-
-\ExecuteMetaData[Grammar/Taxonomy.tex]{SimpleKindB}
 
 A \emph{grammar} over a taxonomy consists of:
 \begin{itemize}
@@ -327,130 +303,10 @@ type of alphabet to another.  We could then prove once-and-for-all versions of t
 be unwieldy in practice.
 \end{itemize}
 
-\appendix
+\section{Related Work}
 
-\section{Formalisation of Families of Operations}
-\label{section:opfamilies}
+\section{Conclusion}
 
-We define the type of families of operations in several stages, as follows.
-
-\subsection{Pre-family of Operations}
-
-\begin{definition}[Pre-family of Operations]
-%TODO Pick a better name
- A \emph{pre-family of operations} $\Rightarrow$ consists of:
- \begin{itemize}
-  \item   \item for any alphabets $U$, $V$, a set $U \Rightarrow V$ of \emph{operations} from $U$ to $V$;
-  \item for any operation $\sigma : U \Rightarrow V$ and variable $x : \AgdaDatatype{Var} \, U \, K$, an expression $\sigma(x) : \AgdaFunction{Expression} \,
-  V \, K$ %TODO Check Var is an AgdaDatatype
-  \item for any alphabet $V$ and variable kind $K$, an operation $\uparrow : V \Rightarrow V , K$
-  \item for any alphabet $V$, an operation $1_V : V \Rightarrow V$
- \end{itemize}
- such that:
- \begin{itemize}
-  \item $\uparrow(x) \equiv x$
-  \item $1_V(x) \equiv x$
- \end{itemize}
-\end{definition}
-
-\ExecuteMetaData[Grammar/OpFamily/PreOpFamily.tex]{PreOpFamily}
-
-Let $\Rightarrow$ be a pre-family of operations.
-
-\begin{definition}
- Two operations $\rho, \sigma : U \Rightarrow V$ are \emph{extensionally equal}, $\rho \sim \sigma$, iff $\rho(x) \equiv \sigma(x)$ for all variables $x$.
-\end{definition}
-
-We prove that this is an equivalence relation.
-
-\ExecuteMetaData[Grammar/OpFamily/PreOpFamily.tex]{EqualOp}
-%TODO Fix spacing
-
-\subsection{Lifting}
-
-\begin{definition}[Lifting]
- A \emph{lifting} on a pre-family of operations is a mapping that, given an operation $\rho : U \Rightarrow V$ and variable kind $K$,
- returns an operation $\rho^\uparrow : U , K \Rightarrow V , K$.
-\end{definition}
-
-\ExecuteMetaData[Grammar/OpFamily/Lifting.tex]{Lifting}
-
-Given a pre-family of operations and a lifting, we can define the action of an operation on a subexpression:
-
-\begin{eqnarray*}
- x [ \sigma ] & \eqdef \sigma(x) \\
- ([x_1, \ldots, x_n] E) [ \sigma ] & \eqdef E [ \sigma^{\uparrow \uparrow \cdots \uparrow} ] \\
- (c E_1 \cdots E_n) [ \sigma ] & \eqdef c (E_1 [ \sigma ]) \cdots (E_n [ \sigma ])
-\end{eqnarray*}
-
-\ExecuteMetaData[Grammar/OpFamily/Lifting.tex]{Action}
-
-\subsection{Pre-family of Operations with Lifting}
-
-\begin{definition}[Pre-family of Operations with Lifting]
- A \emph{pre-family of operations with lifting} is given by a pre-family of operations $\Rightarrow$ and a lifting $^\uparrow$ such that:
- \begin{itemize}
-  \item $\sigma^\uparrow(x_0) \equiv x_0$
-  \item $\sigma^\uparrow(\uparrow x) \equiv \sigma(x) [ \uparrow ]$
- \end{itemize}
-\end{definition}
-
-\ExecuteMetaData[Grammar/OpFamily/LiftFamily.tex]{LiftFamily}
-
-\subsection{Composition}
-
-\begin{definition}[Composition]
- Let $\Rightarrow_1$, $\Rightarrow_2$ and $\Rightarrow_3$ be pre-families of operations with liftings.  A \emph{composition} $\circ : (\Rightarrow_1) ; (\Rightarrow_2) \rightarrow (\Rightarrow_3)$
- is a family of mappings
- \[ \circ_{UVW} : (V \Rightarrow_1 W) \times (U \Rightarrow_2 V) \rightarrow (U \Rightarrow_3 W) \]
- for all alphabets $U$, $V$, $W$ such that:
- \begin{align*}
-  (\sigma \circ \rho)^\uparrow & \sim \sigma^\uparrow \circ \rho^\uparrow \\
-  (\sigma \circ \rho)(x) & \equiv \rho(x) [ \sigma ]
- \end{align*}
-for all $\rho$, $\sigma$, $x$.
-\end{definition}
-
-\ExecuteMetaData[Grammar/OpFamily/Composition.tex]{Composition}
-
-Let us write $[\ ]_1$, $[\ ]_2$, $[\ ]_3$ for the action of $\Rightarrow_1$, $\Rightarrow_2$, $\Rightarrow_3$ respectively.
-
-\begin{lemma}
- If $\circ$ is a composition, then $E[\sigma \circ \rho]_3 \equiv E [ \rho ]_2 [ \sigma ]_1$.
-\end{lemma}
-
-\ExecuteMetaData[Grammar/OpFamily/Composition.tex]{ap-comp}
-
-\begin{lemma}
-%TODO Ugly - how is this used?
- Let $\Rightarrow_1$, $\Rightarrow_2$, $\Rightarrow_3$, $\Rightarrow_4$ be pre-families of operations with liftings.  Suppose there exist compositions
- $(\Rightarrow_1); (\Rightarrow_2) \rightarrow (\Rightarrow_4)$ and $(\Rightarrow_2); (\Rightarrow_3) \rightarrow (\Rightarrow_4)$.  Let $\sigma : U \Rightarrow_2 V$.
- Suppose further that $E[\uparrow]_1 \equiv E[\uparrow]_2$ for all $E$.  Then
- \[ E [\uparrow]_3 [\sigma^\uparrow]_2 \equiv E [\sigma]_2 [\uparrow]_1 \]
- for all $E$.
-\end{lemma}
-
-\ExecuteMetaData[Grammar/OpFamily/Composition.tex]{liftOp-up-mixed}
-
-\begin{proof}
-Let $\circ_1 : (\Rightarrow_1); (\Rightarrow_2) \rightarrow (\Rightarrow_4)$ and $\circ_2 : (\Rightarrow_2); (\Rightarrow_3) \rightarrow (\Rightarrow_4)$.
- We have $E[\uparrow]_3 [\sigma^\uparrow]_2 \equiv E [\sigma^\uparrow \circ_2 \uparrow]_4$ and $E [\sigma]_2 [\uparrow]_1 \equiv E [\uparrow \circ_1 \sigma]_4$,
- so it is sufficient to prove that $\sigma^\uparrow \circ_2 \uparrow \sim \uparrow \circ_1 \sigma$.
- 
- We have
- \begin{align*}
-  (\sigma^\uparrow \circ_2 \uparrow)(x) & \equiv \sigma^\uparrow(\uparrow(x)) \\
-  & \equiv \sigma(x) [\uparrow]_2 \\
-  & \equiv (\uparrow \circ_1 \sigma)(x) \qed
- \end{align*}
-\end{proof}
-
-\subsection{Family of Operations}
-
-\begin{definition}[Family of Operations]
- A \emph{family of operations} consists of a pre-family with lifting $\Rightarrow$ and a composition $\circ : (\Rightarrow) ; (\Rightarrow) \rightarrow (\Rightarrow)$.
-\end{definition}
-
-\ExecuteMetaData[Grammar/OpFamily/OpFamily.tex]{OpFamily}
+\bibliography{type}
 
 \end{document}
