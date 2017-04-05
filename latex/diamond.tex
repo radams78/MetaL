@@ -169,47 +169,9 @@ and a term $M$, binds a term variable $x$ within $M$, and returns a term $\lambd
 
 \subsection{Families of Operations}
 
-Our next aim is to define replacement and substitution.  Many of the results about these two operations have very similar proofs, so in order to avoid duplicating
-code, we make the following definition.
-
-\begin{definition}[Family of Operations]
- A \emph{family of operations} $\Rightarrow$ consists of:
- \begin{itemize}
-  \item for any alphabets $U$, $V$, a set $U \Rightarrow V$ of \emph{operations} from $U$ to $V$;
-  \item for any operation $\sigma : U \Rightarrow V$ and variable $x : \AgdaDatatype{Var} \, U \, K$, an expression $\sigma(x) : \AgdaFunction{Expression} \,
-  V \, K$ %TODO Check Var is an AgdaDatatype
-  \item for any alphabet $V$ and variable kind $K$, an operation $\uparrow : V \Rightarrow V , K$
-  \item for any alphabet $V$, an operation $1_V : V \Rightarrow V$
-  \item for any operations $\rho : U \Rightarrow V$ and $\sigma : V \Rightarrow W$, an operation $\sigma \circ \rho : U \Rightarrow W$, the
-  \emph{composition} of $\sigma$ and $\rho$;
-  \item for any operation $\sigma : U \Rightarrow V$ and variable kind $K$, an operation $\sigma^\uparrow : U , K \Rightarrow V , K$, the \emph{lifting} of $\sigma$;
- \end{itemize}
-such that:
-\begin{itemize}
- \item $\uparrow(x) \equiv x$ for any variable $x$
- \item $1_V(x) \equiv x$ for any variable $x$
- \item $\sigma^\uparrow(x_0) \equiv x_0$ %TODO Check what notation we used earlier.
- \item $\sigma^\uparrow(x) \equiv \sigma(x) [ \uparrow ]$
- \item $(\sigma \circ \rho)(x) \equiv \rho(x) [ \sigma ]$
-\end{itemize}
-where, if $E : \AgdaFunction{Expression} \, U \, K$ and $\sigma : U \Rightarrow V$ then $E [ \sigma ] : \AgdaFunction{Expression} \, V \, K$,
-the \emph{action} of $\sigma$ on $E$, is defined by
-\begin{eqnarray*}
- x [ \sigma ] & \eqdef \sigma(x) \\
- ([x_1, \ldots, x_n] E) [ \sigma ] & \eqdef E [ \sigma^{\uparrow \uparrow \cdots \uparrow} ] \\
- (c E_1 \cdots E_n) [ \sigma ] & \eqdef c (E_1 [ \sigma ]) \cdots (E_n [ \sigma ])
-\end{eqnarray*}
-
-We write $\rho \sim \sigma$ iff $\rho$ and $\sigma$ are extensionally equal, i.e.~$\rho(x) \equiv \sigma(x)$ for every variable $x$.
-\end{definition}
-
-
-The way that this is formalised in Agda is described in Appendix \ref{section:opfamilies}.
-
-It is easy to see that our two examples of replacement and substitution fit this pattern.
+Our next aim is to define replacement and substitution.  
 
 \begin{definition}[Replacement]
- \emph{Replacement} is the family of operations defined as follows.
  \begin{itemize}
   \item A \emph{replacement} from $U$ to $V$, $\rho : U \rightarrow_R V$, is a family of functions $\rho_K : \AgdaDatatype{Var} \, U \, K \rightarrow
   \AgdaDatatype{Var} \, V \, K$ for every variable kind $K$.
@@ -221,12 +183,9 @@ It is easy to see that our two examples of replacement and substitution fit this
 \end{itemize}
 \end{definition}
 
-\ExecuteMetaData[Grammar/Replacement.tex]{REP}
-
 We write $E \langle \rho \rangle$ for the action of a replacement $\rho$ on a subexpression $E$.
 
 \begin{definition}[Substitution]
- \emph{Substitution} is the family of operations defined as follows.
  \begin{itemize}
   \item A \emph{substitution} from $U$ to $V$, $\sigma : U \Rightarrow V$, is a family of functions $\sigma_K : \AgdaDatatype{Var} \, U \, K \rightarrow
   \AgdaDatatype{Expression} \, V \, K$ for every variable kind $K$.
@@ -238,50 +197,51 @@ We write $E \langle \rho \rangle$ for the action of a replacement $\rho$ on a su
  \end{itemize}
 \end{definition}
 
-\ExecuteMetaData[Grammar/Substitution/OpFamily.tex]{SUB}
-
 We write $E [ \sigma ]$ for the action of a substitution $\sigma$ on a subexpression $E$.
 
-\subsubsection{Results about Families of Operations.}
+%\subsubsection{Results about Replacement and Substitution.}
 
-We can prove the following results about an arbitrary family of operations.
-
+We can prove the following results about substitution, and analagous results about replacement.
 \begin{lemma}
  \begin{enumerate}
   \item If $\rho \sim \sigma$ then $E [ \rho ] \equiv E [ \sigma ]$.
-  \ExecuteMetaData[Grammar/OpFamily/Lifting.tex]{ap-congl}
+%  \ExecuteMetaData[Grammar/OpFamily/Lifting.tex]{ap-congl}
   \item  $1_V^\uparrow = 1_{V, K}$
-  \ExecuteMetaData[Grammar/OpFamily/LiftFamily.tex]{liftOp-idOp}
+%  \ExecuteMetaData[Grammar/OpFamily/LiftFamily.tex]{liftOp-idOp}
   \item $E [ 1_V ] \equiv E$
-  \ExecuteMetaData[Grammar/OpFamily/LiftFamily.tex]{ap-idOp}
+%  \ExecuteMetaData[Grammar/OpFamily/LiftFamily.tex]{ap-idOp}
   \item $E [ \sigma \circ \rho ] \equiv E [ \rho ] [ \sigma ]$
-  \ExecuteMetaData[Grammar/OpFamily/Composition.tex]{ap-comp}
+%  \ExecuteMetaData[Grammar/OpFamily/Composition.tex]{ap-comp}
   \item $\tau \circ (\sigma \circ \rho) \sim (\tau \circ \sigma) \circ \rho$
-  \ExecuteMetaData[Grammar/OpFamily/OpFamily.tex]{assoc}
+%  \ExecuteMetaData[Grammar/OpFamily/OpFamily.tex]{assoc}
   \item If $\sigma : U \Rightarrow V$ then $1_V \circ \sigma \sim \sigma \sim \sigma \circ 1_U$
-  \ExecuteMetaData[Grammar/OpFamily/OpFamily.tex]{unitl}
-  \ExecuteMetaData[Grammar/OpFamily/OpFamily.tex]{unitr}
+%  \ExecuteMetaData[Grammar/OpFamily/OpFamily.tex]{unitl}
+%  \ExecuteMetaData[Grammar/OpFamily/OpFamily.tex]{unitr}
  \end{enumerate}
 \end{lemma}
 
-\subsection{Substitution for the Last Variables}
+% \subsection{Substitution for the Last Variables}
+% 
+% Given an alphabet $V \cup \{ x_0, \ldots, x_n\}$ and expressions $E_0$, \ldots, $E_n$, we define the substitution
+% \[ [x_0 := E_0, \ldots, x_n := E_n] : V \cup \{ x_0, \ldots, x_n \} \Rightarrow V \]
+% 
+% \ExecuteMetaData[Grammar/Substitution/BotSub.tex]{botSub}
+% 
+% We have the following results about this substitution:
+% \begin{lemma}
+%  \begin{enumerate}
+%   \item $E' \langle \uparrow \rangle [ x_0 := E ] \equiv E$
+%   \ExecuteMetaData[Grammar/Substitution/BotSub.tex]{botSub-up}
+%   \item $E' [ x_0 := E ] [ \sigma ] \equiv E' [ \sigma^\uparrow ] [ x_0:= E [ \sigma ] ]$
+%   \ExecuteMetaData[Grammar/Substitution/BotSub.tex]{comp-botSub}
+%  \end{enumerate}
+% \end{lemma}
+% 
+% %TODO RepSub.agda
 
-Given an alphabet $V \cup \{ x_0, \ldots, x_n\}$ and expressions $E_0$, \ldots, $E_n$, we define the substitution
-\[ [x_0 := E_0, \ldots, x_n := E_n] : V \cup \{ x_0, \ldots, x_n \} \Rightarrow V \]
+\section{Reduction Relations}
 
-\ExecuteMetaData[Grammar/Substitution/BotSub.tex]{botSub}
-
-We have the following results about this substitution:
-\begin{lemma}
- \begin{enumerate}
-  \item $E' \langle \uparrow \rangle [ x_0 := E ] \equiv E$
-  \ExecuteMetaData[Grammar/Substitution/BotSub.tex]{botSub-up}
-  \item $E' [ x_0 := E ] [ \sigma ] \equiv E' [ \sigma^\uparrow ] [ x_0:= E [ \sigma ] ]$
-  \ExecuteMetaData[Grammar/Substitution/BotSub.tex]{comp-botSub}
- \end{enumerate}
-\end{lemma}
-
-%TODO RepSub.agda
+\section{Rules of Deduction}
 
 \section{Limitations}
 

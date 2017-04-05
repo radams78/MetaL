@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.12.28)  5 APR 2017 16:22
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.12.28)  5 APR 2017 16:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -628,178 +628,43 @@ Overfull \hbox (96.59473pt too wide) in paragraph at lines 150--150
 \openout3 = `diamond.ptb'.
 
  [4]
-
-LaTeX Warning: Reference `section:opfamilies' on page 5 undefined on input line
- 207.
-
-(./Grammar/Replacement.tex)
-\openout3 = `diamond.ptb'.
-
- [5] (./Grammar/Substitution/OpFamily.tex)
-\openout3 = `diamond.ptb'.
-
-
-(./Grammar/OpFamily/Lifting.tex)
-\openout3 = `diamond.ptb'.
-
-
 (/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-3.def
 File: uni-3.def 2013/05/13 UCS: Unicode data U+0300..U+03FF
-)
-(./Grammar/OpFamily/LiftFamily.tex)
-\openout3 = `diamond.ptb'.
-
- (./Grammar/OpFamily/LiftFamily.tex)
-\openout3 = `diamond.ptb'.
-
-
-Overfull \hbox (1.19981pt too wide) in paragraph at lines 256--256
- [][][][] 
- []
-
-(./Grammar/OpFamily/Composition.tex)
-\openout3 = `diamond.ptb'.
-
- (./Grammar/OpFamily/OpFamily.tex)
-\openout3 = `diamond.ptb'.
-
-
-(./Grammar/OpFamily/OpFamily.tex)
-\openout3 = `diamond.ptb'.
-
- (./Grammar/OpFamily/OpFamily.tex)
-\openout3 = `diamond.ptb'.
-
- [6]
-(./Grammar/Substitution/BotSub.tex)
-\openout3 = `diamond.ptb'.
-
-
-Overfull \hbox (57.5436pt too wide) in paragraph at lines 272--272
- [][] 
- []
-
-
-Overfull \hbox (57.5436pt too wide) in paragraph at lines 272--272
- [][] 
- []
-
-
-Overfull \hbox (57.5436pt too wide) in paragraph at lines 272--272
- [][] 
- []
-
-
-Overfull \hbox (57.5436pt too wide) in paragraph at lines 272--272
- [][] 
- []
-
-
-Overfull \hbox (57.5436pt too wide) in paragraph at lines 272--272
- [][] 
- []
-
-
-Overfull \hbox (57.5436pt too wide) in paragraph at lines 272--272
- [][] 
- []
-
-
-Overfull \hbox (57.5436pt too wide) in paragraph at lines 272--272
- [][] 
- []
-
-
-Overfull \hbox (57.5436pt too wide) in paragraph at lines 272--272
- [][] 
- []
-
-(./Grammar/Substitution/BotSub.tex)
-\openout3 = `diamond.ptb'.
-
-
-(/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-39.def
-File: uni-39.def 2013/05/13 UCS: Unicode data U+2700..U+27FF
-)
-Overfull \hbox (268.21599pt too wide) in paragraph at lines 278--278
- [][] 
- []
-
-
-Overfull \hbox (268.21599pt too wide) in paragraph at lines 278--278
- [][][][][][] 
- []
-
-(./Grammar/Substitution/BotSub.tex)
-\openout3 = `diamond.ptb'.
-
-LaTeX Font Info:    Try loading font information for OMS+cmss on input line 280
-.
-LaTeX Font Info:    No file OMScmss.fd. on input line 280.
-
-
-LaTeX Font Warning: Font shape `OMS/cmss/m/it' undefined
-(Font)              using `OMS/cmsy/m/n' instead
-(Font)              for symbol `textbullet' on input line 280.
-
-
-Overfull \hbox (25.97383pt too wide) in paragraph at lines 280--280
- [][][][][][] 
- []
-
-
-Overfull \hbox (25.97383pt too wide) in paragraph at lines 280--280
- [][][][] 
- []
-
-
-Overfull \hbox (25.97383pt too wide) in paragraph at lines 280--280
- [][][][][][] 
- []
-
-(./diamond.bbl
+) (./diamond.bbl
 
 LaTeX Warning: Empty `thebibliography' environment on input line 5.
 
-) [7] [8] (./diamond.aux)
-
-LaTeX Font Warning: Some font shapes were not available, defaults substituted.
-
-
-LaTeX Warning: There were undefined references.
-
- ) 
+) [5] [6] (./diamond.aux) ) 
 Here is how much of TeX's memory you used:
- 8293 strings out of 493029
- 110527 string characters out of 6136233
- 207011 words of memory out of 5000000
- 11613 multiletter control sequences out of 15000+600000
+ 8155 strings out of 493029
+ 108183 string characters out of 6136233
+ 173299 words of memory out of 5000000
+ 11512 multiletter control sequences out of 15000+600000
  30680 words of font info for 67 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,9n,47p,1113b,639s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cbfonts/g
-rmi1000.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/
-msam10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx0900.pfb></usr/sha
-re/texmf/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf/fonts/type1
-/public/cm-super/sfbx1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfb
-x1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0600.pfb></usr/shar
-e/texmf/fonts/type1/public/cm-super/sfrm0700.pfb></usr/share/texmf/fonts/type1/
-public/cm-super/sfrm0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm
-1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsi1000.pfb></usr/share
-/texmf/fonts/type1/public/cm-super/sfss1000.pfb></usr/share/texmf/fonts/type1/p
-ublic/cm-super/sfti1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt0
-900.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stmaryrd/stmary10.pfb
->
-Output written on diamond.pdf (8 pages, 291307 bytes).
+ 41i,9n,47p,806b,639s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-
+t1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/t
+exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/public/cbfonts/grmi1000.pfb></usr/share/texlive/texmf-dist/fonts/type1
+/public/amsfonts/symbols/msam10.pfb></usr/share/texmf/fonts/type1/public/cm-sup
+er/sfbx0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1000.pfb></us
+r/share/texmf/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf/fonts/
+type1/public/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/public/cm-supe
+r/sfrm0600.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0700.pfb></usr
+/share/texmf/fonts/type1/public/cm-super/sfrm0900.pfb></usr/share/texmf/fonts/t
+ype1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super
+/sfsi1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss1000.pfb></usr/
+share/texmf/fonts/type1/public/cm-super/sfti1000.pfb></usr/share/texmf/fonts/ty
+pe1/public/cm-super/sftt0900.pfb>
+Output written on diamond.pdf (6 pages, 273382 bytes).
 PDF statistics:
- 116 PDF objects out of 1000 (max. 8388607)
- 84 compressed objects within 1 object stream
+ 104 PDF objects out of 1000 (max. 8388607)
+ 75 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
