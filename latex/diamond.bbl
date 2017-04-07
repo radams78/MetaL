@@ -1,5 +1,13 @@
-\begin{thebibliography}{}
+\begin{thebibliography}{1}
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\urlprefix}{URL }
+
+\bibitem{DBLP:journals/corr/AdamsBC16}
+Adams, R., Bezem, M., Coquand, T.: A strongly normalizing computation rule for
+  univalence in higher-order minimal logic. CoRR  abs/1610.00026 (2016),
+  \url{http://arxiv.org/abs/1610.00026}, under review for TYPES 2016
+
+\bibitem{McBridea}
+McBride, C.: Outrageous but meaningful coincidences (June 2010)
 
 \end{thebibliography}

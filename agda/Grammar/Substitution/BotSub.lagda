@@ -98,11 +98,11 @@ comp-botSub : ∀ {F} {U} {V} {K} {C} {L}
 comp-botSub {E' = E'} comp₁ comp₂ = ap-comp-sim comp₁ comp₂ (comp-botSub' comp₁ comp₂) E'
 
 •RS-botSub' : ∀ {U} {V} {K} {F : Expression U (varKind K)} {ρ : Rep U V} →
-  ρ •RS x₀:= F ∼ x₀:= F 〈 ρ 〉 •SR liftRep K ρ
+  ρ •RS x₀:= F ∼ x₀:= F ⟨ ρ ⟩ •SR liftRep K ρ
 •RS-botSub' = comp-botSub' COMPRS COMPSR
 
 •RS-botSub : ∀ {U} {V} {C} {K} {L} (E : Subexp (U , K) C L) {F : Expression U (varKind K)} {ρ : Rep U V} →
-  E ⟦ x₀:= F ⟧ 〈 ρ 〉 ≡ E 〈 liftRep K ρ 〉 ⟦ x₀:= (F 〈 ρ 〉) ⟧
+  E ⟦ x₀:= F ⟧ ⟨ ρ ⟩ ≡ E ⟨ liftRep K ρ ⟩ ⟦ x₀:= (F ⟨ ρ ⟩) ⟧
 •RS-botSub E = comp-botSub {E' = E} COMPRS COMPSR
 \end{code}
 
@@ -123,7 +123,7 @@ botSub-upRep' E = botSub-up' {E = E} COMPSR
 
 botSub-upRep : ∀ {U} {C} {K} {L}
   (E : Subexp U C K) {F : Expression U (varKind L)} → 
-  E 〈 upRep 〉 ⟦ x₀:= F ⟧ ≡ E
+  E ⟨ upRep ⟩ ⟦ x₀:= F ⟧ ≡ E
 botSub-upRep _ = botSub-up COMPSR
 
 x₂:=_,x₁:=_,x₀:=_ : ∀ {V} {K1} {K2} {K3} → Expression V (varKind K1) → Expression V (varKind K2) → Expression V (varKind K3) → Sub (((V , K1) , K2) , K3) V
@@ -156,7 +156,7 @@ botSub-upRep₃ {V} {K1} {K2} {K3} {L} {M} {N1} {N2} {N3} = let open ≡-Reasoni
 
 botSub₃-liftRep₃' : ∀ {U} {V} {K2} {K1} {K0}
   {M2 : Expression U (varKind K1)} {M1 : Expression U (varKind K2)} {M0 : Expression U (varKind K0)} {ρ : Rep U V} →
-  (x₂:= M2 〈 ρ 〉 ,x₁:= M1 〈 ρ 〉 ,x₀:= M0 〈 ρ 〉) •SR liftRep _ (liftRep _ (liftRep _ ρ))
+  (x₂:= M2 ⟨ ρ ⟩ ,x₁:= M1 ⟨ ρ ⟩ ,x₀:= M0 ⟨ ρ ⟩) •SR liftRep _ (liftRep _ (liftRep _ ρ))
   ∼ ρ •RS (x₂:= M2 ,x₁:= M1 ,x₀:= M0)
 botSub₃-liftRep₃' x₀ = refl
 botSub₃-liftRep₃' (↑ x₀) = refl
@@ -165,17 +165,17 @@ botSub₃-liftRep₃' (↑ (↑ (↑ x))) = refl
 
 botSub₃-liftRep₃ : ∀ {U} {V} {K2} {K1} {K0} {L}
   {M2 : Expression U (varKind K2)} {M1 : Expression U (varKind K1)} {M0 : Expression U (varKind K0)} {ρ : Rep U V} (N : Expression (((U , K2) , K1) , K0) L) →
-  N 〈 liftRep _ (liftRep _ (liftRep _ ρ)) 〉 ⟦ x₂:= M2 〈 ρ 〉 ,x₁:= M1 〈 ρ 〉 ,x₀:= M0 〈 ρ 〉 ⟧
-  ≡ N ⟦ x₂:= M2 ,x₁:= M1 ,x₀:= M0 ⟧ 〈 ρ 〉
+  N ⟨ liftRep _ (liftRep _ (liftRep _ ρ)) ⟩ ⟦ x₂:= M2 ⟨ ρ ⟩ ,x₁:= M1 ⟨ ρ ⟩ ,x₀:= M0 ⟨ ρ ⟩ ⟧
+  ≡ N ⟦ x₂:= M2 ,x₁:= M1 ,x₀:= M0 ⟧ ⟨ ρ ⟩
 botSub₃-liftRep₃ {M2 = M2} {M1} {M0} {ρ} N = let open ≡-Reasoning in
               begin
-                N 〈 liftRep _ (liftRep _ (liftRep _ ρ)) 〉 ⟦ x₂:= M2 〈 ρ 〉 ,x₁:= M1 〈 ρ 〉 ,x₀:= M0 〈 ρ 〉 ⟧
+                N ⟨ liftRep _ (liftRep _ (liftRep _ ρ)) ⟩ ⟦ x₂:= M2 ⟨ ρ ⟩ ,x₁:= M1 ⟨ ρ ⟩ ,x₀:= M0 ⟨ ρ ⟩ ⟧
               ≡⟨⟨ sub-•SR N ⟩⟩
-                N ⟦ (x₂:= M2 〈 ρ 〉 ,x₁:= M1 〈 ρ 〉 ,x₀:= M0 〈 ρ 〉) •SR liftRep _ (liftRep _ (liftRep _ ρ)) ⟧
+                N ⟦ (x₂:= M2 ⟨ ρ ⟩ ,x₁:= M1 ⟨ ρ ⟩ ,x₀:= M0 ⟨ ρ ⟩) •SR liftRep _ (liftRep _ (liftRep _ ρ)) ⟧
               ≡⟨ sub-congr N botSub₃-liftRep₃' ⟩
                 N ⟦ ρ •RS (x₂:= M2 ,x₁:= M1 ,x₀:= M0) ⟧
               ≡⟨ sub-•RS N ⟩
-                N ⟦ x₂:= M2 ,x₁:= M1 ,x₀:= M0 ⟧ 〈 ρ 〉
+                N ⟦ x₂:= M2 ,x₁:= M1 ,x₀:= M0 ⟧ ⟨ ρ ⟩
               ∎
 --TODO General lemma for this
 

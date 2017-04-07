@@ -1,0 +1,7 @@
+--Computable proofs of canonical propositions
+modules PHOML.Compute.PC where
+
+⊧PC_∶_ : ∀ {V} → Proof V → CanonProp → Set
+⊧PC_∶_ {V} δ bot = Σ[ ε ∈ NeutralP V ] δ ↠ decode-NeutralP ε
+⊧PC_∶_ {V} δ (imp φ ψ) = ∀ W (ρ : Rep V W) (ε : Proof W) (⊧ε∶φ : ⊧PC ε ∶ φ) → ⊧PC appP (δ 〈 ρ 〉) ε ∶ ψ
+

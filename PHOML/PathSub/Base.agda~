@@ -1,0 +1,47 @@
+module PHOML.PathSub.Base where
+
+PathSub : Alphabet → Alphabet → Set
+PathSub U V = Var U -Term → Path V
+
+_∼∼_ : ∀ {U} {V} → PathSub U V → PathSub U V → Set
+τ ∼∼ τ' = ∀ x → τ x ≡ τ' x
+
+∼∼-refl : ∀ {U} {V} {τ : PathSub U V} → τ ∼∼ τ
+∼∼-refl _ = refl
+
+∼∼-sym : ∀ {U V} {τ τ' : PathSub U V} → τ ∼∼ τ' → τ' ∼∼ τ
+∼∼-sym τ∼∼τ' x = ≡-sym (τ∼∼τ' x)
+
+liftPathSub : ∀ {U} {V} → PathSub U V → PathSub (U , -Term) (extend V pathDom)
+liftPathSub τ x₀ = var x₀
+liftPathSub τ (↑ x) = τ x ⇑ ⇑ ⇑
+
+liftPathSub-cong : ∀ {U} {V} {τ τ' : PathSub U V} → 
+  τ ∼∼ τ' → liftPathSub τ ∼∼ liftPathSub τ'
+liftPathSub-cong _ x₀ = refl
+liftPathSub-cong τ∼∼τ' (↑ x) = rep-congl (rep-congl (rep-congl (τ∼∼τ' x)))
+
+infix 70 _⟦⟦_∶_≡_⟧⟧
+_⟦⟦_∶_≡_⟧⟧ : ∀ {U} {V} → Term U → PathSub U V → 
+  Sub U V → Sub U V → Path V
+var x ⟦⟦ τ ∶ _ ≡ _ ⟧⟧ = τ x
+app -bot [] ⟦⟦ τ ∶ _ ≡ _ ⟧⟧ = reff ⊥
+app -imp (φ ∷ ψ ∷ []) ⟦⟦ τ ∶ ρ ≡ σ ⟧⟧ = φ ⟦⟦ τ ∶ ρ ≡ σ ⟧⟧ ⊃* ψ ⟦⟦ τ ∶ ρ ≡ σ ⟧⟧
+app -appTerm (M ∷ N ∷ []) ⟦⟦ τ ∶ ρ ≡ σ ⟧⟧ = 
+  app* (N ⟦ ρ ⟧) (N ⟦ σ ⟧) (M ⟦⟦ τ ∶ ρ ≡ σ ⟧⟧) (N ⟦⟦ τ ∶ ρ ≡ σ ⟧⟧)
+app (-lamTerm A) (M ∷ []) ⟦⟦ τ ∶ ρ ≡ σ ⟧⟧ = λλλ A (M ⟦⟦ liftPathSub τ ∶ sub↖ ρ ≡ sub↗ σ ⟧⟧)
+
+pathSub-cong : ∀ {U} {V} M {τ τ' : PathSub U V} {ρ} {ρ'} {σ} {σ'} →
+  τ ∼∼ τ' → ρ ∼ ρ' → σ ∼ σ' → M ⟦⟦ τ ∶ ρ ≡ σ ⟧⟧ ≡ M ⟦⟦ τ' ∶ ρ' ≡ σ' ⟧⟧
+pathSub-cong (var x) τ∼∼τ' _ _ = τ∼∼τ' x
+pathSub-cong (app -bot []) _ _ _ = refl
+pathSub-cong (app -imp (φ ∷ ψ ∷ [])) τ∼∼τ' ρ∼ρ' σ∼σ' = 
+  cong₂ _⊃*_ (pathSub-cong φ τ∼∼τ' ρ∼ρ' σ∼σ') 
+             (pathSub-cong ψ τ∼∼τ' ρ∼ρ' σ∼σ')
+pathSub-cong (app -appTerm (M ∷ N ∷ [])) τ∼∼τ' ρ∼ρ' σ∼σ' = 
+  cong₄ app* (sub-congr N ρ∼ρ') (sub-congr N σ∼σ')
+             (pathSub-cong M τ∼∼τ' ρ∼ρ' σ∼σ') 
+             (pathSub-cong N τ∼∼τ' ρ∼ρ' σ∼σ')
+pathSub-cong (app (-lamTerm A) (M ∷ [])) τ∼∼τ' ρ∼ρ' σ∼σ' = 
+  cong (λλλ A) (pathSub-cong M (liftPathSub-cong τ∼∼τ') 
+               (sub↖-cong ρ∼ρ') (sub↗-cong σ∼σ'))

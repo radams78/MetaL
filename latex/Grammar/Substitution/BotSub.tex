@@ -235,7 +235,7 @@
 \>\AgdaFunction{•RS-botSub'} \AgdaSymbol{:} \AgdaSymbol{∀} \AgdaSymbol{\{}\AgdaBound{U}\AgdaSymbol{\}} \AgdaSymbol{\{}\AgdaBound{V}\AgdaSymbol{\}} \AgdaSymbol{\{}\AgdaBound{K}\AgdaSymbol{\}} \AgdaSymbol{\{}\AgdaBound{F} \AgdaSymbol{:} \AgdaFunction{Expression} \AgdaBound{U} \AgdaSymbol{(}\AgdaInductiveConstructor{varKind} \AgdaBound{K}\AgdaSymbol{)\}} \AgdaSymbol{\{}\AgdaBound{ρ} \AgdaSymbol{:} \AgdaFunction{Rep} \AgdaBound{U} \AgdaBound{V}\AgdaSymbol{\}} \AgdaSymbol{→}\<%
 \\
 \>[0]\AgdaIndent{2}{}\<[2]%
-\>[2]\AgdaBound{ρ} \AgdaFunction{•RS} \AgdaFunction{x₀:=} \AgdaBound{F} \AgdaFunction{∼} \AgdaFunction{x₀:=} \AgdaBound{F} \AgdaFunction{〈} \AgdaBound{ρ} \AgdaFunction{〉} \AgdaFunction{•SR} \AgdaFunction{liftRep} \AgdaBound{K} \AgdaBound{ρ}\<%
+\>[2]\AgdaBound{ρ} \AgdaFunction{•RS} \AgdaFunction{x₀:=} \AgdaBound{F} \AgdaFunction{∼} \AgdaFunction{x₀:=} \AgdaBound{F} \AgdaFunction{⟨} \AgdaBound{ρ} \AgdaFunction{⟩} \AgdaFunction{•SR} \AgdaFunction{liftRep} \AgdaBound{K} \AgdaBound{ρ}\<%
 \\
 \>\AgdaFunction{•RS-botSub'} \AgdaSymbol{=} \AgdaFunction{comp-botSub'} \AgdaFunction{COMPRS} \AgdaFunction{COMPSR}\<%
 \\
@@ -244,7 +244,7 @@
 \>\AgdaFunction{•RS-botSub} \AgdaSymbol{:} \AgdaSymbol{∀} \AgdaSymbol{\{}\AgdaBound{U}\AgdaSymbol{\}} \AgdaSymbol{\{}\AgdaBound{V}\AgdaSymbol{\}} \AgdaSymbol{\{}\AgdaBound{C}\AgdaSymbol{\}} \AgdaSymbol{\{}\AgdaBound{K}\AgdaSymbol{\}} \AgdaSymbol{\{}\AgdaBound{L}\AgdaSymbol{\}} \AgdaSymbol{(}\AgdaBound{E} \AgdaSymbol{:} \AgdaDatatype{Subexp} \AgdaSymbol{(}\AgdaBound{U} \AgdaInductiveConstructor{,} \AgdaBound{K}\AgdaSymbol{)} \AgdaBound{C} \AgdaBound{L}\AgdaSymbol{)} \AgdaSymbol{\{}\AgdaBound{F} \AgdaSymbol{:} \AgdaFunction{Expression} \AgdaBound{U} \AgdaSymbol{(}\AgdaInductiveConstructor{varKind} \AgdaBound{K}\AgdaSymbol{)\}} \AgdaSymbol{\{}\AgdaBound{ρ} \AgdaSymbol{:} \AgdaFunction{Rep} \AgdaBound{U} \AgdaBound{V}\AgdaSymbol{\}} \AgdaSymbol{→}\<%
 \\
 \>[0]\AgdaIndent{2}{}\<[2]%
-\>[2]\AgdaBound{E} \AgdaFunction{⟦} \AgdaFunction{x₀:=} \AgdaBound{F} \AgdaFunction{⟧} \AgdaFunction{〈} \AgdaBound{ρ} \AgdaFunction{〉} \AgdaDatatype{≡} \AgdaBound{E} \AgdaFunction{〈} \AgdaFunction{liftRep} \AgdaBound{K} \AgdaBound{ρ} \AgdaFunction{〉} \AgdaFunction{⟦} \AgdaFunction{x₀:=} \AgdaSymbol{(}\AgdaBound{F} \AgdaFunction{〈} \AgdaBound{ρ} \AgdaFunction{〉}\AgdaSymbol{)} \AgdaFunction{⟧}\<%
+\>[2]\AgdaBound{E} \AgdaFunction{⟦} \AgdaFunction{x₀:=} \AgdaBound{F} \AgdaFunction{⟧} \AgdaFunction{⟨} \AgdaBound{ρ} \AgdaFunction{⟩} \AgdaDatatype{≡} \AgdaBound{E} \AgdaFunction{⟨} \AgdaFunction{liftRep} \AgdaBound{K} \AgdaBound{ρ} \AgdaFunction{⟩} \AgdaFunction{⟦} \AgdaFunction{x₀:=} \AgdaSymbol{(}\AgdaBound{F} \AgdaFunction{⟨} \AgdaBound{ρ} \AgdaFunction{⟩}\AgdaSymbol{)} \AgdaFunction{⟧}\<%
 \\
 \>\AgdaFunction{•RS-botSub} \AgdaBound{E} \AgdaSymbol{=} \AgdaFunction{comp-botSub} \AgdaSymbol{\{}\AgdaArgument{E'} \AgdaSymbol{=} \AgdaBound{E}\AgdaSymbol{\}} \AgdaFunction{COMPRS} \AgdaFunction{COMPSR}\<%
 \end{code}
@@ -281,7 +281,7 @@
 \>[54]\<%
 \\
 \>[0]\AgdaIndent{2}{}\<[2]%
-\>[2]\AgdaBound{E} \AgdaFunction{〈} \AgdaFunction{upRep} \AgdaFunction{〉} \AgdaFunction{⟦} \AgdaFunction{x₀:=} \AgdaBound{F} \AgdaFunction{⟧} \AgdaDatatype{≡} \AgdaBound{E}\<%
+\>[2]\AgdaBound{E} \AgdaFunction{⟨} \AgdaFunction{upRep} \AgdaFunction{⟩} \AgdaFunction{⟦} \AgdaFunction{x₀:=} \AgdaBound{F} \AgdaFunction{⟧} \AgdaDatatype{≡} \AgdaBound{E}\<%
 \\
 \>\AgdaFunction{botSub-upRep} \AgdaSymbol{\_} \AgdaSymbol{=} \AgdaFunction{botSub-up} \AgdaFunction{COMPSR}\<%
 \\
@@ -368,7 +368,7 @@
 \>[2]\AgdaSymbol{\{}\AgdaBound{M2} \AgdaSymbol{:} \AgdaFunction{Expression} \AgdaBound{U} \AgdaSymbol{(}\AgdaInductiveConstructor{varKind} \AgdaBound{K1}\AgdaSymbol{)\}} \AgdaSymbol{\{}\AgdaBound{M1} \AgdaSymbol{:} \AgdaFunction{Expression} \AgdaBound{U} \AgdaSymbol{(}\AgdaInductiveConstructor{varKind} \AgdaBound{K2}\AgdaSymbol{)\}} \AgdaSymbol{\{}\AgdaBound{M0} \AgdaSymbol{:} \AgdaFunction{Expression} \AgdaBound{U} \AgdaSymbol{(}\AgdaInductiveConstructor{varKind} \AgdaBound{K0}\AgdaSymbol{)\}} \AgdaSymbol{\{}\AgdaBound{ρ} \AgdaSymbol{:} \AgdaFunction{Rep} \AgdaBound{U} \AgdaBound{V}\AgdaSymbol{\}} \AgdaSymbol{→}\<%
 \\
 \>[0]\AgdaIndent{2}{}\<[2]%
-\>[2]\AgdaSymbol{(}\AgdaFunction{x₂:=} \AgdaBound{M2} \AgdaFunction{〈} \AgdaBound{ρ} \AgdaFunction{〉} \AgdaFunction{,x₁:=} \AgdaBound{M1} \AgdaFunction{〈} \AgdaBound{ρ} \AgdaFunction{〉} \AgdaFunction{,x₀:=} \AgdaBound{M0} \AgdaFunction{〈} \AgdaBound{ρ} \AgdaFunction{〉}\AgdaSymbol{)} \AgdaFunction{•SR} \AgdaFunction{liftRep} \AgdaSymbol{\_} \AgdaSymbol{(}\AgdaFunction{liftRep} \AgdaSymbol{\_} \AgdaSymbol{(}\AgdaFunction{liftRep} \AgdaSymbol{\_} \AgdaBound{ρ}\AgdaSymbol{))}\<%
+\>[2]\AgdaSymbol{(}\AgdaFunction{x₂:=} \AgdaBound{M2} \AgdaFunction{⟨} \AgdaBound{ρ} \AgdaFunction{⟩} \AgdaFunction{,x₁:=} \AgdaBound{M1} \AgdaFunction{⟨} \AgdaBound{ρ} \AgdaFunction{⟩} \AgdaFunction{,x₀:=} \AgdaBound{M0} \AgdaFunction{⟨} \AgdaBound{ρ} \AgdaFunction{⟩}\AgdaSymbol{)} \AgdaFunction{•SR} \AgdaFunction{liftRep} \AgdaSymbol{\_} \AgdaSymbol{(}\AgdaFunction{liftRep} \AgdaSymbol{\_} \AgdaSymbol{(}\AgdaFunction{liftRep} \AgdaSymbol{\_} \AgdaBound{ρ}\AgdaSymbol{))}\<%
 \\
 \>[0]\AgdaIndent{2}{}\<[2]%
 \>[2]\AgdaFunction{∼} \AgdaBound{ρ} \AgdaFunction{•RS} \AgdaSymbol{(}\AgdaFunction{x₂:=} \AgdaBound{M2} \AgdaFunction{,x₁:=} \AgdaBound{M1} \AgdaFunction{,x₀:=} \AgdaBound{M0}\AgdaSymbol{)}\<%
@@ -390,10 +390,10 @@
 \>[2]\AgdaSymbol{\{}\AgdaBound{M2} \AgdaSymbol{:} \AgdaFunction{Expression} \AgdaBound{U} \AgdaSymbol{(}\AgdaInductiveConstructor{varKind} \AgdaBound{K2}\AgdaSymbol{)\}} \AgdaSymbol{\{}\AgdaBound{M1} \AgdaSymbol{:} \AgdaFunction{Expression} \AgdaBound{U} \AgdaSymbol{(}\AgdaInductiveConstructor{varKind} \AgdaBound{K1}\AgdaSymbol{)\}} \AgdaSymbol{\{}\AgdaBound{M0} \AgdaSymbol{:} \AgdaFunction{Expression} \AgdaBound{U} \AgdaSymbol{(}\AgdaInductiveConstructor{varKind} \AgdaBound{K0}\AgdaSymbol{)\}} \AgdaSymbol{\{}\AgdaBound{ρ} \AgdaSymbol{:} \AgdaFunction{Rep} \AgdaBound{U} \AgdaBound{V}\AgdaSymbol{\}} \AgdaSymbol{(}\AgdaBound{N} \AgdaSymbol{:} \AgdaFunction{Expression} \AgdaSymbol{(((}\AgdaBound{U} \AgdaInductiveConstructor{,} \AgdaBound{K2}\AgdaSymbol{)} \AgdaInductiveConstructor{,} \AgdaBound{K1}\AgdaSymbol{)} \AgdaInductiveConstructor{,} \AgdaBound{K0}\AgdaSymbol{)} \AgdaBound{L}\AgdaSymbol{)} \AgdaSymbol{→}\<%
 \\
 \>[0]\AgdaIndent{2}{}\<[2]%
-\>[2]\AgdaBound{N} \AgdaFunction{〈} \AgdaFunction{liftRep} \AgdaSymbol{\_} \AgdaSymbol{(}\AgdaFunction{liftRep} \AgdaSymbol{\_} \AgdaSymbol{(}\AgdaFunction{liftRep} \AgdaSymbol{\_} \AgdaBound{ρ}\AgdaSymbol{))} \AgdaFunction{〉} \AgdaFunction{⟦} \AgdaFunction{x₂:=} \AgdaBound{M2} \AgdaFunction{〈} \AgdaBound{ρ} \AgdaFunction{〉} \AgdaFunction{,x₁:=} \AgdaBound{M1} \AgdaFunction{〈} \AgdaBound{ρ} \AgdaFunction{〉} \AgdaFunction{,x₀:=} \AgdaBound{M0} \AgdaFunction{〈} \AgdaBound{ρ} \AgdaFunction{〉} \AgdaFunction{⟧}\<%
+\>[2]\AgdaBound{N} \AgdaFunction{⟨} \AgdaFunction{liftRep} \AgdaSymbol{\_} \AgdaSymbol{(}\AgdaFunction{liftRep} \AgdaSymbol{\_} \AgdaSymbol{(}\AgdaFunction{liftRep} \AgdaSymbol{\_} \AgdaBound{ρ}\AgdaSymbol{))} \AgdaFunction{⟩} \AgdaFunction{⟦} \AgdaFunction{x₂:=} \AgdaBound{M2} \AgdaFunction{⟨} \AgdaBound{ρ} \AgdaFunction{⟩} \AgdaFunction{,x₁:=} \AgdaBound{M1} \AgdaFunction{⟨} \AgdaBound{ρ} \AgdaFunction{⟩} \AgdaFunction{,x₀:=} \AgdaBound{M0} \AgdaFunction{⟨} \AgdaBound{ρ} \AgdaFunction{⟩} \AgdaFunction{⟧}\<%
 \\
 \>[0]\AgdaIndent{2}{}\<[2]%
-\>[2]\AgdaDatatype{≡} \AgdaBound{N} \AgdaFunction{⟦} \AgdaFunction{x₂:=} \AgdaBound{M2} \AgdaFunction{,x₁:=} \AgdaBound{M1} \AgdaFunction{,x₀:=} \AgdaBound{M0} \AgdaFunction{⟧} \AgdaFunction{〈} \AgdaBound{ρ} \AgdaFunction{〉}\<%
+\>[2]\AgdaDatatype{≡} \AgdaBound{N} \AgdaFunction{⟦} \AgdaFunction{x₂:=} \AgdaBound{M2} \AgdaFunction{,x₁:=} \AgdaBound{M1} \AgdaFunction{,x₀:=} \AgdaBound{M0} \AgdaFunction{⟧} \AgdaFunction{⟨} \AgdaBound{ρ} \AgdaFunction{⟩}\<%
 \\
 \>\AgdaFunction{botSub₃-liftRep₃} \AgdaSymbol{\{}\AgdaArgument{M2} \AgdaSymbol{=} \AgdaBound{M2}\AgdaSymbol{\}} \AgdaSymbol{\{}\AgdaBound{M1}\AgdaSymbol{\}} \AgdaSymbol{\{}\AgdaBound{M0}\AgdaSymbol{\}} \AgdaSymbol{\{}\AgdaBound{ρ}\AgdaSymbol{\}} \AgdaBound{N} \AgdaSymbol{=} \AgdaKeyword{let} \AgdaKeyword{open} \AgdaModule{≡-Reasoning} \AgdaKeyword{in}\<%
 \\
@@ -401,13 +401,13 @@
 \>[14]\AgdaFunction{begin}\<%
 \\
 \>[14]\AgdaIndent{16}{}\<[16]%
-\>[16]\AgdaBound{N} \AgdaFunction{〈} \AgdaFunction{liftRep} \AgdaSymbol{\_} \AgdaSymbol{(}\AgdaFunction{liftRep} \AgdaSymbol{\_} \AgdaSymbol{(}\AgdaFunction{liftRep} \AgdaSymbol{\_} \AgdaBound{ρ}\AgdaSymbol{))} \AgdaFunction{〉} \AgdaFunction{⟦} \AgdaFunction{x₂:=} \AgdaBound{M2} \AgdaFunction{〈} \AgdaBound{ρ} \AgdaFunction{〉} \AgdaFunction{,x₁:=} \AgdaBound{M1} \AgdaFunction{〈} \AgdaBound{ρ} \AgdaFunction{〉} \AgdaFunction{,x₀:=} \AgdaBound{M0} \AgdaFunction{〈} \AgdaBound{ρ} \AgdaFunction{〉} \AgdaFunction{⟧}\<%
+\>[16]\AgdaBound{N} \AgdaFunction{⟨} \AgdaFunction{liftRep} \AgdaSymbol{\_} \AgdaSymbol{(}\AgdaFunction{liftRep} \AgdaSymbol{\_} \AgdaSymbol{(}\AgdaFunction{liftRep} \AgdaSymbol{\_} \AgdaBound{ρ}\AgdaSymbol{))} \AgdaFunction{⟩} \AgdaFunction{⟦} \AgdaFunction{x₂:=} \AgdaBound{M2} \AgdaFunction{⟨} \AgdaBound{ρ} \AgdaFunction{⟩} \AgdaFunction{,x₁:=} \AgdaBound{M1} \AgdaFunction{⟨} \AgdaBound{ρ} \AgdaFunction{⟩} \AgdaFunction{,x₀:=} \AgdaBound{M0} \AgdaFunction{⟨} \AgdaBound{ρ} \AgdaFunction{⟩} \AgdaFunction{⟧}\<%
 \\
 \>[0]\AgdaIndent{14}{}\<[14]%
 \>[14]\AgdaFunction{≡⟨⟨} \AgdaFunction{sub-•SR} \AgdaBound{N} \AgdaFunction{⟩⟩}\<%
 \\
 \>[14]\AgdaIndent{16}{}\<[16]%
-\>[16]\AgdaBound{N} \AgdaFunction{⟦} \AgdaSymbol{(}\AgdaFunction{x₂:=} \AgdaBound{M2} \AgdaFunction{〈} \AgdaBound{ρ} \AgdaFunction{〉} \AgdaFunction{,x₁:=} \AgdaBound{M1} \AgdaFunction{〈} \AgdaBound{ρ} \AgdaFunction{〉} \AgdaFunction{,x₀:=} \AgdaBound{M0} \AgdaFunction{〈} \AgdaBound{ρ} \AgdaFunction{〉}\AgdaSymbol{)} \AgdaFunction{•SR} \AgdaFunction{liftRep} \AgdaSymbol{\_} \AgdaSymbol{(}\AgdaFunction{liftRep} \AgdaSymbol{\_} \AgdaSymbol{(}\AgdaFunction{liftRep} \AgdaSymbol{\_} \AgdaBound{ρ}\AgdaSymbol{))} \AgdaFunction{⟧}\<%
+\>[16]\AgdaBound{N} \AgdaFunction{⟦} \AgdaSymbol{(}\AgdaFunction{x₂:=} \AgdaBound{M2} \AgdaFunction{⟨} \AgdaBound{ρ} \AgdaFunction{⟩} \AgdaFunction{,x₁:=} \AgdaBound{M1} \AgdaFunction{⟨} \AgdaBound{ρ} \AgdaFunction{⟩} \AgdaFunction{,x₀:=} \AgdaBound{M0} \AgdaFunction{⟨} \AgdaBound{ρ} \AgdaFunction{⟩}\AgdaSymbol{)} \AgdaFunction{•SR} \AgdaFunction{liftRep} \AgdaSymbol{\_} \AgdaSymbol{(}\AgdaFunction{liftRep} \AgdaSymbol{\_} \AgdaSymbol{(}\AgdaFunction{liftRep} \AgdaSymbol{\_} \AgdaBound{ρ}\AgdaSymbol{))} \AgdaFunction{⟧}\<%
 \\
 \>[0]\AgdaIndent{14}{}\<[14]%
 \>[14]\AgdaFunction{≡⟨} \AgdaFunction{sub-congr} \AgdaBound{N} \AgdaFunction{botSub₃-liftRep₃'} \AgdaFunction{⟩}\<%
@@ -419,7 +419,7 @@
 \>[14]\AgdaFunction{≡⟨} \AgdaFunction{sub-•RS} \AgdaBound{N} \AgdaFunction{⟩}\<%
 \\
 \>[14]\AgdaIndent{16}{}\<[16]%
-\>[16]\AgdaBound{N} \AgdaFunction{⟦} \AgdaFunction{x₂:=} \AgdaBound{M2} \AgdaFunction{,x₁:=} \AgdaBound{M1} \AgdaFunction{,x₀:=} \AgdaBound{M0} \AgdaFunction{⟧} \AgdaFunction{〈} \AgdaBound{ρ} \AgdaFunction{〉}\<%
+\>[16]\AgdaBound{N} \AgdaFunction{⟦} \AgdaFunction{x₂:=} \AgdaBound{M2} \AgdaFunction{,x₁:=} \AgdaBound{M1} \AgdaFunction{,x₀:=} \AgdaBound{M0} \AgdaFunction{⟧} \AgdaFunction{⟨} \AgdaBound{ρ} \AgdaFunction{⟩}\<%
 \\
 \>[0]\AgdaIndent{14}{}\<[14]%
 \>[14]\AgdaFunction{∎}\<%

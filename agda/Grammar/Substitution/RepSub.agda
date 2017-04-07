@@ -37,14 +37,14 @@ liftsOp-is-liftsOp {U} {V} {ρ} {K ∷ A} = let open EqReasoning (OP _ _) in
   ∎
 
 rep-is-sub : ∀ {U} {V} {K} {C} (E : Subexp U K C) {ρ : Rep U V} → 
-  E 〈 ρ 〉 ≡ E ⟦ rep2sub ρ ⟧
+  E ⟨ ρ ⟩ ≡ E ⟦ rep2sub ρ ⟧
 rep-is-sub (var _) = refl
 rep-is-sub (app c E) = cong (app c) (rep-is-sub E)
 rep-is-sub [] = refl
 rep-is-sub {U} {V} (_∷_ {A = SK AA _} E F) {ρ} = cong₂ _∷_ 
   (let open ≡-Reasoning in
   begin 
-    E 〈 liftsOpR AA ρ 〉
+    E ⟨ liftsOpR AA ρ ⟩
   ≡⟨ rep-is-sub E ⟩
     E ⟦ (λ x → var (liftsOpR AA ρ x)) ⟧ 
   ≡⟨ ap-congl (liftsOp-is-liftsOp {A = AA}) E ⟩
@@ -53,5 +53,5 @@ rep-is-sub {U} {V} (_∷_ {A = SK AA _} E F) {ρ} = cong₂ _∷_
   (rep-is-sub F)
 
 up-is-up' : ∀ {V} {C} {K} {L} {E : Subexp V C K} → 
-  E 〈 upRep {K = L} 〉 ≡ E ⟦ upSub ⟧
+  E ⇑ ≡ E ⟦ upSub {K = L} ⟧
 up-is-up' {E = E} = rep-is-sub E

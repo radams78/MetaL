@@ -1,0 +1,51 @@
+\begin{code}%
+\>\AgdaKeyword{module} \AgdaModule{STLC.Red} \AgdaKeyword{where}\<%
+\\
+%
+\\
+\>\AgdaKeyword{open} \AgdaKeyword{import} \AgdaModule{STLC.Grammar}\<%
+\\
+\>\AgdaKeyword{open} \AgdaKeyword{import} \AgdaModule{Grammar.Pattern} \AgdaFunction{stlc}\<%
+\\
+%
+\\
+\>\AgdaComment{--A reduction relation is a set of pairs of patterns}\<%
+\\
+\>\AgdaFunction{beta\_alpha} \AgdaSymbol{:} \AgdaDatatype{SecondOrderAlphabet}\<%
+\\
+\>\AgdaFunction{beta\_alpha} \AgdaSymbol{=} \AgdaInductiveConstructor{∅} \AgdaInductiveConstructor{,} \AgdaFunction{type} \AgdaFunction{✧} \AgdaInductiveConstructor{,} \AgdaInductiveConstructor{-term} \AgdaFunction{⟶} \AgdaFunction{term} \AgdaFunction{✧} \AgdaInductiveConstructor{,} \AgdaFunction{term} \AgdaFunction{✧}\<%
+\\
+%
+\\
+\>\AgdaFunction{A} \AgdaSymbol{:} \AgdaDatatype{Metavar} \AgdaFunction{beta\_alpha} \AgdaSymbol{(}\AgdaFunction{type} \AgdaFunction{✧}\AgdaSymbol{)}\<%
+\\
+\>\AgdaFunction{A} \AgdaSymbol{=} \AgdaInductiveConstructor{↑} \AgdaSymbol{(}\AgdaInductiveConstructor{↑} \AgdaInductiveConstructor{X₀}\AgdaSymbol{)}\<%
+\\
+%
+\\
+\>\AgdaFunction{M} \AgdaSymbol{:} \AgdaDatatype{Metavar} \AgdaFunction{beta\_alpha} \AgdaSymbol{(}\AgdaInductiveConstructor{-term} \AgdaFunction{⟶} \AgdaFunction{term} \AgdaFunction{✧}\AgdaSymbol{)}\<%
+\\
+\>\AgdaFunction{M} \AgdaSymbol{=} \AgdaInductiveConstructor{↑} \AgdaInductiveConstructor{X₀}\<%
+\\
+%
+\\
+\>\AgdaFunction{N} \AgdaSymbol{:} \AgdaDatatype{Metavar} \AgdaFunction{beta\_alpha} \AgdaSymbol{(}\AgdaFunction{term} \AgdaFunction{✧}\AgdaSymbol{)}\<%
+\\
+\>\AgdaFunction{N} \AgdaSymbol{=} \AgdaInductiveConstructor{X₀}\<%
+\\
+%
+\\
+\>\AgdaFunction{beta\_left} \AgdaSymbol{:} \AgdaDatatype{Pattern} \AgdaFunction{beta\_alpha} \AgdaInductiveConstructor{∅} \AgdaFunction{term}\<%
+\\
+\>\AgdaFunction{beta\_left} \AgdaSymbol{=} \AgdaInductiveConstructor{app} \AgdaInductiveConstructor{-app} \AgdaSymbol{(}\AgdaInductiveConstructor{app} \AgdaInductiveConstructor{-lam} \AgdaSymbol{(}\AgdaInductiveConstructor{metavar} \AgdaFunction{A} \AgdaInductiveConstructor{[]} \AgdaInductiveConstructor{∷} \AgdaInductiveConstructor{metavar} \AgdaFunction{M} \AgdaSymbol{(}\AgdaInductiveConstructor{var} \AgdaInductiveConstructor{x₀} \AgdaInductiveConstructor{∷} \AgdaInductiveConstructor{[]}\AgdaSymbol{)} \AgdaInductiveConstructor{∷} \AgdaInductiveConstructor{[]}\AgdaSymbol{)} \AgdaInductiveConstructor{∷} \AgdaInductiveConstructor{metavar} \AgdaFunction{N} \AgdaInductiveConstructor{[]} \AgdaInductiveConstructor{∷} \AgdaInductiveConstructor{[]}\AgdaSymbol{)}\<%
+\\
+%
+\\
+\>\AgdaFunction{beta\_right} \AgdaSymbol{:} \AgdaDatatype{Pattern} \AgdaFunction{beta\_alpha} \AgdaInductiveConstructor{∅} \AgdaFunction{term}\<%
+\\
+\>\AgdaFunction{beta\_right} \AgdaSymbol{=} \AgdaInductiveConstructor{metavar} \AgdaFunction{M} \AgdaSymbol{(}\AgdaInductiveConstructor{metavar} \AgdaFunction{N} \AgdaInductiveConstructor{[]} \AgdaInductiveConstructor{∷} \AgdaInductiveConstructor{[]}\AgdaSymbol{)}\<%
+\\
+%
+\\
+\>\<%
+\end{code}

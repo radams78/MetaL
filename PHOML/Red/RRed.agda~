@@ -1,0 +1,34 @@
+module PHOPL.Red.RRed where
+
+infix 10 _⇒?_
+_⇒?_ : ∀ {V K} → VExpression V K → VExpression V K → Set
+_⇒?_ = RClose _⇒_
+
+--TODO Duplication below
+⇒?-appTl : ∀ {V} {M M' N : Term V} → M ⇒? M' → appT M N ⇒? appT M' N
+⇒?-appTl = respects-R' _ _⇒_ (λ _ _ → appTl) _ _
+
+⇒?-impl : ∀ {V} {φ φ' ψ : Term V} → φ ⇒? φ' → φ ⊃ ψ ⇒? φ' ⊃ ψ
+⇒?-impl = respects-R' _ _⇒_ (λ _ _ → impl) _ _
+
+⇒?-impr : ∀ {V} {φ ψ ψ' : Term V} → ψ ⇒? ψ' → φ ⊃ ψ ⇒? φ ⊃ ψ'
+⇒?-impr = respects-R' _ _⇒_ (λ _ _ → impr) _ _
+
+⇒?-imp*l : ∀ {V} {P P' Q : Path V} → P ⇒? P' → P ⊃* Q ⇒? P' ⊃* Q
+⇒?-imp*l = respects-R' _ _⇒_ (λ _ _ → imp*l) _ _
+
+⇒?-imp*r : ∀ {V} {P Q Q' : Path V} → Q ⇒? Q' → P ⊃* Q ⇒? P ⊃* Q'
+⇒?-imp*r = respects-R' _ _⇒_ (λ _ _ → imp*r) _ _
+
+⇒?-app*l : ∀ {V} {M N : Term V} {P P' Q} → P ⇒? P' → app* M N P Q ⇒? app* M N P' Q
+⇒?-app*l = respects-R' _ _⇒_ (λ _ _ → app*l) _ _
+
+⇒?-appPl : ∀ {V} {δ δ' ε : Proof V} → δ ⇒? δ' → appP δ ε ⇒? appP δ' ε
+⇒?-appPl = respects-R' _ _⇒_ (λ _ _ → appPl) _ _
+
+⇒?-plus : ∀ {V} {P Q : Path V} → P ⇒? Q → plus P ⇒? plus Q
+⇒?-plus {V} = respects-R {A = Bool} {B = λ b → VExpression V (if b then -Path else -Proof)} (λ _ → _⇒_ ) {true} {false} plus (λ x y → plusR) _ _
+
+⇒?-minus : ∀ {V} {P Q : Path V} → P ⇒? Q → minus P ⇒? minus Q
+⇒?-minus {V} = respects-R {A = Bool} {B = λ b → VExpression V (if b then -Path else -Proof)} (λ _ → _⇒_ ) {true} {false} minus (λ x y → minusR) _ _
+

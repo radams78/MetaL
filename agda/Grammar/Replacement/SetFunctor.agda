@@ -13,10 +13,10 @@ record SetFunctor : Set₁ where
     〈〈〉〉-comp : ∀ {U V W} {ρ : Rep V W} {σ : Rep U V} {a : Fib U} → 
       a 〈〈 ρ •R σ 〉〉 ≡ a 〈〈 σ 〉〉 〈〈 ρ 〉〉
 
-VAR : VarKind → SetFunctor
+VAR : VariableKind → SetFunctor
 VAR K = record { 
   Fib = λ V → Var V K ; 
-  _〈〈_〉〉 = λ x ρ → ρ K x ; 
+  _〈〈_〉〉 = λ x ρ → ρ x ; 
   〈〈〉〉-id = refl ; 
   〈〈〉〉-comp = refl }
 

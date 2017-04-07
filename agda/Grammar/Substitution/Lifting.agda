@@ -14,7 +14,7 @@ liftSub _ σ (↑ x) = (σ x) ⇑
 liftSub-cong : ∀ {U} {V} {K} {σ σ' : Sub U V} → 
   σ ∼ σ' → liftSub K σ ∼ liftSub K σ'
 liftSub-cong {K = K} σ-is-σ' x₀ = refl
-liftSub-cong σ-is-σ' (↑ x) = cong (λ E → E 〈 upRep 〉) (σ-is-σ' x)
+liftSub-cong σ-is-σ' (↑ x) = cong _⇑ (σ-is-σ' x)
 
 LIFTSUB : Lifting pre-substitution
 LIFTSUB = record { liftOp = liftSub ; liftOp-cong = liftSub-cong }

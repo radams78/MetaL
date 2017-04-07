@@ -19,6 +19,7 @@
 \DeclareUnicodeCharacter{10230}{\ensuremath{\longrightarrow}}
 
 \newcommand{\eqdef}{\ensuremath{\stackrel{\mathrm{def}}{=}}}
+\newcommand{\appl}{\ensuremath{\mathsf{appl}}}
 
 %\newtheorem{lemma}{Lemma}[section]
 %\theoremstyle{definition}
@@ -49,23 +50,37 @@ induction on expressions, and prove results by induction on expressions or induc
 
 \section{Introduction}
 
-%TODO Cite PHOML paper
+A large number of techniques for representing syntax with binding and formalizing metatheory have been invented (see Section \ref{section:relatedwork}).
+Typically, however, whatever representation of syntax we are using, we begin by defining an inductive datatype for the expressions of the system; then
+inductive datatypes for the derivability relation.  We then define operations such as substitution, and prove lemmas, by induction over these datatypes.
 
-\subsection{Design Criteria}
+This causes some problems.  As an example, for most systems we want to prove the Substitution Lemma, which on paper reads
+\[ M [x := N] [y := P] \equiv M [y:=P] [x:=N[y:=P]] \enspace . \]
+Quite naturally, we prove this by induction on $M$.
 
-This library was produced with the following design goals.
+There is no direct way to re-use the proof of the Substitution Lemma from a previous formalisation of a different system; whenever we treat a new formal system, we
+must prove all the metatheorems starting from nothing.  If, in the course of the formalization, we decide to change the system, then we must edit the proof of every one
+of these lemmas.  The proofs typically involve a lot of duplicated code: if there are (say) 20 constructors with binding in the object language, then there will
+be 20 very similar clauses in the proof of this lemma.
 
+We can think of several different ways to handle these problems in individual cases; for example, we may write a tactic in Coq to eliminate duplicated code, or look for a representation
+of syntax in which the Substitution Lemma becomes a definitional equality (e.g. \cite{McBridea}).  One solution is to create a library of metatheorems about
+formal systems in general.  For this library to be useful in practice, it should satisfy these three criteria:
 \begin{itemize}
-\item
-The library should be \emph{modular}.  There should be a type \AgdaDatatype{Grammar}, and results such as the Substitution Lemma 
-%TODO Cross-ref
-should be
-provable 'once and for all' for all grammars.\footnote{For future versions of the library, we wish to have a type of reduction rules over a grammar, and a type of theories (sets of rules of deduction) over a grammar.}
-\item
-It should be possible for the user to define their own operations, such as path substitution %TODO Cross-ref
-\item
-Operations which are defined by induction on expressions should be definable by induction in Agda.  Results which are proved by induction on expressions should be proved by induction in Agda.
+ \item 
+ When defining a term of type \AgdaDatatype{Grammar}, the definition should be comparable in length to the definition of the system on paper.
+ \item
+ Results such as the Substitution Lemma should be provable 'once and for all' for all grammars.
+ \item
+ It should be possible to define functions by induction on the syntax, prove lemmas by induction on syntax, and prove lemmas by induction on derivations.
+ %TODO Make sure there are examples of each of these
 \end{itemize}
+
+We present here an Agda library called MetaL ('Metatheory Library') which is being designed with these criteria as goals.  It contains
+a definition of an arbitrary grammar with binding, and proofs of results about the operations of \emph{replacement} (mapping variables to variables) and substitution.
+General notions of reduction rules and rules of deduction are being added to the library as a work-in-progress.  This library has been used
+to prove the strong normalization of the simply-typed lambda calculus, and used for a metatheoretic result for a more complex system known
+as Predicative Higher-Order Minimal Logic (PHOML) \cite{DBLP:journals/corr/AdamsBC16}.
 
 \section{Grammar}
 
@@ -239,9 +254,97 @@ We can prove the following results about substitution, and analagous results abo
 % 
 % %TODO RepSub.agda
 
-\section{Reduction Relations}
+\section{Examples}
 
-\section{Rules of Deduction}
+\subsection{Simply-Typed Lambda Calculus}
+
+We have formalized the Tait proof that the simply-
+We give the syntax and rules of deduction of the simply-typed lambda calculus.
+
+%TODO Do it
+
+We define the set of \emph{computable} terms of each type $A$:
+
+\begin{align*}
+C_\Gamma(\bot) & = \{ \delta \mid \Gamma \vdash \delta : \bot \text{ and } \delta \in SN \} \\
+C_\Gamma(\phi \rightarrow \psi) & = \{ \delta \mid \Gamma : \delta : \phi \rightarrow \psi \text{ and } \forall \Delta ⊇ \Gamma . ∀ \epsilon \in C_\Delta(\phi). \delta \epsilon \in C_\Delta(\psi) \}
+\end{align*}
+
+%TODO Link to source
+
+Note that this can be done by induction on the expression of type \AgdaFunction{Prop}.  There is no need, for example, to handle the case where $A$ is a term.
+
+We go on to prove that every computable term is strongly normalizing, and every typable term is computable.
+
+\subsection{Predicative Higher-Order Minimal Logic}
+
+This library has been used for the proof of the canonicity of predicative higher-order minimal logic (PHOML).  The proof is described in the paper \cite{DBLP:journals/corr/AdamsBC16}.  
+Here, we note only that this formalization involved defining the notion of \emph{path substitution}.
+
+The syntax has kinds of \emph{types}, \emph{terms} and \emph{paths}.  The operation of \emph{path substitution} takes terms $M$, $N$, $N'$ and a path $P$, and
+returns a path $M \{ x := P : N = N' \}$.  The intuition is that, if $P$ is a proof that $N = N'$, then $M \{ x := P : N = N' \}$ is a proof that
+$M[x:=N] = M[x:=N']$.
+
+This is defined in Agda as follows
+
+%TODO Link to source
+
+Note again that this can be defined by induction on $M$, and only the cases where $M$ is a term need to be defined.
+
+\section{Reduction Relations and Rules of Deduction (Work in Progress)}
+
+In the above examples, the reduction relation and rules of deduction are given as inductive datatypes.  This has all the disadvantages discussed in the introduction.
+We want a general type of reduction relations and a type of sets of rules of deduction, and we want to prove general results about them.  The following progress
+has been made towards this goal.
+
+We look at one of the clauses in the definition of $\beta$-reduction: $(\lambda x:A.M)N \rhd M [x:=N]$.  We shall call $A$, $M$ and $N$ \emph{metavariables}
+or \emph{second-order variables}, and the expressions $(\lambda x:A.M)N$ and $M[x:=N]$ we shall call \emph{patterns} over the \emph{second-order alphabet} $\{ A, M, N \}$.
+The definition is as follows.
+
+\begin{definition}
+\begin{enumerate}
+ \item 
+ A \emph{second-order alphabet} is a set of \emph{metavariables}, to each of which is associated an abstraction kind.  To distinguish, the alphabets defined in
+ Definition \ref{definition:alphabet} are now called \emph{first-order alphabets}
+\item 
+ Given a second-order alphabet $U$, a first-order alphabet $V$, and an expression kind $K$, the set of \emph{patterns} of kind $K$ over $U$ and $V$ are defined as follows.
+ \begin{itemize}
+  \item If $x \in V$ is a variable of kind $K$, then $x$ is a pattern of kind $K$.
+  \item If $X \in U$ is a metavariable of kind $K_1 \rightarrow \cdots \rightarrow K_n \rightarrow L$, and $P_i$ is a pattern of kind $K_i$ over $U$ and $V$,
+  then $X[P_1, \ldots, P_n]$ is a pattern of kind $L$ over $U$ and $V$.
+  \item If $c$ is a constructor of kind $A_1 \rightarrow A_n \rightarrow K$ and, for each $i$, we have
+  \[ A_i \equiv L_{i1} \rightarrow \cdots \rightarrow L_{ir_i} \rightarrow M_i \]
+  and $P_i$ is a pattern of kind $M_i$ over $U$ and $V \cup \{ x_{i1}, \ldots, x_{ir_i} \}$, where each $x_{ij}$ has kind $L_{ij}$, then
+  \[ c([x_{11}, \ldots, x_{1r_1}] P_1, \ldots, [x_{n1}, \ldots, x_{nr_n}] P_n ] \]
+  is a pattern of kind $K$ over $U$ and $V$.
+ \end{itemize}
+\item
+Let $U$ be a second-order alphabet and $V$ a first-order alphabet.  An \emph{instantiation} $\tau : U \rightarrow V$ is a function mapping every metavariable
+$X \in U$ of abstraction kind $K$ to an abstraction $\tau(X)$ of kind $K$ over $V$.
+\item 
+Given a pattern $P$ of kind $K$ over $U$ and $V$; an instantiation $\tau : U \rightarrow W$; and a replacement $\rho : V \rightarrow W$; define the
+expression $P[\tau, \rho]$ of kind $K$ over $W$ as follows.
+\begin{align*}
+ x[\tau, \rho] & \equiv \rho(x)
+\end{align*}
+If $\tau(X) \equiv [x_1, \ldots, x_n]E$ then
+\begin{align*}
+ X[P_1, \ldots, P_n][\tau, \rho] & \equiv E[x_1 := P_1[\tau, \rho], \ldots, x_n := P_n[\tau, \rho]] \\
+ c([\vec{x_1}]P_1, \ldots, [\vec{x_n}]P_n)[\tau, \rho] & \equiv c([\vec{x_1}] P_1[\tau, \rho^{\uparrow \cdots \uparrow}], \ldots,
+ P_n[\tau, \rho^{\uparrow \cdots \uparrow}])
+\end{align*}
+The expression $P[\tau, \rho]$ is called an \emph{instance} of the pattern $P$.
+\item
+A \emph{reduction relation} is a pair $(P,Q)$ of expressions of the same kind over the same alphabet, such that $P$ has the form $c \vec{R}$ for some constructor $c$.
+\end{enumerate}
+\end{definition}
+
+The reduction relation $\beta$ is the reduction relation consisting of one pair:
+\[ (\lambda x:A.M[x])N \rhd M[N] \text{ or } (\appl(\lambda(A, [x] M[x]), N), M[N]) \enspace . \]
+Observe that the instances $(P[\tau, \rho], Q[\tau, \rho])$ of this pair are exactly the pairs of expressions $(M, N)$ such that $M$ is a $\beta$-redex and $N$ its contractum.
+
+A rule of deduction can similarly be represented as a sequence of patterns over $U$ and $V$, each with a context over $U$ and $V$.  For example, the introduction rule for the $\rightarrow$-type
+is represented by the pair $((x : A[], M[x], B[]), (\epsilon, \lambda x:A[].M[x], A[] \rightarrow B[]))$.
 
 \section{Limitations}
 
@@ -264,6 +367,10 @@ be unwieldy in practice.
 \end{itemize}
 
 \section{Related Work}
+
+Higher-order abstract syntax and Kipling both restrict the operations that can be defined on the syntax.
+
+\label{section:relatedwork}
 
 \section{Conclusion}
 

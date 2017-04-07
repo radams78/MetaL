@@ -1,0 +1,72 @@
+module PHOPL.Grammar.Base where
+
+data PHOPLVarKind : Set where
+  -Proof : PHOPLVarKind
+  -Term : PHOPLVarKind
+  -Path : PHOPLVarKind
+
+data PHOPLNonVarKind : Set where
+  -Type : PHOPLNonVarKind
+  -Equation : PHOPLNonVarKind
+
+PHOPLTaxonomy : Taxonomy
+PHOPLTaxonomy = record { 
+  VarKind = PHOPLVarKind; 
+  NonVarKind = PHOPLNonVarKind }
+
+module PHOPLgrammar where
+  open Taxonomy PHOPLTaxonomy
+
+  -vProof : ExpKind
+  -vProof = varKind -Proof
+
+  -vTerm : ExpKind
+  -vTerm = varKind -Term
+
+  -vPath : ExpKind
+  -vPath = varKind -Path
+
+  -nvType : ExpKind
+  -nvType = nonVarKind -Type
+
+  -nvEq : ExpKind
+  -nvEq = nonVarKind -Equation
+
+  data Type : Set where
+    Ω : Type
+    _⇛_ : Type → Type → Type
+
+  data Dir : Set where
+    -plus : Dir
+    -minus : Dir
+
+  pathDom : List VarKind
+  pathDom = -Term ∷ -Term ∷ -Path ∷ []
+
+  data PHOPLcon : ConKind → Set where
+    -ty : Type → PHOPLcon (-nvType ✧)
+    -bot : PHOPLcon (-vTerm ✧)
+    -imp : PHOPLcon (-vTerm ✧ ⟶ -vTerm ✧ ⟶ -vTerm ✧)
+    -lamTerm : Type → PHOPLcon ((-Term ⟶ -vTerm ✧) ⟶ -vTerm ✧)
+    -appTerm : PHOPLcon (-vTerm ✧ ⟶ -vTerm ✧ ⟶ -vTerm ✧)
+    -lamProof : PHOPLcon (-vTerm ✧ ⟶ (-Proof ⟶ -vProof ✧) ⟶ -vProof ✧)
+    -appProof : PHOPLcon (-vProof ✧ ⟶ -vProof ✧ ⟶ -vProof ✧)
+    -dir : Dir → PHOPLcon (-vPath ✧ ⟶ -vProof ✧)
+    -ref : PHOPLcon (-vTerm ✧ ⟶ -vPath ✧)
+    -imp* : PHOPLcon (-vPath ✧ ⟶ -vPath ✧ ⟶ -vPath ✧)
+    -univ : PHOPLcon (-vTerm ✧ ⟶ -vTerm ✧ ⟶ -vProof ✧ ⟶ -vProof ✧ ⟶ -vPath ✧)
+    -lll : Type → PHOPLcon (SK pathDom -vPath ⟶ -vPath ✧)
+    -app* : PHOPLcon (-vTerm ✧ ⟶ -vTerm ✧ ⟶ -vPath ✧ ⟶ -vPath ✧ ⟶ -vPath ✧)
+    -eq : Type → PHOPLcon (-vTerm ✧ ⟶ -vTerm ✧ ⟶ -nvEq ✧)
+
+  PHOPLparent : PHOPLVarKind → ExpKind
+  PHOPLparent -Proof = -vTerm
+  PHOPLparent -Term = -nvType
+  PHOPLparent -Path = -nvEq
+
+  PHOPL : Grammar
+  PHOPL = record { 
+    taxonomy = PHOPLTaxonomy;
+    isGrammar = record { 
+      Con = PHOPLcon; 
+      parent = PHOPLparent } }

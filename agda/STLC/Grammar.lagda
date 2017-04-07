@@ -39,7 +39,10 @@ module STLCGrammar where
     -arrow : stlcCon (type ✧ ⟶ type ✧ ⟶ type ✧)
     -app : stlcCon (term ✧ ⟶ term ✧ ⟶ term ✧)
     -lam : stlcCon (type ✧ ⟶ (-term ⟶ term ✧) ⟶ term ✧)
+\end{code}
+%</Grammar>
 
+\begin{code}
   stlcParent : VariableKind → ExpressionKind
   stlcParent -term = type
 
@@ -53,8 +56,8 @@ module STLCGrammar where
 
 \AgdaHide{
 \begin{code}
-open STLCGrammar
-open Grammar STLCGrammar.stlc
+open STLCGrammar public
+open Grammar STLCGrammar.stlc public
 \end{code}
 }
 
@@ -77,4 +80,4 @@ appl M N = app -app (M ∷ N ∷ [])
 Λ : ∀ {V} → Type V → Term (V , -term) → Term V
 Λ A M = app -lam (A ∷ M ∷ [])
 \end{code}
-%</Grammar>
+

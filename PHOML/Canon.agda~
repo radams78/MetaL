@@ -1,0 +1,47 @@
+module PHOPL.Canon where
+
+open import Prelims.Closure
+open import Data.Empty renaming (⊥ to Empty)
+open import Data.Product renaming (_,_ to _,p_)
+open import PHOPL.Grammar
+open import PHOPL.Red
+
+data CanonProp : Set where
+  bot : CanonProp
+  imp : CanonProp → CanonProp → CanonProp
+
+decode : ∀ {V} → CanonProp → Term V
+decode bot = ⊥
+decode (imp φ ψ) = decode φ ⊃ decode ψ
+
+canon-nf : ∀ {V θ} {φ : Term V} → decode θ ⇒ φ → Empty
+canon-nf {θ = bot} ()
+canon-nf {θ = imp _ _} ()
+
+record common-reduct {V K} (E F : Expression V K) : Set where
+  field
+    reduct : Expression V K
+    left : E ↠ reduct
+    right : F ↠ reduct
+
+Church-Rosser : ∀ {V K} {E F G : Expression V K} → E ↠ F → E ↠ G →
+  Σ[ H ∈ Expression V K ] F ↠ H × G ↠ H
+Church-Rosser (inc E⇒F) E↠G = let H ,p F↠H ,p G⇒H = osr-red-comm E⇒F E↠G in 
+  H ,p F↠H ,p inc G⇒H
+Church-Rosser {G = G} ref E↠G = G ,p E↠G ,p ref
+Church-Rosser (trans E↠F F↠F') E↠G = let H ,p F↠H ,p G↠H = Church-Rosser E↠F E↠G in 
+  let H' ,p F'↠H' ,p H↠H' = Church-Rosser F↠F' F↠H in 
+  H' ,p F'↠H' ,p trans G↠H H↠H'
+
+confluent : ∀ {V K} {φ ψ : Term V} → φ ≃ ψ → Σ[ χ ∈ Term V ] φ ↠ χ × ψ ↠ χ
+confluent {ψ = ψ} (inc φ⇒ψ) = ψ ,p inc φ⇒ψ ,p ref
+confluent {φ = φ} ref = φ ,p ref ,p ref
+confluent (sym φ≃ψ) = let χ ,p φ↠χ ,p ψ↠χ = confluent φ≃ψ in χ ,p ψ↠χ ,p φ↠χ
+confluent (trans φ₁≃φ₂ φ₂≃φ₃) = 
+  let ψ₁ ,p φ₁↠ψ₁ ,p φ₂↠φ₁ = confluent φ₁≃φ₂ in 
+  let ψ₂ ,p φ₂↠ψ₂ ,p φ₃↠ψ₂ = confluent φ₂≃φ₃ in 
+  {!!}
+
+red-canon : ∀ {V} {φ ψ : Term V} {θ : CanonProp} →
+  φ ↠ decode θ → φ ≃ ψ → ψ ↠ decode θ
+red-canon φ↠θ φ≃ψ = {!!}

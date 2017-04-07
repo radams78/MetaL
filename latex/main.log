@@ -1,0 +1,926 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.12.28)  6 APR 2017 11:36
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**main.tex
+(./main.tex
+LaTeX2e <2016/02/01>
+Babel <3.9q> and hyphenation patterns for 81 language(s) loaded.
+(/usr/share/texmf/tex/latex/llncs/llncs.cls
+Document Class: llncs 2015/06/24 v2.20 
+ LaTeX document class for Lecture Notes in Computer Science
+(/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/multicol.sty
+Package: multicol 2015/08/19 v1.8n multicolumn formatting (FMi)
+\c@tracingmulticols=\count87
+\mult@box=\box26
+\multicol@leftmargin=\dimen103
+\c@unbalance=\count88
+\c@collectmore=\count89
+\doublecol@number=\count90
+\multicoltolerance=\count91
+\multicolpretolerance=\count92
+\full@width=\dimen104
+\page@free=\dimen105
+\premulticols=\dimen106
+\postmulticols=\dimen107
+\multicolsep=\skip43
+\multicolbaselineskip=\skip44
+\partial@page=\box27
+\last@line=\box28
+\maxbalancingoverflow=\dimen108
+\mult@rightbox=\box29
+\mult@grightbox=\box30
+\mult@gfirstbox=\box31
+\mult@firstbox=\box32
+\@tempa=\box33
+\@tempa=\box34
+\@tempa=\box35
+\@tempa=\box36
+\@tempa=\box37
+\@tempa=\box38
+\@tempa=\box39
+\@tempa=\box40
+\@tempa=\box41
+\@tempa=\box42
+\@tempa=\box43
+\@tempa=\box44
+\@tempa=\box45
+\@tempa=\box46
+\@tempa=\box47
+\@tempa=\box48
+\@tempa=\box49
+\c@columnbadness=\count93
+\c@finalcolumnbadness=\count94
+\last@try=\dimen109
+\multicolovershoot=\dimen110
+\multicolundershoot=\dimen111
+\mult@nat@firstbox=\box50
+\colbreak@box=\box51
+\mc@col@check@num=\count95
+)
+(/usr/share/texmf/tex/latex/llncs/aliascnt.sty
+Package: aliascnt 2009/09/08 v1.3 Alias counter (HO)
+
+(/usr/share/texmf/tex/latex/llncs/remreset.sty))
+\c@chapter=\count96
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 362.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 363.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 364.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 365.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 366.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 367.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 368.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 369.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 370.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 371.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 372.
+\tocchpnum=\dimen112
+\tocsecnum=\dimen113
+\tocsectotal=\dimen114
+\tocsubsecnum=\dimen115
+\tocsubsectotal=\dimen116
+\tocsubsubsecnum=\dimen117
+\tocsubsubsectotal=\dimen118
+\tocparanum=\dimen119
+\tocparatotal=\dimen120
+\tocsubparanum=\dimen121
+\@tempcntc=\count97
+\fnindent=\dimen122
+\c@@inst=\count98
+\c@@auth=\count99
+\c@auco=\count100
+\instindent=\dimen123
+\authrun=\box52
+\authorrunning=\toks14
+\tocauthor=\toks15
+\titrun=\box53
+\titlerunning=\toks16
+\toctitle=\toks17
+\c@theorem=\count101
+\headlineindent=\dimen124
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2016/03/03 v2.15a AMS math features
+\@mathmargin=\skip45
+
+For additional information on amsmath, use the `?' option.
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01 AMS text
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks18
+\ex@=\dimen125
+))
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen126
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 1999/12/14 v2.01 operator names
+)
+\inf@bad=\count102
+LaTeX Info: Redefining \frac on input line 199.
+\uproot@=\count103
+\leftroot@=\count104
+LaTeX Info: Redefining \overline on input line 297.
+\classnum@=\count105
+\DOTSCASE@=\count106
+LaTeX Info: Redefining \ldots on input line 394.
+LaTeX Info: Redefining \dots on input line 397.
+LaTeX Info: Redefining \cdots on input line 518.
+\Mathstrutbox@=\box54
+\strutbox@=\box55
+\big@size=\dimen127
+LaTeX Font Info:    Redeclaring font encoding OML on input line 630.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 631.
+
+
+Package amsmath Warning: Unable to redefine math accent \vec.
+
+\macc@depth=\count107
+\c@MaxMatrixCols=\count108
+\dotsspace@=\muskip10
+\c@parentequation=\count109
+\dspbrk@lvl=\count110
+\tag@help=\toks19
+\row@=\count111
+\column@=\count112
+\maxfields@=\count113
+\andhelp@=\toks20
+\eqnshift@=\dimen128
+\alignsep@=\dimen129
+\tagshift@=\dimen130
+\tagwidth@=\dimen131
+\totwidth@=\dimen132
+\lineht@=\dimen133
+\@envbody=\toks21
+\multlinegap=\skip46
+\multlinetaggap=\skip47
+\mathdisplay@stack=\toks22
+LaTeX Info: Redefining \[ on input line 2735.
+LaTeX Info: Redefining \] on input line 2736.
+) (./agda.sty
+Package: agda 
+ (/usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/xifthen/xifthen.sty
+Package: xifthen 2015/11/05 v1.4.0 Extended ifthen features
+
+(/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2014/10/28 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count114
+\calc@Bcount=\count115
+\calc@Adimen=\dimen134
+\calc@Bdimen=\dimen135
+\calc@Askip=\skip48
+\calc@Bskip=\skip49
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count116
+\calc@Cskip=\skip50
+)
+(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/ifmtarg/ifmtarg.sty
+Package: ifmtarg 2009/09/02 v1.2a check for an empty argument
+))
+(/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/color.cfg
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+
+(/usr/share/texlive/texmf-dist/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count117
+)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1337.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1341.
+Package xcolor Info: Model `RGB' extended on input line 1353.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1355.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1356.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1357.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/polytable/polytable.sty
+Package: polytable 2013/07/18 v0.8.5 `polytable' package (Andres Loeh)
+
+(/usr/share/texlive/texmf-dist/tex/latex/lazylist/lazylist.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
+Package: array 2014/10/28 v2.4c Tabular extension package (FMi)
+\col@sep=\dimen136
+\extrarowheight=\dimen137
+\NC@list=\toks23
+\extratabsurround=\skip51
+\backup@length=\skip52
+)
+\PT@colwidth=\dimen138
+\PT@cols=\count118
+\PT@table=\count119
+\PT@toks=\toks24
+\PT@in=\read1
+\PT@out=\write3
+)
+(/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2015/08/02 v2.2a e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count120
+)
+(/usr/share/texlive/texmf-dist/tex/latex/ucs/ucs.sty
+Package: ucs 2013/05/11 v2.2 UCS: Unicode input support
+
+(/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-global.def
+File: uni-global.def 2013/05/13 UCS: Unicode global data
+)
+\uc@secondtry=\count121
+\uc@combtoks=\toks25
+\uc@combtoksb=\toks26
+\uc@temptokena=\toks27
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+)
+(/usr/share/texmf/tex/latex/tipa/tipa.sty
+Package: tipa 2002/08/08 TIPA version 1.1
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
+
+(/usr/share/texmf/tex/latex/tipa/t3enc.def
+File: t3enc.def 2001/12/31 T3 encoding
+)
+(/usr/share/texlive/texmf-dist/tex/latex/base/ot1enc.def
+File: ot1enc.def 2005/09/27 v1.99g Standard LaTeX file
+LaTeX Font Info:    Redeclaring font encoding OT1 on input line 48.
+)))
+(/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/t1enc.def
+File: t1enc.def 2005/09/27 v1.99g Standard LaTeX file
+LaTeX Font Info:    Redeclaring font encoding T1 on input line 48.
+))
+(/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
+Package: inputenc 2015/03/17 v1.2c Input encoding file
+\inpenc@prehook=\toks28
+\inpenc@posthook=\toks29
+
+(/usr/share/texlive/texmf-dist/tex/latex/ucs/utf8x.def
+File: utf8x.def 2004/10/17 UCS: Input encoding UTF-8
+))
+\mathindent=\dimen139
+\c@Agda@SpaceAroundCode=\count122
+\c@Agda@Align=\count123
+\c@Agda@AlignCurrent=\count124
+\c@Agda@Suppress=\count125
+\c@Agda@SuppressCurrent=\count126
+\c@Agda@SuppressLast=\count127
+)
+(/usr/share/texlive/texmf-dist/tex/latex/catchfilebetweentags/catchfilebetweent
+ags.sty
+Package: catchfilebetweentags 2011/02/19 v1.1 - Catch file between tags (FC)
+ (/usr/share/texlive/texmf-dist/tex/latex/etex-pkg/etex.sty
+Package: etex 2016/01/11 v2.6 eTeX basic definition package (PEB,DPC)
+\et@xins=\count128
+)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/catchfile.sty
+Package: catchfile 2011/03/01 v1.6 Catch the contents of a file (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+))
+\CatchFBT@tok=\toks256
+)
+(/usr/share/texlive/texmf-dist/tex/latex/stmaryrd/stmaryrd.sty
+Package: stmaryrd 1994/03/03 St Mary's Road symbol package
+\symstmry=\mathgroup6
+LaTeX Font Info:    Overwriting symbol font `stmry' in version `bold'
+(Font)                  U/stmry/m/n --> U/stmry/b/n on input line 89.
+)
+(./textgreek.sty
+Package: textgreek 2011/10/09 v0.7 Greek symbols in text
+Package textgreek Info: Loading the definitions for the Greek fontencoding. on 
+input line 39.
+
+(/usr/share/texlive/texmf-dist/tex/latex/greek-fontenc/lgrenc.def
+File: lgrenc.def 2015/12/07 v0.13.1 LGR Greek font encoding definitions
+
+(/usr/share/texlive/texmf-dist/tex/latex/greek-fontenc/greek-fontenc.def
+File: greek-fontenc.def 2015/08/04 v0.13 Common Greek font encoding definitions
+
+))
+Package textgreek Info: Loaded fontmap: {eur/*/*}{U/eur/*/*} {phv/*/*}{U/psy/*/
+*}. on input line 69.
+)
+(./main.aux)
+\openout1 = `main.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for T3/cmr/m/n on input line 27.
+LaTeX Font Info:    Try loading font information for T3+cmr on input line 27.
+ (/usr/share/texmf/tex/latex/tipa/t3cmr.fd
+File: t3cmr.fd 2001/12/31 TIPA font definitions
+)
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for LGR/cmr/m/n on input line 27.
+LaTeX Font Info:    Try loading font information for LGR+cmr on input line 27.
+
+(/usr/share/texlive/texmf-dist/tex/latex/cbfonts-fd/lgrcmr.fd
+File: lgrcmr.fd 2013/09/01 v1.0 Greek European Computer Regular
+)
+LaTeX Font Info:    ... okay on input line 27.
+
+(/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count129
+\scratchdimen=\dimen140
+\scratchbox=\box56
+\nofMPsegments=\count130
+\nofMParguments=\count131
+\everyMPshowfont=\toks30
+\MPscratchCnt=\count132
+\MPscratchDim=\dimen141
+\MPnumerator=\count133
+\makeMPintoPDFobject=\count134
+\everyMPtoPDFconversion=\toks31
+) (/usr/share/texlive/texmf-dist/tex/latex/ucs/ucsencs.def
+File: ucsencs.def 2011/01/21 Fixes to fontencodings LGR, T3
+LGR\textpentedeka already defined.
+LGR\textpenteqilioi already defined.
+LGR\textpentemuria already defined.
+LGR\textstigma already defined.
+LGR\textqoppa already defined.
+LGR\texteuro already defined.
+LGR\textperthousand already defined.
+LGR\textquoteleft already defined.
+LGR\textquoteright already defined.
+LGR\u already defined.
+LGR\= already defined.
+LGR\" already defined.
+LGR\textpercent already defined.
+LGR\textperiodcentered already defined.
+LGR\' already defined.
+LGR\textanoteleia already defined.
+LGR\textAlpha already defined.
+LGR\textBeta already defined.
+LGR\textDelta already defined.
+LGR\textEpsilon already defined.
+LGR\textPhi already defined.
+LGR\textGamma already defined.
+LGR\textEta already defined.
+LGR\textIota already defined.
+LGR\textTheta already defined.
+LGR\textKappa already defined.
+LGR\textLambda already defined.
+LGR\textMu already defined.
+LGR\textNu already defined.
+LGR\textOmicron already defined.
+LGR\textPi already defined.
+LGR\textChi already defined.
+LGR\textRho already defined.
+LGR\textSigma already defined.
+LGR\textTau already defined.
+LGR\textUpsilon already defined.
+LGR\textOmega already defined.
+LGR\textXi already defined.
+LGR\textPsi already defined.
+LGR\textZeta already defined.
+LGR\` already defined.
+LGR\textalpha already defined.
+LGR\textbeta already defined.
+LGR\textvarsigma already defined.
+LGR\textdelta already defined.
+LGR\textepsilon already defined.
+LGR\textphi already defined.
+LGR\textgamma already defined.
+LGR\texteta already defined.
+LGR\textiota already defined.
+LGR\texttheta already defined.
+LGR\textkappa already defined.
+LGR\textlambda already defined.
+LGR\textmu already defined.
+LGR\textnu already defined.
+LGR\textomicron already defined.
+LGR\textpi already defined.
+LGR\textchi already defined.
+LGR\textrho already defined.
+LGR\textautosigma already defined.
+LGR\textsigma already defined.
+LGR\texttau already defined.
+LGR\textupsilon already defined.
+LGR\textomega already defined.
+LGR\textxi already defined.
+LGR\textpsi already defined.
+LGR\textzeta already defined.
+LGR\guillemotleft already defined.
+LGR\guillemotright already defined.
+LGR\~ already defined.
+LGR\textemdash already defined.
+LGR\textdigamma already defined.
+LGR\textDigamma already defined.
+LGR\textdexiakeraia already defined.
+LGR\textaristerikeraia already defined.
+
+fontencoding LGR patched
+T3\textscriptg already defined.
+fontencoding T3 patched
+)
+LaTeX Font Info:    Try loading font information for U+msa on input line 29.
+ (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 29.
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Try loading font information for U+stmry on input line 29.
+
+(/usr/share/texlive/texmf-dist/tex/latex/stmaryrd/Ustmry.fd)
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 29.
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
+File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Try loading font information for T1+cmss on input line 60.
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/t1cmss.fd
+File: t1cmss.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+) [1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./Grammar/Taxonomy.tex)
+\openout3 = `main.ptb'.
+
+
+(/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-32.def
+File: uni-32.def 2013/05/13 UCS: Unicode data U+2000..U+20FF
+)
+(/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-33.def
+File: uni-33.def 2013/05/13 UCS: Unicode data U+2100..U+21FF
+)
+(./Grammar/Taxonomy.tex)
+\openout3 = `main.ptb'.
+
+
+(/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-34.def
+File: uni-34.def 2013/05/13 UCS: Unicode data U+2200..U+22FF
+)
+(./Grammar/Taxonomy.tex)
+\openout3 = `main.ptb'.
+
+
+Overfull \hbox (0.80835pt too wide) detected at line 93
+ |  
+ []
+
+
+Overfull \hbox (4.27518pt too wide) in paragraph at lines 96--98
+[]\T1/cmr/m/n/10 For the simply-typed lambda-calculus, there are two ex-pres-si
+on kinds:
+ []
+
+(./STLC/Grammar.tex)
+\openout3 = `main.ptb'.
+
+ [2] (./Grammar/Taxonomy.tex)
+\openout3 = `main.ptb'.
+
+
+(/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-0.def
+File: uni-0.def 2013/05/13 UCS: Unicode data U+0000..U+00FF
+)
+(./Grammar/Taxonomy.tex)
+\openout3 = `main.ptb'.
+
+ [3] (./Grammar/Base.tex)
+\openout3 = `main.ptb'.
+
+ (./Grammar/Base.tex)
+\openout3 = `main.ptb'.
+
+
+Overfull \hbox (96.59473pt too wide) in paragraph at lines 174--174
+ [][][][][][] 
+ []
+
+
+Overfull \hbox (96.59473pt too wide) in paragraph at lines 174--174
+ [][][][][][] 
+ []
+
+
+Overfull \hbox (96.59473pt too wide) in paragraph at lines 174--174
+ [][][][][][] 
+ []
+
+
+Overfull \hbox (96.59473pt too wide) in paragraph at lines 174--174
+ [][][][][][] 
+ []
+
+
+Overfull \hbox (96.59473pt too wide) in paragraph at lines 174--174
+ [][][][][][] 
+ []
+
+
+Overfull \hbox (96.59473pt too wide) in paragraph at lines 174--174
+ [][] 
+ []
+
+
+Overfull \hbox (96.59473pt too wide) in paragraph at lines 174--174
+ [][][][][][] 
+ []
+
+
+Overfull \hbox (96.59473pt too wide) in paragraph at lines 174--174
+ [][][][][][] 
+ []
+
+
+Overfull \hbox (96.59473pt too wide) in paragraph at lines 174--174
+ [][][][][][] 
+ []
+
+
+Overfull \hbox (96.59473pt too wide) in paragraph at lines 174--174
+ [][][][][][] 
+ []
+
+
+Overfull \hbox (96.59473pt too wide) in paragraph at lines 174--174
+ [][] 
+ []
+
+
+Overfull \hbox (96.59473pt too wide) in paragraph at lines 174--174
+ [][][][][][] 
+ []
+
+
+Overfull \hbox (96.59473pt too wide) in paragraph at lines 174--174
+ [][][][][][] 
+ []
+
+
+Overfull \hbox (96.59473pt too wide) in paragraph at lines 174--174
+ [][][][] 
+ []
+
+
+Overfull \hbox (96.59473pt too wide) in paragraph at lines 174--174
+ [][][][] 
+ []
+
+
+Overfull \hbox (96.59473pt too wide) in paragraph at lines 174--174
+ [][][][] 
+ []
+
+
+Overfull \hbox (96.59473pt too wide) in paragraph at lines 174--174
+ [][][][] 
+ []
+
+[4] (./STLC/Grammar.tex)
+\openout3 = `main.ptb'.
+
+ [5] (./Grammar/Replacement.tex)
+\openout3 = `main.ptb'.
+
+ [6]
+(./Grammar/Substitution/OpFamily.tex)
+\openout3 = `main.ptb'.
+
+ (./Grammar/OpFamily/Lifting.tex)
+\openout3 = `main.ptb'.
+
+
+(/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-3.def
+File: uni-3.def 2013/05/13 UCS: Unicode data U+0300..U+03FF
+)
+(./Grammar/OpFamily/LiftFamily.tex)
+\openout3 = `main.ptb'.
+
+ (./Grammar/OpFamily/LiftFamily.tex)
+\openout3 = `main.ptb'.
+
+
+Overfull \hbox (1.19981pt too wide) in paragraph at lines 280--280
+ [][][][] 
+ []
+
+(./Grammar/OpFamily/Composition.tex)
+\openout3 = `main.ptb'.
+
+ (./Grammar/OpFamily/OpFamily.tex)
+\openout3 = `main.ptb'.
+
+
+(./Grammar/OpFamily/OpFamily.tex)
+\openout3 = `main.ptb'.
+
+ (./Grammar/OpFamily/OpFamily.tex)
+\openout3 = `main.ptb'.
+
+ [7]
+(./Grammar/Substitution/BotSub.tex)
+\openout3 = `main.ptb'.
+
+
+Overfull \hbox (57.5436pt too wide) in paragraph at lines 296--296
+ [][] 
+ []
+
+
+Overfull \hbox (57.5436pt too wide) in paragraph at lines 296--296
+ [][] 
+ []
+
+
+Overfull \hbox (57.5436pt too wide) in paragraph at lines 296--296
+ [][] 
+ []
+
+
+Overfull \hbox (57.5436pt too wide) in paragraph at lines 296--296
+ [][] 
+ []
+
+
+Overfull \hbox (57.5436pt too wide) in paragraph at lines 296--296
+ [][] 
+ []
+
+
+Overfull \hbox (57.5436pt too wide) in paragraph at lines 296--296
+ [][] 
+ []
+
+
+Overfull \hbox (57.5436pt too wide) in paragraph at lines 296--296
+ [][] 
+ []
+
+
+Overfull \hbox (57.5436pt too wide) in paragraph at lines 296--296
+ [][] 
+ []
+
+(./Grammar/Substitution/BotSub.tex)
+\openout3 = `main.ptb'.
+
+
+(/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-39.def
+File: uni-39.def 2013/05/13 UCS: Unicode data U+2700..U+27FF
+)
+Overfull \hbox (268.21599pt too wide) in paragraph at lines 302--302
+ [][] 
+ []
+
+
+Overfull \hbox (268.21599pt too wide) in paragraph at lines 302--302
+ [][][][][][] 
+ []
+
+(./Grammar/Substitution/BotSub.tex)
+\openout3 = `main.ptb'.
+
+LaTeX Font Info:    Try loading font information for OMS+cmss on input line 304
+.
+LaTeX Font Info:    No file OMScmss.fd. on input line 304.
+
+
+LaTeX Font Warning: Font shape `OMS/cmss/m/it' undefined
+(Font)              using `OMS/cmsy/m/n' instead
+(Font)              for symbol `textbullet' on input line 304.
+
+
+Overfull \hbox (25.97383pt too wide) in paragraph at lines 304--304
+ [][][][][][] 
+ []
+
+
+Overfull \hbox (25.97383pt too wide) in paragraph at lines 304--304
+ [][][][] 
+ []
+
+
+Overfull \hbox (25.97383pt too wide) in paragraph at lines 304--304
+ [][][][][][] 
+ []
+
+[8] (./Grammar/OpFamily/PreOpFamily.tex)
+\openout3 = `main.ptb'.
+
+
+Overfull \hbox (5.58482pt too wide) in paragraph at lines 356--356
+ [][][][] 
+ []
+
+
+Overfull \hbox (5.58482pt too wide) in paragraph at lines 356--356
+ [][][][][][] 
+ []
+
+
+Overfull \hbox (5.58482pt too wide) in paragraph at lines 356--356
+ [][][][] 
+ []
+
+
+Overfull \hbox (5.58482pt too wide) in paragraph at lines 356--356
+ [][][][] 
+ []
+
+
+Overfull \hbox (5.58482pt too wide) in paragraph at lines 356--356
+ [][][][] 
+ []
+
+
+Overfull \hbox (5.58482pt too wide) in paragraph at lines 356--356
+ [][][][] 
+ []
+
+
+Overfull \hbox (5.58482pt too wide) in paragraph at lines 356--356
+ [][][][] 
+ []
+
+
+Overfull \hbox (5.58482pt too wide) in paragraph at lines 356--356
+ [][][][] 
+ []
+
+(./Grammar/OpFamily/PreOpFamily.tex)
+\openout3 = `main.ptb'.
+
+\openout3 = `main.ptb'.
+
+\openout3 = `main.ptb'.
+
+ (./Grammar/OpFamily/Lifting.tex)
+\openout3 = `main.ptb'.
+
+
+Overfull \hbox (59.24146pt too wide) in paragraph at lines 376--376
+ [][][][] 
+ []
+
+
+Overfull \hbox (59.24146pt too wide) in paragraph at lines 376--376
+ [][][][][][] 
+ []
+
+
+Overfull \hbox (59.24146pt too wide) in paragraph at lines 376--376
+ [][][][][][] 
+ []
+
+
+Overfull \hbox (59.24146pt too wide) in paragraph at lines 376--376
+ [][][][] 
+ []
+
+
+Overfull \hbox (59.24146pt too wide) in paragraph at lines 376--376
+ [][][][] 
+ []
+
+[9] (./Grammar/OpFamily/Lifting.tex)
+\openout3 = `main.ptb'.
+
+ (./Grammar/OpFamily/LiftFamily.tex)
+\openout3 = `main.ptb'.
+
+
+[10] (./Grammar/OpFamily/Composition.tex)
+\openout3 = `main.ptb'.
+
+ (./Grammar/OpFamily/Composition.tex)
+\openout3 = `main.ptb'.
+
+
+(./Grammar/OpFamily/Composition.tex)
+\openout3 = `main.ptb'.
+
+
+Overfull \hbox (117.71965pt too wide) in paragraph at lines 433--433
+ [][][][] 
+ []
+
+
+Overfull \hbox (117.71965pt too wide) in paragraph at lines 433--433
+ [][][][] 
+ []
+
+
+Overfull \hbox (117.71965pt too wide) in paragraph at lines 433--433
+ [][][][] 
+ []
+
+
+Overfull \hbox (117.71965pt too wide) in paragraph at lines 433--433
+ [][][][] 
+ []
+
+[11] (./Grammar/OpFamily/OpFamily.tex)
+\openout3 = `main.ptb'.
+
+ [12] (./main.aux)
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 8387 strings out of 493029
+ 112214 string characters out of 6136233
+ 206996 words of memory out of 5000000
+ 11683 multiletter control sequences out of 15000+600000
+ 30993 words of font info for 68 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 41i,10n,79p,1110b,639s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cbfonts/g
+rmi1000.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/
+msam10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx0900.pfb></usr/sha
+re/texmf/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf/fonts/type1
+/public/cm-super/sfbx1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfb
+x1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0600.pfb></usr/shar
+e/texmf/fonts/type1/public/cm-super/sfrm0700.pfb></usr/share/texmf/fonts/type1/
+public/cm-super/sfrm0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm
+1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsi1000.pfb></usr/share
+/texmf/fonts/type1/public/cm-super/sfss1000.pfb></usr/share/texmf/fonts/type1/p
+ublic/cm-super/sfti1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt0
+900.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1000.pfb></usr/share/
+texlive/texmf-dist/fonts/type1/public/stmaryrd/stmary10.pfb>
+Output written on main.pdf (12 pages, 333488 bytes).
+PDF statistics:
+ 132 PDF objects out of 1000 (max. 8388607)
+ 95 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+

@@ -1,0 +1,4 @@
+module PHOML.MainTheorem where
+
+⊧S_∶_ : ∀ {U V} → Sub U V → Context U → Set
+⊧S σ ∶ Γ = ∀ x → ⊧ σ _ x ∶ typeof x Γ

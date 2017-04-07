@@ -1,0 +1,6 @@
+module PHOML.Canon.Proof where
+
+data CanonP : Alphabet → Set where
+
+decode-CanonP : ∀ {V} → CanonP V → Proof V
+decode-CanonP ()

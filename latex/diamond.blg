@@ -2,47 +2,47 @@ This is BibTeX, Version 0.99d (TeX Live 2015/Debian)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: diamond.aux
 The style file: splncs03.bst
-I found no \citation commands---while reading file diamond.aux
 Database file #1: type.bib
-You've used 0 entries,
+Warning--empty note in McBridea
+You've used 2 entries,
             2785 wiz_defined-function locations,
-            582 strings with 4381 characters,
-and the built_in function-call counts, 22 in all, are:
-= -- 0
-> -- 0
-< -- 0
-+ -- 0
-- -- 0
-* -- 2
-:= -- 7
-add.period$ -- 0
-call.type$ -- 0
-change.case$ -- 0
+            597 strings with 4722 characters,
+and the built_in function-call counts, 807 in all, are:
+= -- 63
+> -- 24
+< -- 1
++ -- 11
+- -- 8
+* -- 57
+:= -- 121
+add.period$ -- 1
+call.type$ -- 2
+change.case$ -- 11
 chr.to.int$ -- 0
-cite$ -- 0
-duplicate$ -- 0
-empty$ -- 1
-format.name$ -- 0
-if$ -- 1
+cite$ -- 3
+duplicate$ -- 76
+empty$ -- 69
+format.name$ -- 9
+if$ -- 160
 int.to.chr$ -- 0
-int.to.str$ -- 0
-missing$ -- 0
-newline$ -- 5
-num.names$ -- 0
-pop$ -- 0
+int.to.str$ -- 2
+missing$ -- 15
+newline$ -- 11
+num.names$ -- 4
+pop$ -- 22
 preamble$ -- 1
-purify$ -- 0
+purify$ -- 8
 quote$ -- 0
-skip$ -- 1
+skip$ -- 13
 stack$ -- 0
-substring$ -- 0
-swap$ -- 0
-text.length$ -- 0
+substring$ -- 39
+swap$ -- 34
+text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 0
-warning$ -- 0
-while$ -- 0
-width$ -- 0
-write$ -- 4
-(There was 1 error message)
+type$ -- 8
+warning$ -- 1
+while$ -- 6
+width$ -- 3
+write$ -- 23
+(There was 1 warning)

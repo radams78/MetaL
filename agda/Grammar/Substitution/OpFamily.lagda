@@ -13,20 +13,20 @@ open import Grammar.Substitution.RepSub G
 
 infixl 60 _•RS_
 _•RS_ : ∀ {U} {V} {W} → Rep V W → Sub U V → Sub U W
-(ρ •RS σ) x = (σ x) 〈 ρ 〉
+(ρ •RS σ) x = (σ x) ⟨ ρ ⟩
 
 liftSub-•RS' : ∀ {U} {V} {W} {K} {ρ : Rep V W} {σ : Sub U V} → 
   liftSub K (ρ •RS σ) ∼ liftRep K ρ •RS liftSub K σ
 liftSub-•RS' {K = K} x₀ = refl
 liftSub-•RS' {U} {V} {W} {K} {ρ} {σ} {L} (↑ x) = let open ≡-Reasoning in 
   begin 
-    (σ x) 〈 ρ 〉 〈 upRep 〉
+    (σ x) ⟨ ρ ⟩ ⇑
   ≡⟨⟨ rep-•R (σ x) ⟩⟩
-    (σ x) 〈 upRep •R ρ 〉
+    (σ x) ⟨ upRep •R ρ ⟩
   ≡⟨⟩
-    (σ x) 〈 liftRep K ρ •R upRep 〉
+    (σ x) ⟨ liftRep K ρ •R upRep ⟩
   ≡⟨ rep-•R (σ x) ⟩
-    (σ x) 〈 upRep 〉 〈 liftRep K ρ 〉
+    (σ x) ⇑ ⟨ liftRep K ρ ⟩
   ∎
 
 COMPRS : Composition Rep∶LF SubLF SubLF
@@ -37,7 +37,7 @@ COMPRS = record {
 
 sub-•RS : ∀ {U} {V} {W} {C} {K} 
   (E : Subexp U C K) {ρ : Rep V W} {σ : Sub U V} →
-  E ⟦ ρ •RS σ ⟧ ≡ E ⟦ σ ⟧ 〈 ρ 〉
+  E ⟦ ρ •RS σ ⟧ ≡ E ⟦ σ ⟧ ⟨ ρ ⟩
 sub-•RS E = Composition.ap-comp COMPRS E
 
 infixl 60 _•SR_
@@ -57,11 +57,11 @@ COMPSR = record {
 
 sub-•SR : ∀ {U} {V} {W} {C} {K} 
   (E : Subexp U C K) {σ : Sub V W} {ρ : Rep U V} → 
-  E ⟦ σ •SR ρ ⟧ ≡ E 〈 ρ 〉 ⟦ σ ⟧
+  E ⟦ σ •SR ρ ⟧ ≡ E ⟨ ρ ⟩ ⟦ σ ⟧
 sub-•SR E = Composition.ap-comp COMPSR E
 
 liftSub-upRep : ∀ {U} {V} {C} {K} {L} (E : Subexp U C K) {σ : Sub U V} →
-  E 〈 upRep 〉 ⟦ liftSub L σ ⟧ ≡ E ⟦ σ ⟧ 〈 upRep 〉
+  E ⟨ upRep ⟩ ⟦ liftSub L σ ⟧ ≡ E ⟦ σ ⟧ ⟨ upRep ⟩
 liftSub-upRep E = liftOp-up-mixed COMPSR COMPRS (λ {_} {_} {_} {_} {E} → ≡-sym (up-is-up' {E = E})) {E}
 
 infixl 60 _•_
@@ -105,7 +105,7 @@ open OpFamily SUB using ()
 sub-congr : ∀ {U V C K} {ρ σ : Sub U V} (E : Subexp U C K) → ρ ∼ σ → E ⟦ ρ ⟧ ≡ E ⟦ σ ⟧
 sub-congr E ρ∼σ = OpFamily.ap-congl SUB ρ∼σ E
 
-liftSub-•RS : ∀ {U V W K C L} {ρ : Rep V W} {σ : Sub U V} (M : Subexp (U , K) C L) → M ⟦ liftSub K (ρ •RS σ) ⟧ ≡ M ⟦ liftSub K σ ⟧ 〈 liftRep K ρ 〉
+liftSub-•RS : ∀ {U V W K C L} {ρ : Rep V W} {σ : Sub U V} (M : Subexp (U , K) C L) → M ⟦ liftSub K (ρ •RS σ) ⟧ ≡ M ⟦ liftSub K σ ⟧ ⟨ liftRep K ρ ⟩
 liftSub-•RS M = Composition.liftOp-comp COMPRS {M = M}
 
 sub-• : ∀ {U} {V} {W} {C} {K}

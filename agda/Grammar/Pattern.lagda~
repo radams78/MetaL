@@ -1,0 +1,61 @@
+\begin{code}
+open import Grammar
+
+module Grammar.Pattern (G : Grammar) where
+open import Data.List hiding (concat)
+
+open Grammar G
+
+infixl 55 _,_
+data SecondOrderAlphabet : Set where
+  ∅ : SecondOrderAlphabet
+  _,_ : SecondOrderAlphabet → AbstractionKind → SecondOrderAlphabet
+
+data Metavar : SecondOrderAlphabet → AbstractionKind → Set where
+  X₀ : ∀ {V} {K} → Metavar (V , K) K
+  ↑  : ∀ {V K L} → Metavar V L → Metavar (V , K) L
+
+data Pattern (U : SecondOrderAlphabet) (V : Alphabet) : ExpressionKind → Set
+Abstraction2 : ∀ (U : SecondOrderAlphabet) (V : Alphabet) → AbstractionKind → Set
+data ListPattern (U : SecondOrderAlphabet) (V : Alphabet) : List VariableKind → Set
+data ListPattern2 (U : SecondOrderAlphabet) (V : Alphabet) : List AbstractionKind → Set
+
+data Pattern U V where
+  var : ∀ {K} → Var V K → Pattern U V (varKind K)
+  metavar : ∀ {KK L} → Metavar U (SK KK L) → ListPattern U V KK → Pattern U V L
+  app : ∀ {AA K} → Con (SK AA K) → ListPattern2 U V AA → Pattern U V K
+  --TODO Rename varKind to variableKind
+
+Abstraction2 U V (SK KK L) = Pattern U (extend V KK) L
+
+data ListPattern U V where
+  [] : ListPattern U V []
+  _∷_ : ∀ {K KK} → Pattern U V (varKind K) → ListPattern U V KK → ListPattern U V (K ∷ KK)
+
+data ListPattern2 U V where
+  [] : ListPattern2 U V []
+  _∷_ : ∀ {A AA} → Abstraction2 U V A → ListPattern2 U V AA → ListPattern2 U V (A ∷ AA)
+
+Instantiation : SecondOrderAlphabet → Alphabet → Set
+Instantiation U V = ∀ A → Metavar U A → Abstraction V A
+
+concat : Alphabet → Alphabet → Alphabet
+concat U ∅ = U
+concat U (V , K) = concat U V , K
+
+embed : ∀ {U V K} → Var V K → Var (concat U V) K
+embed x₀ = x₀
+embed (↑ x) = ↑ (embed x)
+
+data ListExpression (V : Alphabet) : List VariableKind → Set where
+  [] : ListExpression V []
+  _∷_ : ∀ {K KK} → Expression V (varKind K) → ListExpression V KK → ListExpression V (K ∷ KK)
+
+apply : ∀ {V KK L} → Abstraction V (SK KK L) → ListExpression V KK → Expression V L
+apply {V} {KK} {L} E FF = {!!}
+
+instantiate : ∀ {U V W K} → Instantiation U W → Pattern U V K → Expression (concat W V) K
+instantiate τ (var x) = var (embed x)
+instantiate τ (metavar X EE) = {!!}
+instantiate τ (app x x₃) = {!!}
+\end{code}
