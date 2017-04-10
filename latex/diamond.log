@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.12.28)  7 APR 2017 16:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.12.28)  10 APR 2017 14:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -504,140 +504,18 @@ LaTeX Font Info:    Try loading font information for T1+cmss on input line 71.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmss.fd
 File: t1cmss.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-)
-(./Grammar/Taxonomy.tex)
-\openout3 = `diamond.ptb'.
-
-
-(/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-32.def
-File: uni-32.def 2013/05/13 UCS: Unicode data U+2000..U+20FF
-)
-(/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-33.def
-File: uni-33.def 2013/05/13 UCS: Unicode data U+2100..U+21FF
 ) [2]
-(./Grammar/Taxonomy.tex)
-\openout3 = `diamond.ptb'.
-
-
-(/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-34.def
-File: uni-34.def 2013/05/13 UCS: Unicode data U+2200..U+22FF
-)
-(./Grammar/Taxonomy.tex)
-\openout3 = `diamond.ptb'.
-
-
-Overfull \hbox (0.80835pt too wide) detected at line 108
- |  
- []
-
-(./Grammar/Base.tex)
-\openout3 = `diamond.ptb'.
-
- [3]
 (/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-0.def
 File: uni-0.def 2013/05/13 UCS: Unicode data U+0000..U+00FF
-)
-(./Grammar/Base.tex)
-\openout3 = `diamond.ptb'.
+) [3]
+(/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-34.def
+File: uni-34.def 2013/05/13 UCS: Unicode data U+2200..U+22FF
+) [4]
 
+LaTeX Warning: Reference `definition:alphabet' on page 5 undefined on input lin
+e 307.
 
-Overfull \hbox (96.59473pt too wide) in paragraph at lines 165--165
- [][][][][][] 
- []
-
-
-Overfull \hbox (96.59473pt too wide) in paragraph at lines 165--165
- [][][][][][] 
- []
-
-
-Overfull \hbox (96.59473pt too wide) in paragraph at lines 165--165
- [][][][][][] 
- []
-
-
-Overfull \hbox (96.59473pt too wide) in paragraph at lines 165--165
- [][][][][][] 
- []
-
-
-Overfull \hbox (96.59473pt too wide) in paragraph at lines 165--165
- [][][][][][] 
- []
-
-
-Overfull \hbox (96.59473pt too wide) in paragraph at lines 165--165
- [][] 
- []
-
-
-Overfull \hbox (96.59473pt too wide) in paragraph at lines 165--165
- [][][][][][] 
- []
-
-
-Overfull \hbox (96.59473pt too wide) in paragraph at lines 165--165
- [][][][][][] 
- []
-
-
-Overfull \hbox (96.59473pt too wide) in paragraph at lines 165--165
- [][][][][][] 
- []
-
-
-Overfull \hbox (96.59473pt too wide) in paragraph at lines 165--165
- [][][][][][] 
- []
-
-
-Overfull \hbox (96.59473pt too wide) in paragraph at lines 165--165
- [][] 
- []
-
-
-Overfull \hbox (96.59473pt too wide) in paragraph at lines 165--165
- [][][][][][] 
- []
-
-
-Overfull \hbox (96.59473pt too wide) in paragraph at lines 165--165
- [][][][][][] 
- []
-
-
-Overfull \hbox (96.59473pt too wide) in paragraph at lines 165--165
- [][][][] 
- []
-
-
-Overfull \hbox (96.59473pt too wide) in paragraph at lines 165--165
- [][][][] 
- []
-
-
-Overfull \hbox (96.59473pt too wide) in paragraph at lines 165--165
- [][][][] 
- []
-
-
-Overfull \hbox (96.59473pt too wide) in paragraph at lines 165--165
- [][][][] 
- []
-
-[4] (./STLC/Grammar.tex)
-\openout3 = `diamond.ptb'.
-
- [5] [6]
-
-LaTeX Warning: Reference `definition:alphabet' on page 7 undefined on input lin
-e 308.
-
-
-LaTeX Font Warning: Font shape `U/stmry/b/n' undefined
-(Font)              using `U/stmry/m/n' instead on input line 335.
-
-[7] (/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-3.def
+[5] (/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-3.def
 File: uni-3.def 2013/05/13 UCS: Unicode data U+0300..U+03FF
 ) (./diamond.bbl
 Underfull \hbox (badness 1400) in paragraph at lines 6--9
@@ -645,48 +523,42 @@ Underfull \hbox (badness 1400) in paragraph at lines 6--9
 om-pu-ta-tion
  []
 
-) [8] (./diamond.aux)
-
-LaTeX Font Warning: Some font shapes were not available, defaults substituted.
-
+) [6] (./diamond.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 8157 strings out of 493029
- 108257 string characters out of 6136233
- 169466 words of memory out of 5000000
- 11515 multiletter control sequences out of 15000+600000
- 29453 words of font info for 62 fonts, out of 8000000 for 9000
+ 7606 strings out of 493029
+ 101773 string characters out of 6136233
+ 156377 words of memory out of 5000000
+ 10996 multiletter control sequences out of 15000+600000
+ 27004 words of font info for 54 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,12n,47p,806b,639s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,10n,37p,806b,574s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share/texlive/texmf
--dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
-amsfonts/cmextra/cmmib7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7
-.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb><
-/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/s
-hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/te
-xlive/texmf-dist/fonts/type1/public/cbfonts/grmi1000.pfb></usr/share/texlive/te
-xmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texmf/fonts
-/type1/public/cm-super/sfbx0900.pfb></usr/share/texmf/fonts/type1/public/cm-sup
-er/sfbx1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1200.pfb></us
-r/share/texmf/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/
-type1/public/cm-super/sfrm0900.pfb></usr/share/texmf/fonts/type1/public/cm-supe
-r/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsi1000.pfb></usr
-/share/texmf/fonts/type1/public/cm-super/sfss1000.pfb></usr/share/texmf/fonts/t
-ype1/public/cm-super/sfti1000.pfb></usr/share/texmf/fonts/type1/public/cm-super
-/sftt0900.pfb>
-Output written on diamond.pdf (8 pages, 325796 bytes).
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy1
+0.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/cbfonts/grmi1000.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/shar
+e/texmf/fonts/type1/public/cm-super/sfbx0900.pfb></usr/share/texmf/fonts/type1/
+public/cm-super/sfbx1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx
+1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share
+/texmf/fonts/type1/public/cm-super/sfrm0900.pfb></usr/share/texmf/fonts/type1/p
+ublic/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsi1
+000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss1000.pfb></usr/share/
+texmf/fonts/type1/public/cm-super/sfti1000.pfb></usr/share/texmf/fonts/type1/pu
+blic/cm-super/sftt0900.pfb>
+Output written on diamond.pdf (6 pages, 294141 bytes).
 PDF statistics:
- 128 PDF objects out of 1000 (max. 8388607)
- 93 compressed objects within 1 object stream
+ 108 PDF objects out of 1000 (max. 8388607)
+ 78 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -27,7 +27,8 @@ typeof {∅} ()
 typeof {_ , _} x Γ = pretypeof x Γ ⇑
 
 _∶_⇒R_ : ∀ {U} {V} → Rep U V → Context U → Context V → Set
-_∶_⇒R_ {U} {V} ρ Γ Δ = ∀ {K} (x : Var U K) → typeof (ρ x) Δ ≡ typeof x Γ 〈 ρ 〉
+_∶_⇒R_ {U} {V} ρ Γ Δ = ∀ {K} (x : Var U K) → typeof (ρ x) Δ ≡ typeof x Γ ⟨ ρ ⟩
+--TODO Duplication
 
 infix 25 _,,_
 _,,_ : ∀ {V} {AA} → Context V → Types V AA → Context (extend V AA)
@@ -46,15 +47,15 @@ upRep-typed : ∀ {V Γ K} (A : Expression V (parent K)) → upRep ∶ Γ ⇒R (
 upRep-typed _ _ = refl
 
 liftRep-typed : ∀ {U V} {ρ : Rep U V} {K} {Γ : Context U} {Δ : Context V} {A : Expression U (parent K)} → 
-  ρ ∶ Γ ⇒R Δ → liftRep K ρ ∶ (Γ , A) ⇒R (Δ , A 〈 ρ 〉)
+  ρ ∶ Γ ⇒R Δ → liftRep K ρ ∶ (Γ , A) ⇒R (Δ , A ⟨ ρ ⟩)
 liftRep-typed {A = A} ρ∶Γ⇒Δ x₀ = ≡-sym (liftRep-upRep A)
 liftRep-typed {ρ = ρ} {K} {Γ} {Δ} {A} ρ∶Γ⇒Δ {L} (↑ x) = let open ≡-Reasoning in 
   begin
     typeof (ρ x) Δ ⇑
   ≡⟨ rep-congl (ρ∶Γ⇒Δ x) ⟩
-    typeof x Γ 〈 ρ 〉 ⇑
+    typeof x Γ ⟨ ρ ⟩ ⇑
   ≡⟨⟨ liftRep-upRep (typeof x Γ) ⟩⟩
-    (typeof x Γ ⇑) 〈 liftRep K ρ 〉
+    (typeof x Γ ⇑) ⟨ liftRep K ρ ⟩
   ∎
 
 liftsRep-typed : ∀ {U V} {ρ : Rep U V} {KK} {Γ : Context U} {Δ : Context V} {AA : Types U KK} →
@@ -68,11 +69,11 @@ liftsRep-typed {AA = A , AA} ρ∶Γ⇒RΔ = liftsRep-typed {AA = AA} (liftRep-t
   begin
     typeof (σ (ρ x)) Θ
   ≡⟨ σ∶Δ⇒RΘ (ρ x) ⟩
-    typeof (ρ x) Δ 〈 σ 〉
+    typeof (ρ x) Δ ⟨ σ ⟩
   ≡⟨ rep-congl (ρ∶Γ⇒RΔ x) ⟩
-    typeof x Γ 〈 ρ 〉 〈 σ 〉
+    typeof x Γ ⟨ ρ ⟩ ⟨ σ ⟩
   ≡⟨⟨ rep-•R (typeof x Γ) ⟩⟩
-    typeof x Γ 〈 σ •R ρ 〉
+    typeof x Γ ⟨ σ •R ρ ⟩
   ∎
 
 upRep₃-typed : ∀ {V K1 K2 K3} {Γ : Context V} 

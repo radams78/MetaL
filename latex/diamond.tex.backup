@@ -84,14 +84,14 @@ as Predicative Higher-Order Minimal Logic (PHOML) \cite{DBLP:journals/corr/Adams
 
 \section{Grammar}
 
-\begin{example}[Simply Typed Lambda Calculus]
-\label{ex:stlc}
-For a running example, we will construct the grammar of the simply-typed lambda-calculus, with Church-typing and one constant ground type $\bot$.  On paper, in BNF-style, we write the grammar as follows:
-\[ \begin{array}{lrcl}
-\text{Type} & A & ::= & \bot \mid A \rightarrow A \\
-\text{Term} & M & ::= & x \mid MM \mid \lambda x : A . M
-\end{array} \]
-\end{example}
+% \begin{example}[Simply Typed Lambda Calculus]
+% \label{ex:stlc}
+% For a running example, we will construct the grammar of the simply-typed lambda-calculus, with Church-typing and one constant ground type $\bot$.  On paper, in BNF-style, we write the grammar as follows:
+% \[ \begin{array}{lrcl}
+% \text{Type} & A & ::= & \bot \mid A \rightarrow A \\
+% \text{Term} & M & ::= & x \mid MM \mid \lambda x : A . M
+% \end{array} \]
+% \end{example}
 
 \subsection{Taxonomy}
 
@@ -99,13 +99,13 @@ A \emph{taxonomy} is a set of \emph{expression kinds}, divided into \emph{variab
 The intention is that the expressions of the grammar are divided into expression kinds.  Every
 variable ranges over the expressions of one (and only one) variable kind.
 
-\ExecuteMetaData[Grammar/Taxonomy.tex]{Taxonomy}
+%\ExecuteMetaData[Grammar/Taxonomy.tex]{Taxonomy}
 
 An \emph{alphabet} is a finite set of \emph{variables}, to each of which is associated a variable kind.  We write \AgdaDatatype{Var} \AgdaSymbol{V} \AgdaSymbol{K}
 for the set of all variables in the alphabet \AgdaSymbol{V} of kind \AgdaSymbol{K}.
 
-\ExecuteMetaData[Grammar/Taxonomy.tex]{Alphabet}
-\ExecuteMetaData[Grammar/Taxonomy.tex]{Var}
+%\ExecuteMetaData[Grammar/Taxonomy.tex]{Alphabet}
+%\ExecuteMetaData[Grammar/Taxonomy.tex]{Var}
 
 \subsection{Grammar}
 
@@ -126,7 +126,7 @@ a set of \emph{constructors}, each with an associated constructor kind;
 a function assigning, to each variable kind, an expression kind, called its \emph{parent}.  (The intention is that, when a declaration $x : A$ occurs in a context, if $x$ has kind $K$, then the kind of $A$ is the parent of $K$.)
 \end{itemize}
 
-\ExecuteMetaData[Grammar/Base.tex]{Grammar}
+%\ExecuteMetaData[Grammar/Base.tex]{Grammar}
 
 \begin{definition}
  We define simultaneously the set of \emph{expressions} of kind $K$ over $V$for every expression kind $K$ and
@@ -162,29 +162,27 @@ then $\AgdaFunction{ListAbstraction} \, \AgdaBound{V} \, \AgdaBound{AA}$ is the 
 such that each $M_i$ is of kind $A_i$.
 \end{itemize}
 
-\ExecuteMetaData[Grammar/Base.tex]{Expression}
+%\ExecuteMetaData[Grammar/Base.tex]{Expression}
   
-\begin{example}
-The grammar given in Example \ref{ex:stlc} has four constructors:
-\begin{itemize}
- \item
-$\bot$, of kind \AgdaFunction{type};
-\item
-$\rightarrow$, of kind $\AgdaFunction{type} \longrightarrow \AgdaFunction{type} \longrightarrow \AgdaFunction{type}$
-\item
-\AgdaFunction{appl}, of kind $\AgdaFunction{term} \longrightarrow \AgdaFunction{term} \longrightarrow \AgdaFunction{term}$
-\item
-$\lambda$, of kind $\AgdaFunction{type} \longrightarrow (\AgdaFunction{term} \longrightarrow \AgdaFunction{term}) \longrightarrow \AgdaFunction{term}$
-\end{itemize}
-The kind of the final constructor $\lambda$ should be read like this: $\lambda$ takes a type $A$
-and a term $M$, binds a term variable $x$ within $M$, and returns a term $\lambda x:A.M$
+% \begin{example}
+% The grammar given in Example \ref{ex:stlc} has four constructors:
+% \begin{itemize}
+%  \item
+% $\bot$, of kind \AgdaFunction{type};
+% \item
+% $\rightarrow$, of kind $\AgdaFunction{type} \longrightarrow \AgdaFunction{type} \longrightarrow \AgdaFunction{type}$
+% \item
+% \AgdaFunction{appl}, of kind $\AgdaFunction{term} \longrightarrow \AgdaFunction{term} \longrightarrow \AgdaFunction{term}$
+% \item
+% $\lambda$, of kind $\AgdaFunction{type} \longrightarrow (\AgdaFunction{term} \longrightarrow \AgdaFunction{term}) \longrightarrow \AgdaFunction{term}$
+% \end{itemize}
+% The kind of the final constructor $\lambda$ should be read like this: $\lambda$ takes a type $A$
+% and a term $M$, binds a term variable $x$ within $M$, and returns a term $\lambda x:A.M$
+% 
+% \ExecuteMetaData[STLC/Grammar.tex]{Grammar}
+% \end{example}
 
-\ExecuteMetaData[STLC/Grammar.tex]{Grammar}
-\end{example}
-
-\subsection{Families of Operations}
-
-Our next aim is to define replacement and substitution.  
+\subsection{Replacement and Substitution}
 
 \begin{definition}[Replacement]
  \begin{itemize}
@@ -262,9 +260,34 @@ We have formalized the Tait proof that the simply-
 We give the syntax and rules of deduction of the simply-typed lambda calculus.
 
 %TODO Do it
-We define the set of \emph{computable} terms of each type $A$
+
+We define the set of \emph{computable} terms of each type $A$:
+
+\begin{align*}
+C_\Gamma(\bot) & = \{ \delta \mid \Gamma \vdash \delta : \bot \text{ and } \delta \in SN \} \\
+C_\Gamma(\phi \rightarrow \psi) & = \{ \delta \mid \Gamma : \delta : \phi \rightarrow \psi \text{ and } \forall \Delta ⊇ \Gamma . ∀ \epsilon \in C_\Delta(\phi). \delta \epsilon \in C_\Delta(\psi) \}
+\end{align*}
+
+%TODO Link to source
+
+Note that this can be done by induction on the expression of type \AgdaFunction{Prop}.  There is no need, for example, to handle the case where $A$ is a term.
+
+We go on to prove that every computable term is strongly normalizing, and every typable term is computable.
 
 \subsection{Predicative Higher-Order Minimal Logic}
+
+This library has been used for the proof of the canonicity of predicative higher-order minimal logic (PHOML).  The proof is described in the paper \cite{DBLP:journals/corr/AdamsBC16}.  
+Here, we note only that this formalization involved defining the notion of \emph{path substitution}.
+
+The syntax has kinds of \emph{types}, \emph{terms} and \emph{paths}.  The operation of \emph{path substitution} takes terms $M$, $N$, $N'$ and a path $P$, and
+returns a path $M \{ x := P : N = N' \}$.  The intuition is that, if $P$ is a proof that $N = N'$, then $M \{ x := P : N = N' \}$ is a proof that
+$M[x:=N] = M[x:=N']$.
+
+This is defined in Agda as follows
+
+%TODO Link to source
+
+Note again that this can be defined by induction on $M$, and only the cases where $M$ is a term need to be defined.
 
 \section{Reduction Relations and Rules of Deduction (Work in Progress)}
 
@@ -279,8 +302,9 @@ The definition is as follows.
 \begin{definition}
 \begin{enumerate}
  \item 
- A \emph{second-order alphabet} is a set of \emph{metavariables}, to each of which is associated an abstraction kind.  To distinguish, the alphabets defined in
- Definition \ref{definition:alphabet} are now called \emph{first-order alphabets}
+ A \emph{second-order alphabet} is a set of \emph{metavariables}, to each of which is associated an abstraction kind.
+ %To distinguish, the alphabets defined in
+ %Definition \ref{definition:alphabet} are now called \emph{first-order alphabets}
 \item 
  Given a second-order alphabet $U$, a first-order alphabet $V$, and an expression kind $K$, the set of \emph{patterns} of kind $K$ over $U$ and $V$ are defined as follows.
  \begin{itemize}
@@ -296,30 +320,34 @@ The definition is as follows.
 \item
 Let $U$ be a second-order alphabet and $V$ a first-order alphabet.  An \emph{instantiation} $\tau : U \rightarrow V$ is a function mapping every metavariable
 $X \in U$ of abstraction kind $K$ to an abstraction $\tau(X)$ of kind $K$ over $V$.
-\item 
-Given a pattern $P$ of kind $K$ over $U$ and $V$; an instantiation $\tau : U \rightarrow W$; and a replacement $\rho : V \rightarrow W$; define the
-expression $P[\tau, \rho]$ of kind $K$ over $W$ as follows.
-\begin{align*}
- x[\tau, \rho] & \equiv \rho(x)
-\end{align*}
-If $\tau(X) \equiv [x_1, \ldots, x_n]E$ then
-\begin{align*}
- X[P_1, \ldots, P_n][\tau, \rho] & \equiv E[x_1 := P_1[\tau, \rho], \ldots, x_n := P_n[\tau, \rho]] \\
- c([\vec{x_1}]P_1, \ldots, [\vec{x_n}]P_n)[\tau, \rho] & \equiv c([\vec{x_1}] P_1[\tau, \rho^{\uparrow \cdots \uparrow}], \ldots,
- P_n[\tau, \rho^{\uparrow \cdots \uparrow}])
-\end{align*}
-The expression $P[\tau, \rho]$ is called an \emph{instance} of the pattern $P$.
-\item
-A \emph{reduction relation} is a pair $(P,Q)$ of expressions of the same kind over the same alphabet, such that $P$ has the form $c \vec{R}$ for some constructor $c$.
+% \item 
+% Given a pattern $P$ of kind $K$ over $U$ and $V$; an instantiation $\tau : U \rightarrow W$; and a replacement $\rho : V \rightarrow W$; define the
+% expression $P[\tau, \rho]$ of kind $K$ over $W$ as follows.
+% \begin{align*}
+%  x[\tau, \rho] & \equiv \rho(x)
+% \end{align*}
+% If $\tau(X) \equiv [x_1, \ldots, x_n]E$ then
+% \begin{align*}
+%  X[P_1, \ldots, P_n][\tau, \rho] & \equiv E[x_1 := P_1[\tau, \rho], \ldots, x_n := P_n[\tau, \rho]] \\
+%  c([\vec{x_1}]P_1, \ldots, [\vec{x_n}]P_n)[\tau, \rho] & \equiv c([\vec{x_1}] P_1[\tau, \rho^{\uparrow \cdots \uparrow}], \ldots,
+%  P_n[\tau, \rho^{\uparrow \cdots \uparrow}])
+% \end{align*}
+% The expression $P[\tau, \rho]$ is called an \emph{instance} of the pattern $P$.
+% \item
+% A \emph{reduction relation} is a pair $(P,Q)$ of expressions of the same kind over the same alphabet, such that $P$ has the form $c \vec{R}$ for some constructor $c$.
 \end{enumerate}
 \end{definition}
 
+Given a pattern $P$ over $U$ and $V$, an instantiation $\tau : U \rightarrow W$, and a replacement $\rho : V \rightarrow W$, we define $P[\tau, \rho]$, which is an
+expression over $W$.
+
 The reduction relation $\beta$ is the reduction relation consisting of one pair:
 \[ (\lambda x:A.M[x])N \rhd M[N] \text{ or } (\appl(\lambda(A, [x] M[x]), N), M[N]) \enspace . \]
-Observe that the instances $(P[\tau, \rho], Q[\tau, \rho])$ of this pair are exactly the pairs of expressions $(M, N)$ such that $M$ is a $\beta$-redex and $N$ its contractum.
+The instances $(P[\tau, \rho], Q[\tau, \rho])$ of this pair are exactly the pairs of expressions $(M, N)$ such that $M$ is a $\beta$-redex and $N$ its contractum.
 
 A rule of deduction can similarly be represented as a sequence of patterns over $U$ and $V$, each with a context over $U$ and $V$.  For example, the introduction rule for the $\rightarrow$-type
-is represented by the pair $((x : A[], M[x], B[]), (\epsilon, \lambda x:A[].M[x], A[] \rightarrow B[]))$.
+is represented by the pair $((x : A[], M[x], B[]), (\epsilon, \lambda x:A[].M[x], A[] \rightarrow B[]))$.  I plan to prove general results such as the Weakening Lemma
+using this representation.
 
 \section{Limitations}
 

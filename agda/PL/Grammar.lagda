@@ -21,33 +21,33 @@ The syntax of the system called \emph{propositional logic} is given by the follo
 \end{array} \]
 
 \begin{code}
-data PLVarKind : Set where
-  -proof : PLVarKind
+data PLVariableKind : Set where
+  -proof : PLVariableKind
 
-data PLNonVarKind : Set where
-  -prp   : PLNonVarKind
+data PLNonVariableKind : Set where
+  -prp   : PLNonVariableKind
 
 PLtaxonomy : Taxonomy
 PLtaxonomy = record { 
-  VarKind = PLVarKind; 
-  NonVarKind = PLNonVarKind }
+  VariableKind = PLVariableKind; 
+  NonVariableKind = PLNonVariableKind }
 
 module PLgrammar where
   open Taxonomy PLtaxonomy
 
   proof = varKind -proof
-  prp = nonVarKind -prp
+  prp = nonVariableKind -prp
 
   data Prop : Set where
     ⊥P : Prop
     _⇛_ : Prop → Prop → Prop
 
-  data PLCon : ConKind → Set where
+  data PLCon : ConstructorKind → Set where
     -prp : Prop → PLCon (prp ✧)
     -app : PLCon (proof ✧ ⟶ proof ✧ ⟶ proof ✧)
     -lam : Prop → PLCon ((-proof ⟶ proof ✧) ⟶ proof ✧)
 
-  PLparent : VarKind → ExpKind
+  PLparent : VariableKind → ExpressionKind
   PLparent -proof = prp
 
 open PLgrammar

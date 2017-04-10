@@ -1,4 +1,4 @@
-LAGDAFILES = $(shell find agda -name *.lagda)
+LAGDAFILES = $(shell find agda/Grammar agda/Prelims agda/STLC -name *.lagda)
 TEXFILES = $(LAGDAFILES:agda/%.lagda=latex/%.tex)
 AGDA_LIBDIR ?= /usr/share/agda-stdlib-0.13
 
